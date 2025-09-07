@@ -1,6 +1,6 @@
 site_name: JavaScript Playwright Docs
-site_url: http://localhost:8000
-
+site_url: https://Play-Wright-course.github.io/Java-Script-Doc/
+use_directory_urls: true
 nav:
   - Home: index.md
   - JavaScript Concepts:

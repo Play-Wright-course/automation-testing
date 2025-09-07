@@ -1,0 +1,20 @@
+site_name: JavaScript Playwright Docs
+site_url: http://localhost:8000
+
+nav:
+  - Home: index.md
+  - JavaScript Concepts:
+      - Variables: javascriptConcepts/variables.md
+      - Data Types: javascriptConcepts/dataTypes.md
+      - Operators: javascriptConcepts/operator.md
+      - Flow Statements: javascriptConcepts/flow-statement.md
+      - Functions: javascriptConcepts/functions.md
+      - Arrays & Objects: javascriptConcepts/Arrays.md
+
+theme:
+  name: material
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables

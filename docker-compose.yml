@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  mkdocs:
+    image: squidfunk/mkdocs-material
+    container_name: jsdocs
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./docs:/docs
+      - ./mkdocs.yml:/mkdocs.yml
+    command: ["serve", "-f", "/mkdocs.yml", "--dev-addr=0.0.0.0:8000"]

@@ -1,0 +1,1089 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="http://localhost:8000/javascriptConcepts/Arrays/">
+      
+      
+        <link rel="prev" href="../functions/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Arrays & Objects - JavaScript Playwright Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#6-arrays-objects-in-javascript-deep-dive" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JavaScript Playwright Docs" class="md-header__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaScript Playwright Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Arrays & Objects
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JavaScript Playwright Docs" class="md-nav__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JavaScript Playwright Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    JavaScript Concepts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            JavaScript Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flow-statement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Flow Statements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Arrays & Objects
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arrays & Objects
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Arrays
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Arrays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#array-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      Array Length
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removing Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iterating-over-an-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterating Over an Array
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-array-programs-interview-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Common Array Programs (Interview Questions)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Common Array Programs (Interview Questions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-reverse-an-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Reverse an Array
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-find-maximum-minimum" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Find Maximum &amp; Minimum
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-sum-of-array-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Sum of Array Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-find-average-of-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Find Average of Array
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-find-even-and-odd-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Find Even and Odd Numbers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-sort-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Sort Array
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-find-string-with-max-and-min-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Find String with Max and Min Length
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Objects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Objects
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-updating-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding &amp; Updating Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleting-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deleting Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iterating-over-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterating Over Object
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Arrays
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Arrays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#array-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      Array Length
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removing Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iterating-over-an-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterating Over an Array
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-array-programs-interview-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Common Array Programs (Interview Questions)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Common Array Programs (Interview Questions)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-reverse-an-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Reverse an Array
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-find-maximum-minimum" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Find Maximum &amp; Minimum
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-sum-of-array-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Sum of Array Elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-find-average-of-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Find Average of Array
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-find-even-and-odd-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Find Even and Odd Numbers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-sort-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Sort Array
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-find-string-with-max-and-min-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Find String with Max and Min Length
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Objects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Objects
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-updating-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding &amp; Updating Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleting-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deleting Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iterating-over-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterating Over Object
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="6-arrays-objects-in-javascript-deep-dive">6. Arrays &amp; Objects in JavaScript – Deep Dive<a class="headerlink" href="#6-arrays-objects-in-javascript-deep-dive" title="Permanent link">&para;</a></h1>
+<p>Arrays and objects are <strong>fundamental data structures</strong> in JavaScript used to store collections of data.</p>
+<p>This guide covers <strong>arrays, objects, basic operations, and common interview programs</strong>.</p>
+<hr />
+<h2 id="arrays">🔹 Arrays<a class="headerlink" href="#arrays" title="Permanent link">&para;</a></h2>
+<p>Arrays store multiple values in an ordered list.</p>
+<h3 id="creating-arrays">Creating Arrays<a class="headerlink" href="#creating-arrays" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">let numbers = [1, 2, 3, 4, 5];
+let fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;mango&quot;];
+let mixed = [1, &quot;apple&quot;, true, 'c']; // mixed data types
+</code></pre>
+<h3 id="accessing-elements">Accessing Elements<a class="headerlink" href="#accessing-elements" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">console.log(numbers[0]); // 1
+console.log(fruits[2]);  // mango
+console.log(mixed[1]);   // apple
+</code></pre>
+<h3 id="array-length">Array Length<a class="headerlink" href="#array-length" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">console.log(numbers.length); // 5
+</code></pre>
+<h3 id="adding-elements">Adding Elements<a class="headerlink" href="#adding-elements" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">numbers.push(6);   // add at end
+numbers.unshift(0); // add at beginning
+</code></pre>
+<h3 id="removing-elements">Removing Elements<a class="headerlink" href="#removing-elements" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">numbers.pop();    // remove last
+numbers.shift();  // remove first
+</code></pre>
+<h3 id="iterating-over-an-array">Iterating Over an Array<a class="headerlink" href="#iterating-over-an-array" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">let arr = [10, 20, 30, 40];
+
+// Using for loop
+for(let i = 0; i &lt; arr.length; i++) {
+  console.log(arr[i]);
+}
+
+// Using for...of loop
+for(let value of arr) {
+  console.log(value);
+}
+
+// Using forEach
+arr.forEach(value =&gt; console.log(value));
+</code></pre>
+<hr />
+<h2 id="common-array-programs-interview-questions">🔹 Common Array Programs (Interview Questions)<a class="headerlink" href="#common-array-programs-interview-questions" title="Permanent link">&para;</a></h2>
+<h3 id="1-reverse-an-array">1. Reverse an Array<a class="headerlink" href="#1-reverse-an-array" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">let arr = [1, 2, 3, 4, 5];
+arr.reverse();
+console.log(arr); // [5,4,3,2,1]
+</code></pre>
+<h3 id="2-find-maximum-minimum">2. Find Maximum &amp; Minimum<a class="headerlink" href="#2-find-maximum-minimum" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">let arr = [5, 12, 7, 1, 19];
+let max = Math.max(...arr);
+let min = Math.min(...arr);
+console.log(max); // 19
+console.log(min); // 1
+</code></pre>
+<h3 id="3-sum-of-array-elements">3. Sum of Array Elements<a class="headerlink" href="#3-sum-of-array-elements" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">let arr = [1,2,3,4,5];
+let sum = arr.reduce((acc, val) =&gt; acc + val, 0);
+console.log(sum); // 15
+</code></pre>
+<h3 id="4-find-average-of-array">4. Find Average of Array<a class="headerlink" href="#4-find-average-of-array" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">let arr = [10,20,30,40];
+let avg = arr.reduce((a,b) =&gt; a+b,0)/arr.length;
+console.log(avg); // 25
+</code></pre>
+<h3 id="5-find-even-and-odd-numbers">5. Find Even and Odd Numbers<a class="headerlink" href="#5-find-even-and-odd-numbers" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">let arr = [1,2,3,4,5,6];
+let even = arr.filter(x =&gt; x % 2 === 0);
+let odd = arr.filter(x =&gt; x % 2 !== 0);
+console.log(even); // [2,4,6]
+console.log(odd);  // [1,3,5]
+</code></pre>
+<h3 id="6-sort-array">6. Sort Array<a class="headerlink" href="#6-sort-array" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">let arr = [5,1,8,3];
+arr.sort((a,b) =&gt; a-b);
+console.log(arr); // [1,3,5,8]
+</code></pre>
+<h3 id="7-find-string-with-max-and-min-length">7. Find String with Max and Min Length<a class="headerlink" href="#7-find-string-with-max-and-min-length" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">let fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;kiwi&quot;, &quot;mango&quot;];
+let maxLen = fruits.reduce((a,b) =&gt; a.length &gt;= b.length ? a : b);
+let minLen = fruits.reduce((a,b) =&gt; a.length &lt;= b.length ? a : b);
+console.log(maxLen); // banana
+console.log(minLen); // kiwi
+</code></pre>
+<hr />
+<h2 id="objects">🔹 Objects<a class="headerlink" href="#objects" title="Permanent link">&para;</a></h2>
+<p>Objects store data in <strong>key-value pairs</strong>.</p>
+<h3 id="creating-objects">Creating Objects<a class="headerlink" href="#creating-objects" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">let person = {
+  name: &quot;Nitin&quot;,
+  age: 25,
+  city: &quot;Mumbai&quot;
+};
+</code></pre>
+<h3 id="accessing-properties">Accessing Properties<a class="headerlink" href="#accessing-properties" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">console.log(person.name);  // Nitin
+console.log(person['age']); // 25
+</code></pre>
+<h3 id="adding-updating-properties">Adding &amp; Updating Properties<a class="headerlink" href="#adding-updating-properties" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">person.country = &quot;India&quot;; // add
+person.age = 26;            // update
+</code></pre>
+<h3 id="deleting-properties">Deleting Properties<a class="headerlink" href="#deleting-properties" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">delete person.city;
+</code></pre>
+<h3 id="iterating-over-object">Iterating Over Object<a class="headerlink" href="#iterating-over-object" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">for (let key in person) {
+  console.log(key, person[key]);
+}
+</code></pre>
+<hr />
+<h2 id="summary">✅ Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Arrays</strong> → Ordered collection of items, methods: push, pop, shift, unshift, reverse, sort, filter, reduce. Can contain <strong>mixed data types</strong>.</li>
+<li><strong>Objects</strong> → Key-value storage, access via dot or bracket notation, dynamic addition/deletion, iteration with <code>for...in</code>.</li>
+<li><strong>Common Interview Programs</strong> → Reverse array, max/min, sum, average, even/odd numbers, string with max/min length.</li>
+<li><strong>Iteration</strong> → for loop, for...of loop, forEach method.</li>
+</ul>
+<p>These are essential for <strong>coding interviews, JavaScript development, and Playwright automation</strong>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -13,6 +13,8 @@ nav:
       
   - PlayWright With Java:
       - Locators: playwright-Java/locator.md
+      - PlayWright interactions:
+          - Inputs/Buttons: playwright-Java/playwright-interaction.md
 theme:
   name: material
 
@@ -20,4 +22,5 @@ markdown_extensions:
   - toc:
       permalink: true
   - tables
+
 

@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://Play-Wright-course.github.io/Java-Script-Doc/javascriptConcepts/functions/">
+        <link rel="canonical" href="https://Play-Wright-course.github.io/Java-Script-Doc/playwright-Java/locator/">
       
       
-        <link rel="prev" href="../flow-statement/">
+        <link rel="prev" href="../../javascriptConcepts/Arrays/">
       
-      
-        <link rel="next" href="../Arrays/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>Functions - JavaScript Playwright Docs</title>
+        <title>Locators - JavaScript Playwright Docs</title>
       
     
     
@@ -64,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#5-functions-in-javascript-basics" class="md-skip">
+        <a href="#playwright-locators-complete-guide-java" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Functions
+              Locators
             
           </span>
         </div>
@@ -215,20 +213,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -244,7 +240,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             JavaScript Concepts
@@ -258,7 +254,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../variables/" class="md-nav__link">
+      <a href="../../javascriptConcepts/variables/" class="md-nav__link">
         
   
   
@@ -281,7 +277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dataTypes/" class="md-nav__link">
+      <a href="../../javascriptConcepts/dataTypes/" class="md-nav__link">
         
   
   
@@ -304,7 +300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../operator/" class="md-nav__link">
+      <a href="../../javascriptConcepts/operator/" class="md-nav__link">
         
   
   
@@ -327,7 +323,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../flow-statement/" class="md-nav__link">
+      <a href="../../javascriptConcepts/flow-statement/" class="md-nav__link">
         
   
   
@@ -347,32 +343,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Functions
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/functions/" class="md-nav__link">
         
   
   
@@ -383,170 +357,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#function-declaration" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔹 Function Declaration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🔹 Function Declaration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#syntax" class="md-nav__link">
-    <span class="md-ellipsis">
-      Syntax
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-add-two-numbers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example – Add two numbers
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#function-expression" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔹 Function Expression
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🔹 Function Expression">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#syntax_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Syntax
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-multiply-two-numbers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example – Multiply two numbers
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-function-declaration-vs-function-expression" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example – Function Declaration vs Function Expression
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#function-with-no-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔹 Function with No Parameters
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#function-returning-integer" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔹 Function Returning Integer
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#function-returning-arraylist" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔹 Function Returning Array/List
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#function-with-default-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔹 Function with Default Parameters
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#calling-a-function" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔹 Calling a Function
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🔹 Calling a Function">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      ✅ Summary
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -559,7 +369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Arrays/" class="md-nav__link">
+      <a href="../../javascriptConcepts/Arrays/" class="md-nav__link">
         
   
   
@@ -586,18 +396,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -613,7 +425,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             PlayWright With Java
@@ -624,10 +436,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../playwright-Java/locator/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Locators
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -638,6 +472,242 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Example HTML
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#locator-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Locator Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Locator Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-by-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. By ID
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-by-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. By Class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-by-tag-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. By Tag Name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-by-text-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. By Text Content
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-by-role-aria-accessibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. By Role (ARIA Accessibility)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-by-placeholder" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. By Placeholder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-by-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. By Label
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-by-alt-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. By Alt Text
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-by-title-attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. By Title Attribute
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-by-css-attribute-selector" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. By CSS Attribute Selector
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-by-xpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. By XPath
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-multiple-matches" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Handling Multiple Matches
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Handling Multiple Matches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-html_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example HTML
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-all-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get all elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pick-by-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pick by index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop-through-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loop through elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-by-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filter by text
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-and-last" class="md-nav__link">
+    <span class="md-ellipsis">
+      First and Last
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -677,28 +747,118 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#function-declaration" class="md-nav__link">
+  <a href="#example-html" class="md-nav__link">
     <span class="md-ellipsis">
-      🔹 Function Declaration
+      🔹 Example HTML
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🔹 Function Declaration">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#locator-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Locator Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Locator Types">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#syntax" class="md-nav__link">
+  <a href="#1-by-id" class="md-nav__link">
     <span class="md-ellipsis">
-      Syntax
+      1. By ID
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-add-two-numbers" class="md-nav__link">
+  <a href="#2-by-class" class="md-nav__link">
     <span class="md-ellipsis">
-      Example – Add two numbers
+      2. By Class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-by-tag-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. By Tag Name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-by-text-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. By Text Content
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-by-role-aria-accessibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. By Role (ARIA Accessibility)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-by-placeholder" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. By Placeholder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-by-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. By Label
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-by-alt-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. By Alt Text
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-by-title-attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. By Title Attribute
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-by-css-attribute-selector" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. By CSS Attribute Selector
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-by-xpath" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. By XPath
     </span>
   </a>
   
@@ -710,37 +870,74 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#function-expression" class="md-nav__link">
+  <a href="#handling-multiple-matches" class="md-nav__link">
     <span class="md-ellipsis">
-      🔹 Function Expression
+      🔹 Handling Multiple Matches
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🔹 Function Expression">
+    <nav class="md-nav" aria-label="🔹 Handling Multiple Matches">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#syntax_1" class="md-nav__link">
+  <a href="#example-html_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Syntax
+      Example HTML
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-multiply-two-numbers" class="md-nav__link">
+  <a href="#code-examples" class="md-nav__link">
     <span class="md-ellipsis">
-      Example – Multiply two numbers
+      Code Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-all-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get all elements
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#example-function-declaration-vs-function-expression" class="md-nav__link">
+  <a href="#pick-by-index" class="md-nav__link">
     <span class="md-ellipsis">
-      Example – Function Declaration vs Function Expression
+      Pick by index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop-through-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loop through elements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-by-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filter by text
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-and-last" class="md-nav__link">
+    <span class="md-ellipsis">
+      First and Last
     </span>
   </a>
   
@@ -748,61 +945,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#function-with-no-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔹 Function with No Parameters
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#function-returning-integer" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔹 Function Returning Integer
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#function-returning-arraylist" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔹 Function Returning Array/List
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#function-with-default-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔹 Function with Default Parameters
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#calling-a-function" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔹 Calling a Function
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🔹 Calling a Function">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example
-    </span>
-  </a>
   
 </li>
         
@@ -814,7 +956,7 @@
         <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
-      ✅ Summary
+      🔹 Summary
     </span>
   </a>
   
@@ -836,120 +978,118 @@
 
 
 
-<h1 id="5-functions-in-javascript-basics">5. Functions in JavaScript – Basics<a class="headerlink" href="#5-functions-in-javascript-basics" title="Permanent link">&para;</a></h1>
-<p>Functions in JavaScript are <strong>reusable blocks of code</strong> that perform a specific task. They help organize code, reduce repetition, and return values.</p>
-<p>This guide covers <strong>how to create functions, call them, pass parameters, return values (int, list/array), and basic usage</strong>.</p>
+<h1 id="playwright-locators-complete-guide-java">Playwright Locators – Complete Guide (Java)<a class="headerlink" href="#playwright-locators-complete-guide-java" title="Permanent link">&para;</a></h1>
+<p>This guide covers <strong>all locator strategies in Playwright (Java)</strong> with examples.</p>
 <hr />
-<h2 id="function-declaration">🔹 Function Declaration<a class="headerlink" href="#function-declaration" title="Permanent link">&para;</a></h2>
-<p>A standard way to define a named function.</p>
-<h3 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h3>
-<pre><code class="language-javascript">function functionName(parameters) {
-  // code
-  return result;
-}
-</code></pre>
-<h3 id="example-add-two-numbers">Example – Add two numbers<a class="headerlink" href="#example-add-two-numbers" title="Permanent link">&para;</a></h3>
-<pre><code class="language-javascript">function add(a, b) {
-  return a + b;
-}
+<h2 id="example-html">🔹 Example HTML<a class="headerlink" href="#example-html" title="Permanent link">&para;</a></h2>
+<pre><code class="language-html">&lt;input type=&quot;text&quot; id=&quot;email&quot; class=&quot;form-control&quot; placeholder=&quot;Enter email&quot; /&gt;
 
-let sum = add(5, 3);
-console.log(sum); // 8
-</code></pre>
-<p><strong>Playwright Use Case:</strong> Reusable function to click buttons or fill forms.</p>
-<hr />
-<h2 id="function-expression">🔹 Function Expression<a class="headerlink" href="#function-expression" title="Permanent link">&para;</a></h2>
-<p>Assign a function to a variable. Can be anonymous.</p>
-<h3 id="syntax_1">Syntax<a class="headerlink" href="#syntax_1" title="Permanent link">&para;</a></h3>
-<pre><code class="language-javascript">const functionName = function(parameters) {
-  // code
-  return result;
-};
-</code></pre>
-<h3 id="example-multiply-two-numbers">Example – Multiply two numbers<a class="headerlink" href="#example-multiply-two-numbers" title="Permanent link">&para;</a></h3>
-<pre><code class="language-javascript">const multiply = function(a, b) {
-  return a * b;
-};
+&lt;button id=&quot;submitBtn&quot; class=&quot;btn btn-primary&quot; type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
 
-console.log(multiply(4, 5)); // 20
-</code></pre>
-<p><strong>Note:</strong> You can also create the same function using a <strong>function declaration</strong> as shown below. Both are valid.</p>
-<h3 id="example-function-declaration-vs-function-expression">Example – Function Declaration vs Function Expression<a class="headerlink" href="#example-function-declaration-vs-function-expression" title="Permanent link">&para;</a></h3>
-<pre><code class="language-javascript">// Function Declaration
-function multiplyDecl(a, b) {
-  return a * b;
-}
-console.log(multiplyDecl(4, 5)); // 20
+&lt;span class=&quot;text&quot;&gt;Title&lt;/span&gt;
 
-// Function Expression
-const multiplyExpr = function(a, b) {
-  return a * b;
-};
-console.log(multiplyExpr(4, 5)); // 20
-</code></pre>
-<p><strong>Key Difference:</strong>
-- Function Declarations are <strong>hoisted</strong> → can be called before definition.
-- Function Expressions are <strong>not hoisted</strong> → cannot be called before definition.</p>
-<hr />
-<h2 id="function-with-no-parameters">🔹 Function with No Parameters<a class="headerlink" href="#function-with-no-parameters" title="Permanent link">&para;</a></h2>
-<pre><code class="language-javascript">function greet() {
-  console.log(&quot;Hello!&quot;);
-}
-
-greet(); // Hello!
+&lt;a href=&quot;/home&quot;&gt;Home&lt;/a&gt;
 </code></pre>
 <hr />
-<h2 id="function-returning-integer">🔹 Function Returning Integer<a class="headerlink" href="#function-returning-integer" title="Permanent link">&para;</a></h2>
-<pre><code class="language-javascript">function square(x) {
-  return x * x;
-}
-
-let result = square(6);
-console.log(result); // 36
+<h2 id="locator-types">🔹 Locator Types<a class="headerlink" href="#locator-types" title="Permanent link">&para;</a></h2>
+<h3 id="1-by-id">1. By <strong>ID</strong><a class="headerlink" href="#1-by-id" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">page.locator(&quot;#email&quot;);
+page.locator(&quot;#submitBtn&quot;);
 </code></pre>
 <hr />
-<h2 id="function-returning-arraylist">🔹 Function Returning Array/List<a class="headerlink" href="#function-returning-arraylist" title="Permanent link">&para;</a></h2>
-<pre><code class="language-javascript">function createList() {
-  return [1, 2, 3, 4, 5];
-}
-
-let numbers = createList();
-console.log(numbers); // [1, 2, 3, 4, 5]
+<h3 id="2-by-class">2. By <strong>Class</strong><a class="headerlink" href="#2-by-class" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">page.locator(&quot;.form-control&quot;);
+page.locator(&quot;.btn.btn-primary&quot;);
 </code></pre>
 <hr />
-<h2 id="function-with-default-parameters">🔹 Function with Default Parameters<a class="headerlink" href="#function-with-default-parameters" title="Permanent link">&para;</a></h2>
-<pre><code class="language-javascript">function greet(name = &quot;Guest&quot;) {
-  console.log(`Hello, ${name}!`);
-}
-
-greet(&quot;Nitin&quot;); // Hello, Nitin!
-greet();         // Hello, Guest!
+<h3 id="3-by-tag-name">3. By <strong>Tag Name</strong><a class="headerlink" href="#3-by-tag-name" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">page.locator(&quot;button&quot;);
+page.locator(&quot;input&quot;);
 </code></pre>
 <hr />
-<h2 id="calling-a-function">🔹 Calling a Function<a class="headerlink" href="#calling-a-function" title="Permanent link">&para;</a></h2>
+<h3 id="4-by-text-content">4. By <strong>Text Content</strong><a class="headerlink" href="#4-by-text-content" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">page.getByText(&quot;Submit&quot;);   // &lt;button&gt;Submit&lt;/button&gt;
+page.getByText(&quot;Home&quot;);     // &lt;a&gt;Home&lt;/a&gt;
+</code></pre>
+<hr />
+<h3 id="5-by-role-aria-accessibility">5. By <strong>Role (ARIA Accessibility)</strong><a class="headerlink" href="#5-by-role-aria-accessibility" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Submit&quot;));
+page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(&quot;Home&quot;));
+</code></pre>
+<hr />
+<h3 id="6-by-placeholder">6. By <strong>Placeholder</strong><a class="headerlink" href="#6-by-placeholder" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">page.getByPlaceholder(&quot;Enter email&quot;);  // matches placeholder attribute
+</code></pre>
+<hr />
+<h3 id="7-by-label">7. By <strong>Label</strong><a class="headerlink" href="#7-by-label" title="Permanent link">&para;</a></h3>
+<pre><code class="language-html">&lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;
+&lt;input id=&quot;email&quot; /&gt;
+</code></pre>
+<pre><code class="language-java">page.getByLabel(&quot;Email&quot;);
+</code></pre>
+<hr />
+<h3 id="8-by-alt-text">8. By <strong>Alt Text</strong><a class="headerlink" href="#8-by-alt-text" title="Permanent link">&para;</a></h3>
+<pre><code class="language-html">&lt;img src=&quot;logo.png&quot; alt=&quot;Company Logo&quot;&gt;
+</code></pre>
+<pre><code class="language-java">page.getByAltText(&quot;Company Logo&quot;);
+</code></pre>
+<hr />
+<h3 id="9-by-title-attribute">9. By <strong>Title Attribute</strong><a class="headerlink" href="#9-by-title-attribute" title="Permanent link">&para;</a></h3>
+<pre><code class="language-html">&lt;button title=&quot;Click to submit&quot;&gt;Submit&lt;/button&gt;
+</code></pre>
+<pre><code class="language-java">page.getByTitle(&quot;Click to submit&quot;);
+</code></pre>
+<hr />
+<h3 id="10-by-css-attribute-selector">10. By <strong>CSS Attribute Selector</strong><a class="headerlink" href="#10-by-css-attribute-selector" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">page.locator(&quot;input[type='text']&quot;);
+page.locator(&quot;button[type='submit']&quot;);
+page.locator(&quot;a[href='/home']&quot;);
+</code></pre>
+<hr />
+<h3 id="11-by-xpath">11. By <strong>XPath</strong><a class="headerlink" href="#11-by-xpath" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">page.locator(&quot;//button[text()='Submit']&quot;);
+page.locator(&quot;//input[@id='email']&quot;);
+</code></pre>
+<hr />
+<h2 id="handling-multiple-matches">🔹 Handling Multiple Matches<a class="headerlink" href="#handling-multiple-matches" title="Permanent link">&para;</a></h2>
+<h3 id="example-html_1">Example HTML<a class="headerlink" href="#example-html_1" title="Permanent link">&para;</a></h3>
+<pre><code class="language-html">&lt;ul&gt;
+  &lt;li class=&quot;item&quot;&gt;Apple&lt;/li&gt;
+  &lt;li class=&quot;item&quot;&gt;Banana&lt;/li&gt;
+  &lt;li class=&quot;item&quot;&gt;Cherry&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<h3 id="code-examples">Code Examples<a class="headerlink" href="#code-examples" title="Permanent link">&para;</a></h3>
+<h4 id="get-all-elements">Get all elements<a class="headerlink" href="#get-all-elements" title="Permanent link">&para;</a></h4>
+<pre><code class="language-java">Locator items = page.locator(&quot;.item&quot;);
+int count = items.count();
+System.out.println(&quot;Total items: &quot; + count);
+</code></pre>
+<h4 id="pick-by-index">Pick by index<a class="headerlink" href="#pick-by-index" title="Permanent link">&para;</a></h4>
+<pre><code class="language-java">items.nth(0);  // Apple
+items.nth(1);  // Banana
+items.nth(2);  // Cherry
+</code></pre>
+<h4 id="loop-through-elements">Loop through elements<a class="headerlink" href="#loop-through-elements" title="Permanent link">&para;</a></h4>
+<pre><code class="language-java">int count = items.count();
+for (int i = 0; i &lt; count; i++) {
+    System.out.println(items.nth(i).innerText());
+}
+</code></pre>
+<h4 id="filter-by-text">Filter by text<a class="headerlink" href="#filter-by-text" title="Permanent link">&para;</a></h4>
+<pre><code class="language-java">Locator banana = page.locator(&quot;.item&quot;).filter(new Locator.FilterOptions().setHasText(&quot;Banana&quot;));
+</code></pre>
+<h4 id="first-and-last">First and Last<a class="headerlink" href="#first-and-last" title="Permanent link">&para;</a></h4>
+<pre><code class="language-java">page.locator(&quot;.item&quot;).first();
+page.locator(&quot;.item&quot;).last();
+</code></pre>
+<hr />
+<h2 id="summary">🔹 Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Use the function name followed by parentheses: <code>functionName()</code></li>
-<li>Pass arguments inside parentheses if needed: <code>functionName(arg1, arg2)</code></li>
+<li>Use <strong>semantic locators</strong> (<code>getByRole</code>, <code>getByLabel</code>, <code>getByPlaceholder</code>) for stable tests.  </li>
+<li>Use <strong>CSS/XPath</strong> only if necessary.  </li>
+<li>Locators returning multiple elements can be managed using <code>.count()</code>, <code>.nth()</code>, <code>.first()</code>, <code>.last()</code>, <code>.filter()</code>.  </li>
 </ul>
-<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
-<pre><code class="language-javascript">function add(a, b) {
-  return a + b;
-}
-
-let result = add(10, 20);
-console.log(result); // 30
-</code></pre>
-<hr />
-<h2 id="summary">✅ Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Function Declaration:</strong> Named, hoisted, reusable.</li>
-<li><strong>Function Expression:</strong> Anonymous or named, assigned to a variable.</li>
-<li><strong>Call a function:</strong> <code>functionName()</code></li>
-<li><strong>Return values:</strong> Can return integers, arrays, or other data types.</li>
-<li><strong>Default parameters:</strong> Provide fallback values.</li>
-<li><strong>Hoisting:</strong> Declarations are hoisted, expressions are not.</li>
-</ul>
-<p>Functions are <strong>fundamental building blocks</strong> for organizing and reusing code in JavaScript.</p>
 
 
 

@@ -1,10 +1,9 @@
 name: Deploy MkDocs Site
 
-# Trigger workflow on push to main branch
 on:
   push:
     branches:
-      - main
+      - main   # Trigger on pushes to main branch
 
 jobs:
   deploy:
@@ -13,7 +12,7 @@ jobs:
     steps:
       # Step 1: Checkout the repository
       - name: Checkout repository
-        uses: peaceiris/actions-gh-pages@v5.0.0
+        uses: actions/checkout@v3
 
       # Step 2: Setup Python
       - name: Set up Python
@@ -33,15 +32,8 @@ jobs:
 
       # Step 5: Deploy site to GitHub Pages
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v6
+        uses: peaceiris/actions-gh-pages@v5
         with:
           github_token: ${{ secrets.REPO_TOKEN }}
           publish_dir: ./site
           publish_branch: gh-pages
-
-
-
-
-
-
-

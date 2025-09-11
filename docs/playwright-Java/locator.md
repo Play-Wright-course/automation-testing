@@ -1,6 +1,6 @@
 # Playwright Locators – Complete Guide (Java)
 
-This guide covers **all locator strategies in Playwright (Java)** with examples.
+This guide covers **all locator strategies in Playwright (Java)** with examples, including ARIA roles and accessibility-based locators.
 
 ---
 
@@ -25,15 +25,11 @@ page.locator("#email");
 page.locator("#submitBtn");
 ```
 
----
-
 ### 2. By **Class**
 ```java
 page.locator(".form-control");
 page.locator(".btn.btn-primary");
 ```
-
----
 
 ### 3. By **Tag Name**
 ```java
@@ -41,30 +37,35 @@ page.locator("button");
 page.locator("input");
 ```
 
----
-
 ### 4. By **Text Content**
 ```java
-page.getByText("Submit");   // <button>Submit</button>
-page.getByText("Home");     // <a>Home</a>
+page.getByText("Submit");
+page.getByText("Home");
 ```
 
----
-
 ### 5. By **Role (ARIA Accessibility)**
+**ARIA roles** are accessibility attributes in HTML that define the purpose of an element for screen readers. Playwright’s `getByRole` uses the accessibility tree.
+
 ```java
 page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit"));
 page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Home"));
 ```
 
----
+- Use `getByRole` for buttons, links, headings, checkboxes, etc.
+- More stable than CSS/XPath since roles rarely change.
+- Filters elements by their **accessible name** (text or ARIA label).
+
+**Example of explicit role in HTML:**
+```html
+<div role="button" aria-label="Submit Form">Submit</div>
+```
+
+**Rule of Thumb:** Prefer `getByRole` if a semantic role exists; fallback to XPath/CSS otherwise.
 
 ### 6. By **Placeholder**
 ```java
-page.getByPlaceholder("Enter email");  // matches placeholder attribute
+page.getByPlaceholder("Enter email");
 ```
-
----
 
 ### 7. By **Label**
 ```html
@@ -75,8 +76,6 @@ page.getByPlaceholder("Enter email");  // matches placeholder attribute
 page.getByLabel("Email");
 ```
 
----
-
 ### 8. By **Alt Text**
 ```html
 <img src="logo.png" alt="Company Logo">
@@ -84,8 +83,6 @@ page.getByLabel("Email");
 ```java
 page.getByAltText("Company Logo");
 ```
-
----
 
 ### 9. By **Title Attribute**
 ```html
@@ -95,8 +92,6 @@ page.getByAltText("Company Logo");
 page.getByTitle("Click to submit");
 ```
 
----
-
 ### 10. By **CSS Attribute Selector**
 ```java
 page.locator("input[type='text']");
@@ -104,19 +99,14 @@ page.locator("button[type='submit']");
 page.locator("a[href='/home']");
 ```
 
----
-
 ### 11. By **XPath**
 ```java
 page.locator("//button[text()='Submit']");
 page.locator("//input[@id='email']");
 ```
 
----
-
 ## 🔹 Handling Multiple Matches
 
-### Example HTML
 ```html
 <ul>
   <li class="item">Apple</li>
@@ -125,46 +115,27 @@ page.locator("//input[@id='email']");
 </ul>
 ```
 
-### Code Examples
-
-#### Get all elements
 ```java
 Locator items = page.locator(".item");
 int count = items.count();
-System.out.println("Total items: " + count);
-```
 
-#### Pick by index
-```java
 items.nth(0);  // Apple
 items.nth(1);  // Banana
 items.nth(2);  // Cherry
-```
 
-#### Loop through elements
-```java
-int count = items.count();
 for (int i = 0; i < count; i++) {
     System.out.println(items.nth(i).innerText());
 }
-```
 
-#### Filter by text
-```java
 Locator banana = page.locator(".item").filter(new Locator.FilterOptions().setHasText("Banana"));
-```
 
-#### First and Last
-```java
 page.locator(".item").first();
 page.locator(".item").last();
 ```
 
----
-
 ## 🔹 Summary
 
-- Use **semantic locators** (`getByRole`, `getByLabel`, `getByPlaceholder`) for stable tests.  
+- Use **semantic locators** (`getByRole`, `getByLabel`, `getByPlaceholder`) for stable and accessibility-compliant tests.  
 - Use **CSS/XPath** only if necessary.  
-- Locators returning multiple elements can be managed using `.count()`, `.nth()`, `.first()`, `.last()`, `.filter()`.  
-
+- Manage multiple elements using `.count()`, `.nth()`, `.first()`, `.last()`, `.filter()`.  
+- **ARIA roles** ensure robust, readable, and accessible test selection.

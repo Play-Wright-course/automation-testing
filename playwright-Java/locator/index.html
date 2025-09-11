@@ -618,81 +618,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🔹 Handling Multiple Matches">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-html_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example HTML
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#code-examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code Examples
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Code Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#get-all-elements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Get all elements
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pick-by-index" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pick by index
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#loop-through-elements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Loop through elements
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#filter-by-text" class="md-nav__link">
-    <span class="md-ellipsis">
-      Filter by text
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#first-and-last" class="md-nav__link">
-    <span class="md-ellipsis">
-      First and Last
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -876,81 +801,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🔹 Handling Multiple Matches">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-html_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example HTML
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#code-examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code Examples
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Code Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#get-all-elements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Get all elements
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pick-by-index" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pick by index
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#loop-through-elements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Loop through elements
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#filter-by-text" class="md-nav__link">
-    <span class="md-ellipsis">
-      Filter by text
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#first-and-last" class="md-nav__link">
-    <span class="md-ellipsis">
-      First and Last
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -979,7 +829,7 @@
 
 
 <h1 id="playwright-locators-complete-guide-java">Playwright Locators – Complete Guide (Java)<a class="headerlink" href="#playwright-locators-complete-guide-java" title="Permanent link">&para;</a></h1>
-<p>This guide covers <strong>all locator strategies in Playwright (Java)</strong> with examples.</p>
+<p>This guide covers <strong>all locator strategies in Playwright (Java)</strong> with examples, including ARIA roles and accessibility-based locators.</p>
 <hr />
 <h2 id="example-html">🔹 Example HTML<a class="headerlink" href="#example-html" title="Permanent link">&para;</a></h2>
 <pre><code class="language-html">&lt;input type=&quot;text&quot; id=&quot;email&quot; class=&quot;form-control&quot; placeholder=&quot;Enter email&quot; /&gt;
@@ -996,99 +846,89 @@
 <pre><code class="language-java">page.locator(&quot;#email&quot;);
 page.locator(&quot;#submitBtn&quot;);
 </code></pre>
-<hr />
 <h3 id="2-by-class">2. By <strong>Class</strong><a class="headerlink" href="#2-by-class" title="Permanent link">&para;</a></h3>
 <pre><code class="language-java">page.locator(&quot;.form-control&quot;);
 page.locator(&quot;.btn.btn-primary&quot;);
 </code></pre>
-<hr />
 <h3 id="3-by-tag-name">3. By <strong>Tag Name</strong><a class="headerlink" href="#3-by-tag-name" title="Permanent link">&para;</a></h3>
 <pre><code class="language-java">page.locator(&quot;button&quot;);
 page.locator(&quot;input&quot;);
 </code></pre>
-<hr />
 <h3 id="4-by-text-content">4. By <strong>Text Content</strong><a class="headerlink" href="#4-by-text-content" title="Permanent link">&para;</a></h3>
-<pre><code class="language-java">page.getByText(&quot;Submit&quot;);   // &lt;button&gt;Submit&lt;/button&gt;
-page.getByText(&quot;Home&quot;);     // &lt;a&gt;Home&lt;/a&gt;
+<pre><code class="language-java">page.getByText(&quot;Submit&quot;);
+page.getByText(&quot;Home&quot;);
 </code></pre>
-<hr />
 <h3 id="5-by-role-aria-accessibility">5. By <strong>Role (ARIA Accessibility)</strong><a class="headerlink" href="#5-by-role-aria-accessibility" title="Permanent link">&para;</a></h3>
+<p><strong>ARIA roles</strong> are accessibility attributes in HTML that define the purpose of an element for screen readers. Playwright’s <code>getByRole</code> uses the accessibility tree.</p>
 <pre><code class="language-java">page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Submit&quot;));
 page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(&quot;Home&quot;));
 </code></pre>
-<hr />
-<h3 id="6-by-placeholder">6. By <strong>Placeholder</strong><a class="headerlink" href="#6-by-placeholder" title="Permanent link">&para;</a></h3>
-<pre><code class="language-java">page.getByPlaceholder(&quot;Enter email&quot;);  // matches placeholder attribute
+<ul>
+<li>Use <code>getByRole</code> for buttons, links, headings, checkboxes, etc.</li>
+<li>More stable than CSS/XPath since roles rarely change.</li>
+<li>Filters elements by their <strong>accessible name</strong> (text or ARIA label).</li>
+</ul>
+<p><strong>Example of explicit role in HTML:</strong></p>
+<pre><code class="language-html">&lt;div role=&quot;button&quot; aria-label=&quot;Submit Form&quot;&gt;Submit&lt;/div&gt;
 </code></pre>
-<hr />
+<p><strong>Rule of Thumb:</strong> Prefer <code>getByRole</code> if a semantic role exists; fallback to XPath/CSS otherwise.</p>
+<h3 id="6-by-placeholder">6. By <strong>Placeholder</strong><a class="headerlink" href="#6-by-placeholder" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">page.getByPlaceholder(&quot;Enter email&quot;);
+</code></pre>
 <h3 id="7-by-label">7. By <strong>Label</strong><a class="headerlink" href="#7-by-label" title="Permanent link">&para;</a></h3>
 <pre><code class="language-html">&lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;
 &lt;input id=&quot;email&quot; /&gt;
 </code></pre>
 <pre><code class="language-java">page.getByLabel(&quot;Email&quot;);
 </code></pre>
-<hr />
 <h3 id="8-by-alt-text">8. By <strong>Alt Text</strong><a class="headerlink" href="#8-by-alt-text" title="Permanent link">&para;</a></h3>
 <pre><code class="language-html">&lt;img src=&quot;logo.png&quot; alt=&quot;Company Logo&quot;&gt;
 </code></pre>
 <pre><code class="language-java">page.getByAltText(&quot;Company Logo&quot;);
 </code></pre>
-<hr />
 <h3 id="9-by-title-attribute">9. By <strong>Title Attribute</strong><a class="headerlink" href="#9-by-title-attribute" title="Permanent link">&para;</a></h3>
 <pre><code class="language-html">&lt;button title=&quot;Click to submit&quot;&gt;Submit&lt;/button&gt;
 </code></pre>
 <pre><code class="language-java">page.getByTitle(&quot;Click to submit&quot;);
 </code></pre>
-<hr />
 <h3 id="10-by-css-attribute-selector">10. By <strong>CSS Attribute Selector</strong><a class="headerlink" href="#10-by-css-attribute-selector" title="Permanent link">&para;</a></h3>
 <pre><code class="language-java">page.locator(&quot;input[type='text']&quot;);
 page.locator(&quot;button[type='submit']&quot;);
 page.locator(&quot;a[href='/home']&quot;);
 </code></pre>
-<hr />
 <h3 id="11-by-xpath">11. By <strong>XPath</strong><a class="headerlink" href="#11-by-xpath" title="Permanent link">&para;</a></h3>
 <pre><code class="language-java">page.locator(&quot;//button[text()='Submit']&quot;);
 page.locator(&quot;//input[@id='email']&quot;);
 </code></pre>
-<hr />
 <h2 id="handling-multiple-matches">🔹 Handling Multiple Matches<a class="headerlink" href="#handling-multiple-matches" title="Permanent link">&para;</a></h2>
-<h3 id="example-html_1">Example HTML<a class="headerlink" href="#example-html_1" title="Permanent link">&para;</a></h3>
 <pre><code class="language-html">&lt;ul&gt;
   &lt;li class=&quot;item&quot;&gt;Apple&lt;/li&gt;
   &lt;li class=&quot;item&quot;&gt;Banana&lt;/li&gt;
   &lt;li class=&quot;item&quot;&gt;Cherry&lt;/li&gt;
 &lt;/ul&gt;
 </code></pre>
-<h3 id="code-examples">Code Examples<a class="headerlink" href="#code-examples" title="Permanent link">&para;</a></h3>
-<h4 id="get-all-elements">Get all elements<a class="headerlink" href="#get-all-elements" title="Permanent link">&para;</a></h4>
 <pre><code class="language-java">Locator items = page.locator(&quot;.item&quot;);
 int count = items.count();
-System.out.println(&quot;Total items: &quot; + count);
-</code></pre>
-<h4 id="pick-by-index">Pick by index<a class="headerlink" href="#pick-by-index" title="Permanent link">&para;</a></h4>
-<pre><code class="language-java">items.nth(0);  // Apple
+
+items.nth(0);  // Apple
 items.nth(1);  // Banana
 items.nth(2);  // Cherry
-</code></pre>
-<h4 id="loop-through-elements">Loop through elements<a class="headerlink" href="#loop-through-elements" title="Permanent link">&para;</a></h4>
-<pre><code class="language-java">int count = items.count();
+
 for (int i = 0; i &lt; count; i++) {
     System.out.println(items.nth(i).innerText());
 }
-</code></pre>
-<h4 id="filter-by-text">Filter by text<a class="headerlink" href="#filter-by-text" title="Permanent link">&para;</a></h4>
-<pre><code class="language-java">Locator banana = page.locator(&quot;.item&quot;).filter(new Locator.FilterOptions().setHasText(&quot;Banana&quot;));
-</code></pre>
-<h4 id="first-and-last">First and Last<a class="headerlink" href="#first-and-last" title="Permanent link">&para;</a></h4>
-<pre><code class="language-java">page.locator(&quot;.item&quot;).first();
+
+Locator banana = page.locator(&quot;.item&quot;).filter(new Locator.FilterOptions().setHasText(&quot;Banana&quot;));
+
+page.locator(&quot;.item&quot;).first();
 page.locator(&quot;.item&quot;).last();
 </code></pre>
-<hr />
 <h2 id="summary">🔹 Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Use <strong>semantic locators</strong> (<code>getByRole</code>, <code>getByLabel</code>, <code>getByPlaceholder</code>) for stable tests.  </li>
+<li>Use <strong>semantic locators</strong> (<code>getByRole</code>, <code>getByLabel</code>, <code>getByPlaceholder</code>) for stable and accessibility-compliant tests.  </li>
 <li>Use <strong>CSS/XPath</strong> only if necessary.  </li>
-<li>Locators returning multiple elements can be managed using <code>.count()</code>, <code>.nth()</code>, <code>.first()</code>, <code>.last()</code>, <code>.filter()</code>.  </li>
+<li>Manage multiple elements using <code>.count()</code>, <code>.nth()</code>, <code>.first()</code>, <code>.last()</code>, <code>.filter()</code>.  </li>
+<li><strong>ARIA roles</strong> ensure robust, readable, and accessible test selection.</li>
 </ul>
 
 

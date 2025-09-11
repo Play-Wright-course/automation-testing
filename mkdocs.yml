@@ -10,6 +10,9 @@ nav:
       - Flow Statements: javascriptConcepts/flow-statement.md
       - Functions: javascriptConcepts/functions.md
       - Arrays & Objects: javascriptConcepts/Arrays.md
+      
+  - PlayWright With Java:
+      - Locators: playwright-Java/locator.md
 
 theme:
   name: material
@@ -18,3 +21,4 @@ markdown_extensions:
   - toc:
       permalink: true
   - tables
+

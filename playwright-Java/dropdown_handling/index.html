@@ -11,6 +11,8 @@
         <link rel="canonical" href="https://Play-Wright-course.github.io/Java-Script-Doc/playwright-Java/dropdown_handling/">
       
       
+        <link rel="prev" href="../playwright-interaction/">
+      
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -18,7 +20,7 @@
     
     
       
-        <title>Playwright – Handling Dropdowns (Java) - JavaScript Playwright Docs</title>
+        <title>Dropdown Handling - JavaScript Playwright Docs</title>
       
     
     
@@ -96,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Playwright – Handling Dropdowns (Java)
+              Dropdown Handling
             
           </span>
         </div>
@@ -394,18 +396,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -421,7 +425,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             PlayWright With Java
@@ -455,18 +459,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
@@ -482,7 +488,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             PlayWright interactions
@@ -507,6 +513,200 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Dropdown Handling
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dropdown Handling
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-classic-select-dropdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣ Classic &lt;select&gt; Dropdown
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1️⃣ Classic &lt;select&gt; Dropdown">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-select-by-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      a) Select by Value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-select-by-label-visible-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      b) Select by Label (Visible Text)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-select-by-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      c) Select by Index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-iterate-all-options-get-count" class="md-nav__link">
+    <span class="md-ellipsis">
+      d) Iterate All Options &amp; Get Count
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-example-full-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      e) Example Full Flow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-auto-suggestion-custom-dropdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      2️⃣ Auto-suggestion / Custom Dropdown
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2️⃣ Auto-suggestion / Custom Dropdown">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-type-to-filter-suggestions" class="md-nav__link">
+    <span class="md-ellipsis">
+      a) Type to Filter Suggestions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-click-on-desired-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      b) Click on Desired Option
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-full-auto-suggestion-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      c) Full Auto-suggestion Flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-iterate-all-auto-suggestion-options-get-count" class="md-nav__link">
+    <span class="md-ellipsis">
+      d) Iterate All Auto-suggestion Options &amp; Get Count
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-tips-for-auto-suggestion-dropdowns" class="md-nav__link">
+    <span class="md-ellipsis">
+      e) Tips for Auto-suggestion Dropdowns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 

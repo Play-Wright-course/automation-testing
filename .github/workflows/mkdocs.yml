@@ -3,7 +3,7 @@ name: Deploy MkDocs Site
 on:
   push:
     branches:
-      - main   # Trigger on pushes to main branch
+      - main
 
 jobs:
   deploy:
@@ -14,7 +14,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Setup Python
+      # Step 2: Set up Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -32,8 +32,15 @@ jobs:
 
       # Step 5: Deploy site to GitHub Pages
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v5
+        uses: peaceiris/actions-gh-pages@v4.0.0
         with:
           github_token: ${{ secrets.REPO_TOKEN }}
           publish_dir: ./site
           publish_branch: gh-pages
+
+
+
+
+
+
+

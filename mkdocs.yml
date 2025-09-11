@@ -14,7 +14,7 @@ nav:
   - PlayWright With Java:
       - Locators: playwright-Java/locator.md
       - PlayWright interactions:
-          - Inputs/Buttons: playwright-Java/playwright-interaction.md
+          - Inputs Buttons: playwright-Java/playwright-interaction.md
           - Dropdown Handling: playwright-Java/dropdown_handling.md
           - Mouse Keyboard Actions: playwright-Java/playwright-interaction.md
 theme:
@@ -24,6 +24,7 @@ markdown_extensions:
   - toc:
       permalink: true
   - tables
+
 
 
 

@@ -115,3 +115,107 @@ page.keyboard().press("Backspace");
 * Playwright auto-waits for elements to be visible before keyboard interactions.
 * Use `.press()` for single keys or shortcuts, `.type()` for simulating typing character by character.
 * Drag & Drop and Keyboard methods can be combined for complex flows (e.g., drag + keyboard shortcuts).
+
+---
+
+## 3️⃣ Mouse Actions
+
+### a) Click
+
+```java
+Locator button = page.locator("#submitBtn");
+button.click();
+```
+
+* Simulates a single left mouse click on the element.
+
+### b) Double Click
+
+```java
+Locator textBox = page.locator("#inputBox");
+textBox.dblclick();
+```
+
+* Selects text or activates default double-click behavior.
+
+### c) Hover
+
+```java
+Locator menu = page.locator("#menu");
+menu.hover();
+```
+
+* Moves mouse over the element (useful for dropdowns, tooltips).
+
+### d) Move Mouse
+
+```java
+page.mouse().move(200, 300);
+```
+
+* Moves mouse pointer to specific screen coordinates.
+
+### e) Mouse Down and Up
+
+```java
+page.mouse().move(100, 200); // Move to element
+page.mouse().down();         // Press and hold mouse button
+page.mouse().up();           // Release mouse button
+```
+
+* Useful for drag-and-drop or click-and-hold actions.
+
+### f) Click at Coordinates
+
+```java
+page.mouse().click(150, 250);
+```
+
+* Clicks at absolute screen coordinates, bypassing locators.
+
+### g) Right Click
+
+```java
+Locator element = page.locator("#contextMenu");
+element.click(new Locator.ClickOptions().setButton(MouseButton.RIGHT));
+```
+
+* Opens context menus.
+
+---
+
+## 4️⃣ Advanced Keyboard Actions
+
+### a) Type Text
+
+```java
+page.keyboard().type("Hello");
+```
+
+* Types text wherever the focus is set.
+
+### b) Press Enter
+
+```java
+page.keyboard().press("Enter");
+```
+
+* Simulates pressing Enter key.
+
+### c) Key Down and Key Up
+
+```java
+page.keyboard().down("Shift");   // Hold Shift
+page.keyboard().up("Shift");     // Release Shift
+```
+
+* Useful for combinations like Shift+Click.
+
+### d) Sequential Typing
+
+```java
+Locator field = page.locator("#username");
+field.pressSequentially("Playwright");
+```
+
+* Types text character by character into a field (human-like typing).

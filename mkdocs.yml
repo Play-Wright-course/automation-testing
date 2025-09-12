@@ -23,6 +23,7 @@ nav:
       - File upload And Download: playwright-Java/file-upload-download.md
       - ScreenShot: playwright-Java/screenshot.md
       - Exceptions: playwright-Java/exceptions.md
+      - InterViwe Questions: playwright-Java/interview-question.md
 
       
 
@@ -34,6 +35,7 @@ markdown_extensions:
   - toc:
       permalink: true
   - tables
+
 
 
 

@@ -2,7 +2,6 @@ site_name: JavaScript Playwright Docs
 site_url: https://Play-Wright-course.github.io/Java-Script-Doc/
 use_directory_urls: true
 nav:
-  - Home: index.md
   - JavaScript Concepts:
       - Variables: javascriptConcepts/variables.md
       - Data Types: javascriptConcepts/dataTypes.md
@@ -13,10 +12,20 @@ nav:
       
   - PlayWright With Java:
       - Locators: playwright-Java/locator.md
-      - PlayWright interactions:
-          - Inputs Buttons: playwright-Java/playwright-interaction.md
-          - Dropdown Handling: playwright-Java/dropdown_handling.md
-          - Mouse Keyboard Actions: playwright-Java/mouse-keyboard-actions.md
+      - Page Navigation: page-navigation-actions.md
+      - Inputs And Buttons: playwright-Java/playwright-interaction.md
+      - Checkbox And Radio buttons: playwright-Java/checkbox-radio-button.md
+      - Dropdown Handling: playwright-Java/dropdown_handling.md
+      - iframe: playwright-Java/iframes.md
+      - Mouse Keyboard Actions: playwright-Java/mouse-keyboard-actions.md
+      - Alerts: playwright-Java/alerts-promt.md
+      - File upload And Download: playwright-Java/file-upload-download.md
+      - ScreenShot: playwright-Java/screenshot.md
+      - Exceptions: playwright-Java/exceptions.md
+
+      
+
+      
 theme:
   name: material
 
@@ -24,6 +33,7 @@ markdown_extensions:
   - toc:
       permalink: true
   - tables
+
 
 
 

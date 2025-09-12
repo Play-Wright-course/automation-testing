@@ -279,3 +279,257 @@ jobs:
       - name: Run Tests
         run: mvn test
 ```
+
+
+---
+
+## 22. How do you handle cookies in Playwright?
+
+```java
+// Get cookies
+System.out.println(context.cookies());
+
+// Add cookies
+context.addCookies(Arrays.asList(new BrowserContext.AddCookiesOptions()
+    .setName("session_id")
+    .setValue("12345")
+    .setUrl("https://example.com")));
+```
+
+---
+
+## 23. How do you handle authentication in Playwright?
+
+```java
+BrowserContext context = browser.newContext(new Browser.NewContextOptions()
+    .setHttpCredentials("username", "password"));
+Page page = context.newPage();
+page.navigate("https://secure-site.com");
+```
+
+---
+
+## 24. How do you handle shadow DOM elements?
+
+```java
+page.locator("css=custom-element >>> button").click();
+```
+
+---
+
+## 25. How do you handle slow networks in Playwright?
+
+```java
+BrowserContext context = browser.newContext(new Browser.NewContextOptions()
+    .setOffline(false));
+context.setDefaultNavigationTimeout(10000); // 10 seconds
+```
+
+---
+
+## 26. How do you use Playwright Trace Viewer?
+
+```java
+BrowserContext context = browser.newContext(new Browser.NewContextOptions()
+    .setRecordHarPath(Paths.get("trace.zip")));
+Page page = context.newPage();
+page.navigate("https://example.com");
+context.close(); // trace saved
+```
+
+---
+
+## 27. How do you mock API responses in Playwright?
+
+```java
+page.route("**/api/data", route -> {
+    route.fulfill(new Route.FulfillOptions()
+        .setStatus(200)
+        .setContentType("application/json")
+        .setBody("{"message":"Mocked Response"}"));
+});
+```
+
+---
+
+## 28. How do you retry failed tests in Playwright with Java?
+
+**Answer:**
+Use TestNG retry analyzers or JUnit retry rules. Playwright itself retries only locator actions.
+
+```java
+for (int i = 0; i < 3; i++) {
+    try {
+        page.click("#submit");
+        break;
+    } catch (Exception e) {
+        if (i == 2) throw e;
+    }
+}
+```
+
+---
+
+## 29. How do you handle basic authentication popups?
+
+```java
+BrowserContext context = browser.newContext(new Browser.NewContextOptions()
+    .setHttpCredentials("user", "pass"));
+Page page = context.newPage();
+page.navigate("https://auth-site.com");
+```
+
+---
+
+## 30. How do you test responsive design with Playwright?
+
+```java
+Page mobilePage = browser.newContext(new Browser.NewContextOptions()
+    .setViewportSize(375, 667)).newPage();
+mobilePage.navigate("https://example.com");
+```
+
+---
+
+## 31. How do you test web accessibility with Playwright?
+
+Playwright integrates with `axe-core` for accessibility testing.
+
+```java
+Object accessibilityTree = page.accessibility().snapshot();
+System.out.println(accessibilityTree.toString());
+```
+
+---
+
+## 32. How do you handle retries and flaky tests?
+
+**Answer:**
+- Use `retry` in CI/CD pipelines.
+- Avoid `Thread.sleep()`, prefer auto-wait or `waitForSelector`.
+- Stabilize locators.
+
+```java
+page.locator("button#login").click(new Locator.ClickOptions().setTrial(true));
+```
+
+---
+
+## 33. How do you run Playwright tests in Docker?
+
+- Create a Dockerfile with Java + Playwright installed.
+- Run tests inside container.
+
+```dockerfile
+FROM mcr.microsoft.com/playwright/java:v1.49.0-jammy
+COPY . /app
+WORKDIR /app
+RUN mvn test
+```
+
+---
+
+## 34. How do you debug Playwright tests?
+
+- Use `setHeadless(false)`
+- Use `page.pause()` to inspect manually.
+
+```java
+page.pause(); // Opens Playwright Inspector
+```
+
+---
+
+## 35. How do you handle rate-limiting in API calls during tests?
+
+**Answer:**
+- Add delays using `page.waitForTimeout(ms)`.
+- Use network interception to simulate rate limits.
+
+```java
+page.waitForTimeout(2000); // wait for 2 seconds
+```
+
+---
+
+## 36. How do you capture console logs in Playwright?
+
+```java
+page.onConsoleMessage(msg -> System.out.println("Console: " + msg.text()));
+page.navigate("https://example.com");
+```
+
+---
+
+## 37. How do you capture network requests and responses?
+
+```java
+page.onRequest(request -> System.out.println("Request: " + request.url()));
+page.onResponse(response -> System.out.println("Response: " + response.url()));
+```
+
+---
+
+## 38. How do you handle multiple downloads in Playwright?
+
+```java
+Download download = page.waitForDownload(() -> {
+    page.click("a.download-all");
+});
+System.out.println(download.path());
+```
+
+---
+
+## 39. How do you assert element visibility?
+
+```java
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+assertThat(page.locator("#logo")).isVisible();
+```
+
+---
+
+## 40. How do you run Playwright tests with Gradle?
+
+```gradle
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.microsoft.playwright:playwright:1.49.0'
+    testImplementation 'org.testng:testng:7.9.0'
+}
+```
+
+---
+
+## 41. How do you test single-page applications (SPAs) with Playwright?
+
+**Answer:**
+Use `waitForLoadState("networkidle")` to ensure all async calls are complete.
+
+```java
+page.click("#loadData");
+page.waitForLoadState(LoadState.NETWORKIDLE);
+```
+
+---
+
+## 42. How do you manage test data in Playwright?
+
+**Answer:**
+- Use external files (JSON/CSV).
+- Use environment variables.
+
+```java
+String username = System.getenv("TEST_USER");
+page.fill("#username", username);
+```
+
+---

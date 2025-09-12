@@ -12,7 +12,7 @@ nav:
       
   - PlayWright With Java:
       - Locators: playwright-Java/locator.md
-      - Page Navigation: page-navigation-actions.md
+      - Page Navigation: playwright-Java/page-navigation-actions.md
       - Inputs And Buttons: playwright-Java/playwright-interaction.md
       - Checkbox And Radio buttons: playwright-Java/checkbox-radio-button.md
       - Dropdown Handling: playwright-Java/dropdown_handling.md
@@ -33,6 +33,7 @@ markdown_extensions:
   - toc:
       permalink: true
   - tables
+
 
 
 

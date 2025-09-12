@@ -7,8 +7,9 @@ nav:
       - Data Types: javascriptConcepts/dataTypes.md
       - Operators: javascriptConcepts/operator.md
       - Flow Statements: javascriptConcepts/flow-statement.md
-      - Functions: javascriptConcepts/functions.md
       - Arrays & Objects: javascriptConcepts/Arrays.md
+      - Functions: javascriptConcepts/functions.md
+      
       
   - PlayWright With Java:
       - Locators: playwright-Java/locator.md
@@ -33,6 +34,7 @@ markdown_extensions:
   - toc:
       permalink: true
   - tables
+
 
 
 

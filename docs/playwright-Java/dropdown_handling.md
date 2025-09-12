@@ -1,12 +1,12 @@
-# Playwright – Handling Dropdowns (Java)
+# Playwright -- Handling Dropdowns (Java)
 
----
+------------------------------------------------------------------------
 
 ## 1️⃣ Classic `<select>` Dropdown
 
 **HTML Example:**
 
-```html
+``` html
 <select id="country">
   <option value="IN">India</option>
   <option value="US">USA</option>
@@ -16,43 +16,59 @@
 
 ### a) Select by Value
 
-```java
-page.locator("#country").selectOption("IN");  // Select India by value
+``` java
+page.locator("#country").selectOption("IN");  
+// Select India by value
 ```
 
 ### b) Select by Label (Visible Text)
 
-```java
-page.locator("#country").selectOption(new SelectOption().setLabel("USA"));
+``` java
+page.locator("#country").selectOption(new SelectOption().setLabel("USA"));  
+// Select USA by visible text
 ```
 
 ### c) Select by Index
 
-```java
-page.locator("#country").selectOption(new SelectOption().setIndex(2));  // Select 3rd option (UK)
+``` java
+page.locator("#country").selectOption(new SelectOption().setIndex(2));  
+// Select 3rd option (UK) – index starts from 0
 ```
 
-### d) Iterate All Options & Get Count
+### d) Select Multiple Values
 
-```java
+``` java
+page.locator("#country").selectOption(new String[]{"IN", "US"});  
+// Select India and USA (multi-select dropdowns only)
+```
+
+### e) Iterate All Options & Get Count
+
+``` java
 Locator options = page.locator("#country option");
 int count = options.count();
 System.out.println("Total options in dropdown: " + count);
+
 for (int i = 0; i < count; i++) {
     System.out.println(options.nth(i).innerText());
 }
 ```
 
-* **Explanation:**
+-   **Explanation:**
+    -   `count()` → total number of options.
+    -   `.nth(i).innerText()` → retrieves text of each option.
 
-  * `count()` gives total number of options.
-  * `.nth(i).innerText()` retrieves text of each option.
+### f) Example Full Flow
 
-### e) Example Full Flow
-
-```java
+``` java
 // Select India by value
 page.locator("#country").selectOption("IN");
+
+// Select USA by label
+page.locator("#country").selectOption(new SelectOption().setLabel("USA"));
+
+// Select multiple (India & UK)
+page.locator("#country").selectOption(new String[]{"IN", "UK"});
 
 // Iterate and print all options
 Locator options = page.locator("#country option");
@@ -61,13 +77,13 @@ for (int i = 0; i < options.count(); i++) {
 }
 ```
 
----
+------------------------------------------------------------------------
 
 ## 2️⃣ Auto-suggestion / Custom Dropdown
 
 **HTML Example:**
 
-```html
+``` html
 <input id="searchCity" type="text" placeholder="Enter city" />
 <ul id="cityList">
   <li>New York</li>
@@ -78,19 +94,19 @@ for (int i = 0; i < options.count(); i++) {
 
 ### a) Type to Filter Suggestions
 
-```java
+``` java
 page.locator("#searchCity").fill("Del");
 ```
 
 ### b) Click on Desired Option
 
-```java
+``` java
 page.locator("#cityList li", new Locator.LocatorOptions().setHasText("Delhi")).click();
 ```
 
 ### c) Full Auto-suggestion Flow
 
-```java
+``` java
 // Type in search box
 page.locator("#searchCity").fill("Del");
 
@@ -100,28 +116,41 @@ page.locator("#cityList li", new Locator.LocatorOptions().setHasText("Delhi")).c
 
 ### d) Iterate All Auto-suggestion Options & Get Count
 
-```java
+``` java
 Locator cities = page.locator("#cityList li");
 int totalCities = cities.count();
 System.out.println("Total suggestions: " + totalCities);
+
 for (int i = 0; i < totalCities; i++) {
     System.out.println(cities.nth(i).innerText());
 }
 ```
 
-* Retrieves all suggestions and their total count.
+-   Retrieves all suggestions and their total count.
 
 ### e) Tips for Auto-suggestion Dropdowns
 
-* Use `fill()` instead of `type()` if you want instant input.
-* Use `.locator(...).filter(...).click()` to select the correct option.
-* Playwright handles **auto-waiting** automatically.
+-   Use `fill()` instead of `type()` if you want instant input.
+-   Use `.locator(...).filter(...).click()` to select the correct
+    option.
+-   Playwright handles **auto-waiting** automatically.
 
----
+------------------------------------------------------------------------
 
 ## ✅ Summary
 
-* **Classic `<select>` dropdowns:** Use `selectOption()` by value, label, or index; iterate with `count()` and `.nth()`.
-* **Auto-suggestion / custom dropdowns:** Type to trigger options, locate desired item and click; iterate options and get count using `.count()` and `.nth()`.
-* Playwright auto-waits, so explicit waits are rarely needed.
-* Prefer **semantic locators** for stability whenever possible.
+-   **Classic `<select>` dropdowns:**
+    -   `selectOption("value")` → select by value.
+    -   `selectOption(new SelectOption().setLabel("..."))` → select by
+        visible text.
+    -   `selectOption(new SelectOption().setIndex(i))` → select by
+        index.
+    -   `selectOption(new String[]{...})` → select multiple values.
+    -   Iterate options with `.count()` & `.nth()`.
+-   **Auto-suggestion / custom dropdowns:**
+    -   Use `fill()` to type, then locate the suggestion and `click()`.
+    -   Iterate options with `.count()` & `.nth()`.
+-   **Pro tips:**
+    -   Playwright auto-waits for dropdowns.
+    -   Prefer semantic locators (`getByLabel`, `getByText`) for
+        stability.

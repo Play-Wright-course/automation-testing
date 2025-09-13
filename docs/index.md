@@ -1,16 +1,7 @@
-# Welcome to JavaScript & Playwright Docs
+# Welcome to JavaScript & Playwright with java Docs
 
-This documentation site contains tutorials, examples, and references for JavaScript concepts and Playwright automation.
+This documentation site contains tutorials, examples, and references for JavaScript concepts and Playwright automation with java.
 
-Explore the sections on the left to learn about:
-
-- **Variables, Data Types, and Operators**
-- **Flow Statements**
-- **Functions**
-- **Arrays & Objects**
-- **Playwright Automation Concepts**
-
----
 
 ## Getting Started
 
@@ -20,4 +11,5 @@ Explore the sections on the left to learn about:
 
 ---
 
-> 🚀 Happy Learning! Keep practicing and building your JavaScript and Playwright skills.
+> 🚀 Happy Learning! Keep practicing and building your JavaScript and Playwright Automation with Java skills.
+

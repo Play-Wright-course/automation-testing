@@ -796,6 +796,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#1-primary-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. PRIMARY KEY
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#2-foreign-key" class="md-nav__link">
     <span class="md-ellipsis">
       2. FOREIGN KEY
@@ -903,17 +912,11 @@ INSERT INTO Marks (student_id, english, math, science, total_marks) VALUES
 5          | 88      | 84   | 91      | 263
 5          | 88      | 84   | 91      | 263   &lt;-- Duplicate
 </code></pre>
-<pre><code>
-✅ These tables work fine, but without constraints **problems can arise** (duplicates, orphan records, missing data).  
-
----
-
-## 1. PRIMARY KEY
-👉 Makes sure each row is **unique and identifiable**.  
-
-**Without Primary Key**
-```sql
-INSERT INTO Students (id, firstname, lastname, address)
+<p>✅ These tables work fine, but without constraints <strong>problems can arise</strong> (duplicates, orphan records, missing data).  </p>
+<h2 id="1-primary-key">1. PRIMARY KEY<a class="headerlink" href="#1-primary-key" title="Permanent link">&para;</a></h2>
+<p>👉 Makes sure each row is <strong>unique and identifiable</strong>.  </p>
+<p><strong>Without Primary Key</strong></p>
+<pre><code class="language-sql">INSERT INTO Students (id, firstname, lastname, address)
 VALUES (1, 'Rahul', 'Sharma', 'Pune');
 
 INSERT INTO Students (id, firstname, lastname, address)

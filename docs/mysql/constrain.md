@@ -7,8 +7,9 @@ Think of constraints as **traffic rules for your database**.
 ---
 
 ## 🗄️ Example Tables Without Constraints
+### 1. Without Constraints (Messy Data)
 
-### Students Table
+#### Students Table
 ```sql
 CREATE TABLE Students (
     id INT,
@@ -19,14 +20,15 @@ CREATE TABLE Students (
 
 INSERT INTO Students (id, firstname, lastname, address) VALUES
 (1, 'Rahul', 'Sharma', 'Pune'),
-(2, 'Sneha', 'Patil', 'Mumbai'),
-(3, 'Amit', 'Verma', 'Delhi'),
-(4, 'Priya', 'Nair', 'Bangalore'),
-(5, 'Karan', 'Singh', 'Hyderabad'),
-(6, 'Neha', 'Kulkarni', 'Chennai');
+(1, 'Rahul', 'Sharma', 'Pune'),        -- Duplicate ID
+(2, 'Priya', 'Verma', 'Mumbai'),
+(3, NULL, 'Gupta', 'Delhi'),           -- Missing firstname
+(4, 'Sneha', 'Patil', 'Bangalore'),
+(5, 'Vikas', 'Kumar', 'Hyderabad'),
+(5, 'Vikas', 'Kumar', 'Hyderabad');    -- Duplicate ID
 ```
 
-### Marks Table
+#### Marks Table
 ```sql
 CREATE TABLE Marks (
     student_id INT,
@@ -37,12 +39,43 @@ CREATE TABLE Marks (
 );
 
 INSERT INTO Marks (student_id, english, math, science, total_marks) VALUES
-(1, 78, 85, 90, 253),
-(2, 88, 92, 81, 261),
-(3, 65, 70, 75, 210),
-(4, 90, 95, 89, 274),
-(5, 72, 68, 80, 220),
-(6, 85, 79, 88, 252);
+(1, 80, 90, 85, 255),
+(2, 70, 75, 88, 233),
+(100, 60, 65, 70, 195),                -- Orphan record
+(3, 120, 50, 60, 230),                 -- Invalid marks > 100
+(4, NULL, 40, 50, 90),                 -- Missing marks
+(5, 88, 84, 91, 263),
+(5, 88, 84, 91, 263);                  -- Duplicate row
+```
+
+#### Sample Data Preview (Messy)
+
+**Students Table**
+```
+id | firstname | lastname | address
+---+-----------+----------+-----------
+1  | Rahul     | Sharma   | Pune
+1  | Rahul     | Sharma   | Pune       <-- Duplicate
+2  | Priya     | Verma    | Mumbai
+3  | NULL      | Gupta    | Delhi      <-- Missing firstname
+4  | Sneha     | Patil    | Bangalore
+5  | Vikas     | Kumar    | Hyderabad
+5  | Vikas     | Kumar    | Hyderabad  <-- Duplicate
+```
+
+**Marks Table**
+```
+student_id | english | math | science | total_marks
+-----------+---------+------+---------+-------------
+1          | 80      | 90   | 85      | 255
+2          | 70      | 75   | 88      | 233
+100        | 60      | 65   | 70      | 195   <-- Orphan
+3          | 120     | 50   | 60      | 230   <-- Invalid marks
+4          | NULL    | 40   | 50      | 90    <-- Missing marks
+5          | 88      | 84   | 91      | 263
+5          | 88      | 84   | 91      | 263   <-- Duplicate
+```
+
 ```
 
 ✅ These tables work fine, but without constraints **problems can arise** (duplicates, orphan records, missing data).  

@@ -20,6 +20,7 @@ nav:
       - iframe: playwright-Java/iframes.md
       - Mouse Keyboard Actions: playwright-Java/mouse-keyboard-actions.md
       - Alerts: playwright-Java/alerts-promt.md
+      - Handle Windows: playwright-Java/handling-windows.md
       - File upload And Download: playwright-Java/file-upload-download.md
       - ScreenShot: playwright-Java/screenshot.md
       - Exceptions: playwright-Java/exceptions.md
@@ -35,6 +36,7 @@ markdown_extensions:
   - toc:
       permalink: true
   - tables
+
 
 
 

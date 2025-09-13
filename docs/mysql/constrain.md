@@ -101,7 +101,7 @@ id INT PRIMARY KEY
 ```
 ✅ Database stops duplicate rows.  
 
----
+
 
 ## 2. FOREIGN KEY
 👉 Ensures that a value in one table **must exist in another**.  

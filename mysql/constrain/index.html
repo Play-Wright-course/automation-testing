@@ -749,6 +749,16 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#1-without-constraints-messy-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Without Constraints (Messy Data)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Without Constraints (Messy Data)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#students-table" class="md-nav__link">
     <span class="md-ellipsis">
       Students Table
@@ -766,17 +776,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#sample-data-preview-messy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample Data Preview (Messy)
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#1-primary-key" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. PRIMARY KEY
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -829,7 +844,8 @@
 - With rules → movement is safe, organized, and predictable.  </p>
 <hr />
 <h2 id="example-tables-without-constraints">🗄️ Example Tables Without Constraints<a class="headerlink" href="#example-tables-without-constraints" title="Permanent link">&para;</a></h2>
-<h3 id="students-table">Students Table<a class="headerlink" href="#students-table" title="Permanent link">&para;</a></h3>
+<h3 id="1-without-constraints-messy-data">1. Without Constraints (Messy Data)<a class="headerlink" href="#1-without-constraints-messy-data" title="Permanent link">&para;</a></h3>
+<h4 id="students-table">Students Table<a class="headerlink" href="#students-table" title="Permanent link">&para;</a></h4>
 <pre><code class="language-sql">CREATE TABLE Students (
     id INT,
     firstname VARCHAR(50),
@@ -839,13 +855,14 @@
 
 INSERT INTO Students (id, firstname, lastname, address) VALUES
 (1, 'Rahul', 'Sharma', 'Pune'),
-(2, 'Sneha', 'Patil', 'Mumbai'),
-(3, 'Amit', 'Verma', 'Delhi'),
-(4, 'Priya', 'Nair', 'Bangalore'),
-(5, 'Karan', 'Singh', 'Hyderabad'),
-(6, 'Neha', 'Kulkarni', 'Chennai');
+(1, 'Rahul', 'Sharma', 'Pune'),        -- Duplicate ID
+(2, 'Priya', 'Verma', 'Mumbai'),
+(3, NULL, 'Gupta', 'Delhi'),           -- Missing firstname
+(4, 'Sneha', 'Patil', 'Bangalore'),
+(5, 'Vikas', 'Kumar', 'Hyderabad'),
+(5, 'Vikas', 'Kumar', 'Hyderabad');    -- Duplicate ID
 </code></pre>
-<h3 id="marks-table">Marks Table<a class="headerlink" href="#marks-table" title="Permanent link">&para;</a></h3>
+<h4 id="marks-table">Marks Table<a class="headerlink" href="#marks-table" title="Permanent link">&para;</a></h4>
 <pre><code class="language-sql">CREATE TABLE Marks (
     student_id INT,
     english INT,
@@ -855,19 +872,48 @@ INSERT INTO Students (id, firstname, lastname, address) VALUES
 );
 
 INSERT INTO Marks (student_id, english, math, science, total_marks) VALUES
-(1, 78, 85, 90, 253),
-(2, 88, 92, 81, 261),
-(3, 65, 70, 75, 210),
-(4, 90, 95, 89, 274),
-(5, 72, 68, 80, 220),
-(6, 85, 79, 88, 252);
+(1, 80, 90, 85, 255),
+(2, 70, 75, 88, 233),
+(100, 60, 65, 70, 195),                -- Orphan record
+(3, 120, 50, 60, 230),                 -- Invalid marks &gt; 100
+(4, NULL, 40, 50, 90),                 -- Missing marks
+(5, 88, 84, 91, 263),
+(5, 88, 84, 91, 263);                  -- Duplicate row
 </code></pre>
-<p>✅ These tables work fine, but without constraints <strong>problems can arise</strong> (duplicates, orphan records, missing data).  </p>
-<hr />
-<h2 id="1-primary-key">1. PRIMARY KEY<a class="headerlink" href="#1-primary-key" title="Permanent link">&para;</a></h2>
-<p>👉 Makes sure each row is <strong>unique and identifiable</strong>.  </p>
-<p><strong>Without Primary Key</strong></p>
-<pre><code class="language-sql">INSERT INTO Students (id, firstname, lastname, address)
+<h4 id="sample-data-preview-messy">Sample Data Preview (Messy)<a class="headerlink" href="#sample-data-preview-messy" title="Permanent link">&para;</a></h4>
+<p><strong>Students Table</strong></p>
+<pre><code>id | firstname | lastname | address
+---+-----------+----------+-----------
+1  | Rahul     | Sharma   | Pune
+1  | Rahul     | Sharma   | Pune       &lt;-- Duplicate
+2  | Priya     | Verma    | Mumbai
+3  | NULL      | Gupta    | Delhi      &lt;-- Missing firstname
+4  | Sneha     | Patil    | Bangalore
+5  | Vikas     | Kumar    | Hyderabad
+5  | Vikas     | Kumar    | Hyderabad  &lt;-- Duplicate
+</code></pre>
+<p><strong>Marks Table</strong></p>
+<pre><code>student_id | english | math | science | total_marks
+-----------+---------+------+---------+-------------
+1          | 80      | 90   | 85      | 255
+2          | 70      | 75   | 88      | 233
+100        | 60      | 65   | 70      | 195   &lt;-- Orphan
+3          | 120     | 50   | 60      | 230   &lt;-- Invalid marks
+4          | NULL    | 40   | 50      | 90    &lt;-- Missing marks
+5          | 88      | 84   | 91      | 263
+5          | 88      | 84   | 91      | 263   &lt;-- Duplicate
+</code></pre>
+<pre><code>
+✅ These tables work fine, but without constraints **problems can arise** (duplicates, orphan records, missing data).  
+
+---
+
+## 1. PRIMARY KEY
+👉 Makes sure each row is **unique and identifiable**.  
+
+**Without Primary Key**
+```sql
+INSERT INTO Students (id, firstname, lastname, address)
 VALUES (1, 'Rahul', 'Sharma', 'Pune');
 
 INSERT INTO Students (id, firstname, lastname, address)

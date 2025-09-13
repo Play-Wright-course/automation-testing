@@ -76,11 +76,10 @@ student_id | english | math | science | total_marks
 5          | 88      | 84   | 91      | 263   <-- Duplicate
 ```
 
-```
+
 
 ✅ These tables work fine, but without constraints **problems can arise** (duplicates, orphan records, missing data).  
 
----
 
 ## 1. PRIMARY KEY
 👉 Makes sure each row is **unique and identifiable**.  

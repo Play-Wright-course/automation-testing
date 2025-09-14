@@ -1,0 +1,1363 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://Play-Wright-course.github.io/automation-testing/mysql/sub-query/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
+    
+    
+      
+        <title>Data Query Language (DQL) – Part 4: Subqueries & CTE (WITH) - JavaScript Playwright Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-query-language-dql-part-4-subqueries-cte-with" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JavaScript Playwright Docs" class="md-header__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaScript Playwright Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data Query Language (DQL) – Part 4: Subqueries &amp; CTE (WITH)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JavaScript Playwright Docs" class="md-nav__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JavaScript Playwright Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    JavaScript Concepts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            JavaScript Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/dataTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/flow-statement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Flow Statements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/Arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arrays & Objects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    PlayWright With Java
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            PlayWright With Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/locator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Locators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/page-navigation-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Page Navigation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/playwright-interaction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inputs And Buttons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/checkbox-radio-button/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Checkbox And Radio buttons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/dropdown_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dropdown Handling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/iframes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    iframe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/mouse-keyboard-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mouse Keyboard Actions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/alerts-promt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Alerts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/handling-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Handle Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/file-upload-download/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File upload And Download
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/screenshot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ScreenShot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exceptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/interview-question/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InterViwe Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sample-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample Tables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sample Tables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#employees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Employees
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#departments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Departments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orders" class="md-nav__link">
+    <span class="md-ellipsis">
+      Orders
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orderitems" class="md-nav__link">
+    <span class="md-ellipsis">
+      OrderItems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-scalar-subquery-employees-earning-above-company-average" class="md-nav__link">
+    <span class="md-ellipsis">
+      1) Scalar Subquery – Employees earning above company average
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-in-subquery-employees-in-departments-having-more-than-1-employee" class="md-nav__link">
+    <span class="md-ellipsis">
+      2) IN Subquery – Employees in departments having more than 1 employee
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-exists-correlated-employees-who-have-placed-at-least-one-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      3) EXISTS (Correlated) – Employees who have placed at least one order
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-not-exists-departments-with-no-employees" class="md-nav__link">
+    <span class="md-ellipsis">
+      4) NOT EXISTS – Departments with no employees
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-subquery-in-from-derived-table-revenue-by-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      5) Subquery in FROM (Derived Table) – Revenue by product
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-anyall-salary-greater-than-all-salaries-in-hr" class="md-nav__link">
+    <span class="md-ellipsis">
+      6) ANY/ALL – Salary greater than ALL salaries in HR
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="data-query-language-dql-part-4-subqueries-cte-with">Data Query Language (DQL) – Part 4: Subqueries &amp; CTE (WITH)<a class="headerlink" href="#data-query-language-dql-part-4-subqueries-cte-with" title="Permanent link">&para;</a></h1>
+<p>This part dives into <strong>Subqueries</strong> and <strong>CTEs (Common Table Expressions)</strong> with 6 core examples and 3 complex cases.<br />
+Each example shows <strong>input tables</strong>, the <strong>SQL query</strong>, and the <strong>expected output</strong>.</p>
+<hr />
+<h2 id="sample-tables">Sample Tables<a class="headerlink" href="#sample-tables" title="Permanent link">&para;</a></h2>
+<h3 id="employees">Employees<a class="headerlink" href="#employees" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">EmpID</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: right;">DeptID</th>
+<th style="text-align: right;">Salary</th>
+<th style="text-align: right;">ManagerID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">101</td>
+<td style="text-align: left;">Amit Sharma</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">50000</td>
+<td style="text-align: right;">nan</td>
+</tr>
+<tr>
+<td style="text-align: right;">102</td>
+<td style="text-align: left;">Riya Mehta</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">70000</td>
+<td style="text-align: right;">101</td>
+</tr>
+<tr>
+<td style="text-align: right;">103</td>
+<td style="text-align: left;">Arjun Rao</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">55000</td>
+<td style="text-align: right;">101</td>
+</tr>
+<tr>
+<td style="text-align: right;">104</td>
+<td style="text-align: left;">Neha Singh</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">80000</td>
+<td style="text-align: right;">102</td>
+</tr>
+<tr>
+<td style="text-align: right;">105</td>
+<td style="text-align: left;">Rohit Verma</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">48000</td>
+<td style="text-align: right;">101</td>
+</tr>
+<tr>
+<td style="text-align: right;">106</td>
+<td style="text-align: left;">Priya Nair</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">65000</td>
+<td style="text-align: right;">102</td>
+</tr>
+</tbody>
+</table>
+<h3 id="departments">Departments<a class="headerlink" href="#departments" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">DeptID</th>
+<th style="text-align: left;">DeptName</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">HR</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">IT</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Finance</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Marketing</td>
+</tr>
+</tbody>
+</table>
+<h3 id="orders">Orders<a class="headerlink" href="#orders" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">OrderID</th>
+<th style="text-align: right;">EmpID</th>
+<th style="text-align: left;">Customer</th>
+<th style="text-align: left;">OrderDate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">102</td>
+<td style="text-align: left;">Acme</td>
+<td style="text-align: left;">2023-01-10</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">104</td>
+<td style="text-align: left;">Bolt</td>
+<td style="text-align: left;">2023-01-15</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">102</td>
+<td style="text-align: left;">Crown</td>
+<td style="text-align: left;">2023-02-02</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">106</td>
+<td style="text-align: left;">Acme</td>
+<td style="text-align: left;">2023-02-18</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">103</td>
+<td style="text-align: left;">Delta</td>
+<td style="text-align: left;">2023-03-05</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">106</td>
+<td style="text-align: left;">Acme</td>
+<td style="text-align: left;">2023-03-12</td>
+</tr>
+</tbody>
+</table>
+<h3 id="orderitems">OrderItems<a class="headerlink" href="#orderitems" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">OrderID</th>
+<th style="text-align: left;">Product</th>
+<th style="text-align: right;">Qty</th>
+<th style="text-align: right;">UnitPrice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Laptop</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">60000</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Mouse</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1000</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Tablet</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">15000</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Laptop</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">60000</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Phone</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">20000</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Phone</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">20000</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Laptop</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">60000</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Mouse</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1000</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-scalar-subquery-employees-earning-above-company-average">1) Scalar Subquery – Employees earning above company average<a class="headerlink" href="#1-scalar-subquery-employees-earning-above-company-average" title="Permanent link">&para;</a></h2>
+<pre><code class="language-sql">SELECT EmpID, Name, Salary
+FROM Employees
+WHERE Salary &gt; (SELECT AVG(Salary) FROM Employees)
+ORDER BY Salary DESC;
+</code></pre>
+<p><strong>Output</strong>
+|   EmpID | Name       |   Salary |
+|--------:|:-----------|---------:|
+|     104 | Neha Singh |    80000 |
+|     102 | Riya Mehta |    70000 |
+|     106 | Priya Nair |    65000 |</p>
+<hr />
+<h2 id="2-in-subquery-employees-in-departments-having-more-than-1-employee">2) IN Subquery – Employees in departments having more than 1 employee<a class="headerlink" href="#2-in-subquery-employees-in-departments-having-more-than-1-employee" title="Permanent link">&para;</a></h2>
+<pre><code class="language-sql">SELECT e.EmpID, e.Name, e.DeptID, d.DeptName
+FROM Employees e
+JOIN Departments d ON e.DeptID = d.DeptID
+WHERE e.DeptID IN (
+  SELECT DeptID
+  FROM Employees
+  GROUP BY DeptID
+  HAVING COUNT(*) &gt; 1
+)
+ORDER BY e.DeptID, e.Name;
+</code></pre>
+<p><strong>Output</strong>
+|   EmpID | Name        |   DeptID | DeptName   |
+|--------:|:------------|---------:|:-----------|
+|     101 | Amit Sharma |        1 | HR         |
+|     105 | Rohit Verma |        1 | HR         |
+|     104 | Neha Singh  |        2 | IT         |
+|     106 | Priya Nair  |        2 | IT         |
+|     102 | Riya Mehta  |        2 | IT         |</p>
+<hr />
+<h2 id="3-exists-correlated-employees-who-have-placed-at-least-one-order">3) EXISTS (Correlated) – Employees who have placed at least one order<a class="headerlink" href="#3-exists-correlated-employees-who-have-placed-at-least-one-order" title="Permanent link">&para;</a></h2>
+<pre><code class="language-sql">SELECT e.EmpID, e.Name
+FROM Employees e
+WHERE EXISTS (
+  SELECT 1
+  FROM Orders o
+  WHERE o.EmpID = e.EmpID
+)
+ORDER BY e.EmpID;
+</code></pre>
+<p><strong>Output</strong>
+|   EmpID | Name       |
+|--------:|:-----------|
+|     102 | Riya Mehta |
+|     103 | Arjun Rao  |
+|     104 | Neha Singh |
+|     106 | Priya Nair |</p>
+<hr />
+<h2 id="4-not-exists-departments-with-no-employees">4) NOT EXISTS – Departments with no employees<a class="headerlink" href="#4-not-exists-departments-with-no-employees" title="Permanent link">&para;</a></h2>
+<pre><code class="language-sql">SELECT d.DeptID, d.DeptName
+FROM Departments d
+WHERE NOT EXISTS (
+  SELECT 1
+  FROM Employees e
+  WHERE e.DeptID = d.DeptID
+)
+ORDER BY d.DeptID;
+</code></pre>
+<p><strong>Output</strong>
+|   DeptID | DeptName   |
+|---------:|:-----------|
+|        4 | Marketing  |</p>
+<hr />
+<h2 id="5-subquery-in-from-derived-table-revenue-by-product">5) Subquery in FROM (Derived Table) – Revenue by product<a class="headerlink" href="#5-subquery-in-from-derived-table-revenue-by-product" title="Permanent link">&para;</a></h2>
+<pre><code class="language-sql">SELECT t.Product, t.TotalRevenue
+FROM (
+  SELECT oi.Product,
+         SUM(oi.Qty * oi.UnitPrice) AS TotalRevenue
+  FROM OrderItems oi
+  GROUP BY oi.Product
+) AS t
+ORDER BY t.TotalRevenue DESC;
+</code></pre>
+<p><strong>Output</strong>
+| Product   |   TotalRevenue |
+|:----------|---------------:|
+| Laptop    |         180000 |
+| Phone     |          60000 |
+| Tablet    |          45000 |
+| Mouse     |           7000 |</p>
+<hr />
+<h2 id="6-anyall-salary-greater-than-all-salaries-in-hr">6) ANY/ALL – Salary greater than ALL salaries in HR<a class="headerlink" href="#6-anyall-salary-greater-than-all-salaries-in-hr" title="Permanent link">&para;</a></h2>
+<pre><code class="language-sql">SELECT Name, Salary
+FROM Employees
+WHERE Salary &gt; ALL (
+  SELECT Salary FROM Employees WHERE DeptID = 1
+)
+ORDER BY Salary DESC;
+</code></pre>
+<p><strong>Output</strong>
+| Name       |   Salary |
+|:-----------|---------:|
+| Neha Singh |    80000 |
+| Riya Mehta |    70000 |
+| Priya Nair |    65000 |
+| Arjun Rao  |    55000 |</p>
+<hr />
+<h1 id="ctes-with-clause">CTEs (WITH clause)<a class="headerlink" href="#ctes-with-clause" title="Permanent link">&para;</a></h1>
+<h2 id="7-cte-revenue-per-employee">7) CTE – Revenue per employee<a class="headerlink" href="#7-cte-revenue-per-employee" title="Permanent link">&para;</a></h2>
+<pre><code class="language-sql">WITH OrderTotals AS (
+  SELECT oi.OrderID, SUM(oi.Qty * oi.UnitPrice) AS OrderTotal
+  FROM OrderItems oi
+  GROUP BY oi.OrderID
+)
+SELECT e.Name, SUM(ot.OrderTotal) AS Revenue
+FROM Orders o
+JOIN OrderTotals ot ON o.OrderID = ot.OrderID
+JOIN Employees e ON o.EmpID = e.EmpID
+GROUP BY e.Name
+ORDER BY Revenue DESC;
+</code></pre>
+<p><strong>Output</strong>
+| Name       |   Revenue |
+|:-----------|----------:|
+| Riya Mehta |    162000 |
+| Arjun Rao  |     60000 |
+| Neha Singh |     45000 |
+| Priya Nair |     25000 |</p>
+<hr />
+<h2 id="8-multiple-ctes-per-customer-orders-revenue">8) Multiple CTEs – Per-customer orders &amp; revenue<a class="headerlink" href="#8-multiple-ctes-per-customer-orders-revenue" title="Permanent link">&para;</a></h2>
+<pre><code class="language-sql">WITH OrderTotals AS (
+  SELECT oi.OrderID, SUM(oi.Qty * oi.UnitPrice) AS OrderTotal
+  FROM OrderItems oi
+  GROUP BY oi.OrderID
+),
+CustomerOrders AS (
+  SELECT o.Customer, o.OrderID, ot.OrderTotal
+  FROM Orders o
+  JOIN OrderTotals ot ON o.OrderID = ot.OrderID
+)
+SELECT Customer,
+       COUNT(DISTINCT OrderID) AS Orders,
+       SUM(OrderTotal)         AS Revenue
+FROM CustomerOrders
+GROUP BY Customer
+ORDER BY Revenue DESC;
+</code></pre>
+<p><strong>Output</strong>
+| Customer   |   Orders |   Revenue |
+|:-----------|---------:|----------:|
+| Crown      |        1 |    100000 |
+| Acme       |        3 |     87000 |
+| Delta      |        1 |     60000 |
+| Bolt       |        1 |     45000 |</p>
+<hr />
+<h2 id="9-recursive-cte-organization-levels">9) Recursive CTE – Organization levels<a class="headerlink" href="#9-recursive-cte-organization-levels" title="Permanent link">&para;</a></h2>
+<pre><code class="language-sql">WITH RECURSIVE Org AS (
+  SELECT EmpID, Name, ManagerID, 0 AS Level
+  FROM Employees
+  WHERE ManagerID IS NULL
+  UNION ALL
+  SELECT e.EmpID, e.Name, e.ManagerID, o.Level + 1
+  FROM Employees e
+  JOIN Org o ON e.ManagerID = o.EmpID
+)
+SELECT EmpID, Name, Level
+FROM Org
+ORDER BY Level, EmpID;
+</code></pre>
+<p><strong>Output</strong>
+|   EmpID | Name        |   Level |
+|--------:|:------------|--------:|
+|     101 | Amit Sharma |       0 |
+|     102 | Riya Mehta  |       1 |
+|     103 | Arjun Rao   |       1 |
+|     105 | Rohit Verma |       1 |
+|     104 | Neha Singh  |       2 |
+|     106 | Priya Nair  |       2 |</p>
+<hr />
+<h1 id="complex-examples">Complex Examples<a class="headerlink" href="#complex-examples" title="Permanent link">&para;</a></h1>
+<h2 id="complex-a-top-2-earners-per-department-cte-window-function">Complex A) Top 2 earners per department (CTE + window function)<a class="headerlink" href="#complex-a-top-2-earners-per-department-cte-window-function" title="Permanent link">&para;</a></h2>
+<pre><code class="language-sql">WITH Ranked AS (
+  SELECT d.DeptName, e.Name, e.Salary,
+         ROW_NUMBER() OVER (PARTITION BY e.DeptID ORDER BY e.Salary DESC) AS rn
+  FROM Employees e
+  LEFT JOIN Departments d ON e.DeptID = d.DeptID
+)
+SELECT DeptName, Name, Salary, rn AS Rank
+FROM Ranked
+WHERE rn &lt;= 2
+ORDER BY DeptName, Rank, Name;
+</code></pre>
+<p><strong>Output</strong>
+| DeptName   | Name        |   Salary |   Rank |
+|:-----------|:------------|---------:|-------:|
+| Finance    | Arjun Rao   |    55000 |      1 |
+| HR         | Amit Sharma |    50000 |      1 |
+| HR         | Rohit Verma |    48000 |      2 |
+| IT         | Neha Singh  |    80000 |      1 |
+| IT         | Riya Mehta  |    70000 |      2 |</p>
+<hr />
+<h2 id="complex-b-highest-revenue-product-per-customer-cte-ranking">Complex B) Highest revenue product per customer (CTE + ranking)<a class="headerlink" href="#complex-b-highest-revenue-product-per-customer-cte-ranking" title="Permanent link">&para;</a></h2>
+<pre><code class="language-sql">WITH CustProd AS (
+  SELECT o.Customer, oi.Product,
+         SUM(oi.Qty * oi.UnitPrice) AS Revenue
+  FROM Orders o
+  JOIN OrderItems oi ON o.OrderID = oi.OrderID
+  GROUP BY o.Customer, oi.Product
+),
+Ranked AS (
+  SELECT Customer, Product, Revenue,
+         ROW_NUMBER() OVER (PARTITION BY Customer ORDER BY Revenue DESC) AS rk
+  FROM CustProd
+)
+SELECT Customer, Product, Revenue
+FROM Ranked
+WHERE rk = 1
+ORDER BY Customer;
+</code></pre>
+<p><strong>Output</strong>
+| Customer   | Product   |   Revenue |
+|:-----------|:----------|----------:|
+| Acme       | Laptop    |     60000 |
+| Bolt       | Tablet    |     45000 |
+| Crown      | Laptop    |     60000 |
+| Delta      | Laptop    |     60000 |</p>
+<hr />
+<h2 id="complex-c-manager-employee-pairs-recursive-cte-for-relationships">Complex C) Manager → Employee pairs (recursive CTE for relationships)<a class="headerlink" href="#complex-c-manager-employee-pairs-recursive-cte-for-relationships" title="Permanent link">&para;</a></h2>
+<pre><code class="language-sql">WITH RECURSIVE Tree AS (
+  SELECT EmpID, Name, ManagerID, CAST(Name AS VARCHAR(200)) AS Path
+  FROM Employees
+  WHERE ManagerID IS NULL
+  UNION ALL
+  SELECT e.EmpID, e.Name, e.ManagerID, CAST(t.Path || ' &gt; ' || e.Name AS VARCHAR(200))
+  FROM Employees e
+  JOIN Tree t ON e.ManagerID = t.EmpID
+)
+SELECT * FROM Tree ORDER BY Path;
+</code></pre>
+<p><strong>Output</strong>
+| Manager     | Employee    |
+|:------------|:------------|
+| Amit Sharma | Arjun Rao   |
+| Amit Sharma | Riya Mehta  |
+| Amit Sharma | Rohit Verma |
+| Riya Mehta  | Neha Singh  |
+| Riya Mehta  | Priya Nair  |</p>
+<hr />
+<p>✅ In this part, you learned:
+- Scalar, IN, EXISTS/NOT EXISTS, ANY/ALL subqueries
+- Derived tables (subquery in FROM)
+- CTEs (single, multiple) and <strong>recursive CTEs</strong> for hierarchies
+- Complex patterns using <strong>window functions</strong> + CTEs</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

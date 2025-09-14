@@ -1,5 +1,5 @@
 site_name: JavaScript Playwright Docs
-site_url: https://Play-Wright-course.github.io/Java-Script-Doc/
+site_url: https://Play-Wright-course.github.io/automation-testing/
 use_directory_urls: true
 nav:
   - JavaScript Concepts:
@@ -36,6 +36,7 @@ markdown_extensions:
   - toc:
       permalink: true
   - tables
+
 
 
 

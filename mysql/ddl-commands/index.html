@@ -918,6 +918,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ddl-commands-feature-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 DDL Commands – Feature Comparison
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 DDL Commands – Feature Comparison">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔑 Key Notes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1150,6 +1174,84 @@ ALTER TABLE Employee RENAME COLUMN Name TO FullName;
 </tr>
 </tbody>
 </table>
+<h2 id="ddl-commands-feature-comparison">📊 DDL Commands – Feature Comparison<a class="headerlink" href="#ddl-commands-feature-comparison" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Rollback Possible</th>
+<th>Data Loss</th>
+<th>Structure Change</th>
+<th>Typical Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CREATE</strong></td>
+<td>✅ Yes (before commit)</td>
+<td>❌ No</td>
+<td>✅ Creates new object</td>
+<td>Create tables, views, indexes</td>
+</tr>
+<tr>
+<td><strong>ALTER</strong></td>
+<td>✅ Yes (before commit)</td>
+<td>❌ No</td>
+<td>✅ Modifies structure</td>
+<td>Add/modify columns, constraints</td>
+</tr>
+<tr>
+<td><strong>DROP</strong></td>
+<td>✅ Yes (before commit)</td>
+<td>✅ Yes (all data lost)</td>
+<td>✅ Removes object completely</td>
+<td>Delete table/schema permanently</td>
+</tr>
+<tr>
+<td><strong>TRUNCATE</strong></td>
+<td>✅ Yes (before commit)</td>
+<td>✅ Yes (all rows deleted)</td>
+<td>❌ No (structure remains)</td>
+<td>Quickly remove all records</td>
+</tr>
+<tr>
+<td><strong>RENAME</strong></td>
+<td>✅ Yes (before commit)</td>
+<td>❌ No</td>
+<td>✅ Only name changes</td>
+<td>Rename table/column</td>
+</tr>
+<tr>
+<td><strong>COMMENT</strong></td>
+<td>✅ Yes (before commit)</td>
+<td>❌ No</td>
+<td>❌ No (metadata only)</td>
+<td>Add description to objects</td>
+</tr>
+<tr>
+<td><strong>CREATE INDEX</strong></td>
+<td>✅ Yes (before commit)</td>
+<td>❌ No</td>
+<td>✅ Creates performance structure</td>
+<td>Improve query performance</td>
+</tr>
+<tr>
+<td><strong>DROP INDEX</strong></td>
+<td>✅ Yes (before commit)</td>
+<td>❌ No (only index removed)</td>
+<td>✅ Removes performance structure</td>
+<td>Free up space, remove unused index</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="key-notes">🔑 Key Notes<a class="headerlink" href="#key-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Rollback</strong> → Possible only until you <code>COMMIT</code> (some DBs auto-commit DDL, e.g., Oracle).  </li>
+<li><strong>Data Loss</strong> → <code>DROP</code> &amp; <code>TRUNCATE</code> cause data removal; <code>ALTER</code>/<code>RENAME</code> don’t.  </li>
+<li><strong>Structure Change</strong> → All DDL affects schema except <code>COMMENT</code>.  </li>
+<li><strong>Performance Impact</strong> → <code>TRUNCATE</code> is faster than <code>DELETE</code>; indexes speed queries but slow inserts/updates.  </li>
+</ul>
 
 
 

@@ -217,3 +217,25 @@ ALTER TABLE Employee RENAME COLUMN Name TO FullName;
 | **Performance** | Indexes & partitions speed up queries | `CREATE INDEX idx_salary` |
 | **Automation Friendly** | DDL scripts can be versioned in Git & run in CI/CD | Migration scripts for deployments |
 | **Flexibility** | Schema can evolve with business needs | `ALTER TABLE Employee ADD PhoneNumber` |
+
+## 📊 DDL Commands – Feature Comparison
+
+| Command       | Rollback Possible | Data Loss | Structure Change | Typical Use Case |
+|---------------|------------------|-----------|------------------|------------------|
+| **CREATE**    | ✅ Yes (before commit) | ❌ No | ✅ Creates new object | Create tables, views, indexes |
+| **ALTER**     | ✅ Yes (before commit) | ❌ No | ✅ Modifies structure | Add/modify columns, constraints |
+| **DROP**      | ✅ Yes (before commit) | ✅ Yes (all data lost) | ✅ Removes object completely | Delete table/schema permanently |
+| **TRUNCATE**  | ✅ Yes (before commit) | ✅ Yes (all rows deleted) | ❌ No (structure remains) | Quickly remove all records |
+| **RENAME**    | ✅ Yes (before commit) | ❌ No | ✅ Only name changes | Rename table/column |
+| **COMMENT**   | ✅ Yes (before commit) | ❌ No | ❌ No (metadata only) | Add description to objects |
+| **CREATE INDEX** | ✅ Yes (before commit) | ❌ No | ✅ Creates performance structure | Improve query performance |
+| **DROP INDEX**   | ✅ Yes (before commit) | ❌ No (only index removed) | ✅ Removes performance structure | Free up space, remove unused index |
+
+---
+
+### 🔑 Key Notes
+- **Rollback** → Possible only until you `COMMIT` (some DBs auto-commit DDL, e.g., Oracle).  
+- **Data Loss** → `DROP` & `TRUNCATE` cause data removal; `ALTER`/`RENAME` don’t.  
+- **Structure Change** → All DDL affects schema except `COMMENT`.  
+- **Performance Impact** → `TRUNCATE` is faster than `DELETE`; indexes speed queries but slow inserts/updates.  
+

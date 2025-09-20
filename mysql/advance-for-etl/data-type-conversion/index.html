@@ -1,0 +1,1403 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://Play-Wright-course.github.io/automation-testing/mysql/advance-for-etl/data-type-conversion/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>SQL Practice: Data Type Conversions with Explanations - JavaScript Playwright Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.e53b48f4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sql-practice-data-type-conversions-with-explanations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="JavaScript Playwright Docs" class="md-header__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaScript Playwright Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SQL Practice: Data Type Conversions with Explanations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="JavaScript Playwright Docs" class="md-nav__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JavaScript Playwright Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    JavaScript Concepts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            JavaScript Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascriptConcepts/variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascriptConcepts/dataTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascriptConcepts/operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascriptConcepts/flow-statement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Flow Statements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascriptConcepts/Arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arrays & Objects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascriptConcepts/functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    PlayWright With Java
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            PlayWright With Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/locator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Locators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/page-navigation-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Page Navigation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/playwright-interaction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inputs And Buttons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/checkbox-radio-button/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Checkbox And Radio buttons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/dropdown_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dropdown Handling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/iframes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    iframe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/mouse-keyboard-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mouse Keyboard Actions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/alerts-promt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Alerts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/handling-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Handle Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/file-upload-download/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File upload And Download
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/screenshot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ScreenShot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exceptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/interview-question/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InterViwe Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-input-table-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Input Table Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cast-convert-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. CAST() / CONVERT() Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. CAST() / CONVERT() Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-convert-salary-to-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q1: Convert salary to string
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2-convert-join_date-to-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q2: Convert join_date to string
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-convert-string-to-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q3: Convert string to date
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4-convert-salary-to-float-and-calculate-bonus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q4: Convert salary to float and calculate bonus
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q5-implicit-conversion-in-concatenation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q5: Implicit conversion in concatenation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q6-convert-numeric-string-to-integer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q6: Convert numeric string to integer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q7-convert-date-to-datetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q7: Convert date to datetime
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q8-convert-integer-to-decimal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q8: Convert integer to decimal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q9-implicit-conversion-in-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q9: Implicit conversion in comparison
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q10-convert-string-date-to-different-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q10: Convert string date to different format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="sql-practice-data-type-conversions-with-explanations">SQL Practice: Data Type Conversions with Explanations<a class="headerlink" href="#sql-practice-data-type-conversions-with-explanations" title="Permanent link">&para;</a></h1>
+<p>This file contains <strong>15 SQL practice problems</strong> covering:</p>
+<ul>
+<li>CAST() and CONVERT()</li>
+<li>Implicit vs Explicit conversion</li>
+</ul>
+<p>Each question includes:</p>
+<ul>
+<li>Input Table(s)</li>
+<li>Question</li>
+<li>SQL Query</li>
+<li>Explanation</li>
+<li>Output Table</li>
+</ul>
+<hr />
+<h2 id="1-input-table-example">1. Input Table Example<a class="headerlink" href="#1-input-table-example" title="Permanent link">&para;</a></h2>
+<p><strong>Table: employees</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+<th>salary</th>
+<th>join_date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice</td>
+<td>48000</td>
+<td>2025-01-10</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+<td>60000</td>
+<td>2024-12-15</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie</td>
+<td>55000</td>
+<td>2025-03-01</td>
+</tr>
+<tr>
+<td>4</td>
+<td>David</td>
+<td>45000</td>
+<td>2025-02-20</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Eva</td>
+<td>70000</td>
+<td>2024-11-05</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-cast-convert-examples">2. CAST() / CONVERT() Examples<a class="headerlink" href="#2-cast-convert-examples" title="Permanent link">&para;</a></h2>
+<h3 id="q1-convert-salary-to-string">Q1: Convert salary to string<a class="headerlink" href="#q1-convert-salary-to-string" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT emp_id, name, CAST(salary AS VARCHAR(10)) AS salary_str
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+<th>salary_str</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice</td>
+<td>48000</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+<td>60000</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie</td>
+<td>55000</td>
+</tr>
+<tr>
+<td>4</td>
+<td>David</td>
+<td>45000</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Eva</td>
+<td>70000</td>
+</tr>
+</tbody>
+</table>
+<h3 id="q2-convert-join_date-to-string">Q2: Convert join_date to string<a class="headerlink" href="#q2-convert-join_date-to-string" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT emp_id, name, CONVERT(VARCHAR(10), join_date, 120) AS join_date_str
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+<th>join_date_str</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice</td>
+<td>2025-01-10</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+<td>2024-12-15</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie</td>
+<td>2025-03-01</td>
+</tr>
+<tr>
+<td>4</td>
+<td>David</td>
+<td>2025-02-20</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Eva</td>
+<td>2024-11-05</td>
+</tr>
+</tbody>
+</table>
+<h3 id="q3-convert-string-to-date">Q3: Convert string to date<a class="headerlink" href="#q3-convert-string-to-date" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT emp_id, name, CAST('2025-09-20' AS DATE) AS example_date
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+<th>example_date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice</td>
+<td>2025-09-20</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+<td>2025-09-20</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie</td>
+<td>2025-09-20</td>
+</tr>
+<tr>
+<td>4</td>
+<td>David</td>
+<td>2025-09-20</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Eva</td>
+<td>2025-09-20</td>
+</tr>
+</tbody>
+</table>
+<h3 id="q4-convert-salary-to-float-and-calculate-bonus">Q4: Convert salary to float and calculate bonus<a class="headerlink" href="#q4-convert-salary-to-float-and-calculate-bonus" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT emp_id, name, CAST(salary AS FLOAT) * 0.10 AS bonus
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+<th>bonus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice</td>
+<td>4800</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+<td>6000</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie</td>
+<td>5500</td>
+</tr>
+<tr>
+<td>4</td>
+<td>David</td>
+<td>4500</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Eva</td>
+<td>7000</td>
+</tr>
+</tbody>
+</table>
+<h3 id="q5-implicit-conversion-in-concatenation">Q5: Implicit conversion in concatenation<a class="headerlink" href="#q5-implicit-conversion-in-concatenation" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT emp_id, name + ' earns ' + salary AS description
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice earns 48000</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob earns 60000</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie earns 55000</td>
+</tr>
+<tr>
+<td>4</td>
+<td>David earns 45000</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Eva earns 70000</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q6-convert-numeric-string-to-integer">Q6: Convert numeric string to integer<a class="headerlink" href="#q6-convert-numeric-string-to-integer" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT emp_id, name, CAST('12345' AS INT) AS num_value
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+<th>num_value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice</td>
+<td>12345</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+<td>12345</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie</td>
+<td>12345</td>
+</tr>
+<tr>
+<td>4</td>
+<td>David</td>
+<td>12345</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Eva</td>
+<td>12345</td>
+</tr>
+</tbody>
+</table>
+<h3 id="q7-convert-date-to-datetime">Q7: Convert date to datetime<a class="headerlink" href="#q7-convert-date-to-datetime" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT emp_id, name, CAST(join_date AS DATETIME) AS join_datetime
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+<th>join_datetime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice</td>
+<td>2025-01-10 00:00:00</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+<td>2024-12-15 00:00:00</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie</td>
+<td>2025-03-01 00:00:00</td>
+</tr>
+<tr>
+<td>4</td>
+<td>David</td>
+<td>2025-02-20 00:00:00</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Eva</td>
+<td>2024-11-05 00:00:00</td>
+</tr>
+</tbody>
+</table>
+<h3 id="q8-convert-integer-to-decimal">Q8: Convert integer to decimal<a class="headerlink" href="#q8-convert-integer-to-decimal" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT emp_id, name, CONVERT(DECIMAL(10,2), salary) AS salary_decimal
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+<th>salary_decimal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice</td>
+<td>48000.00</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+<td>60000.00</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie</td>
+<td>55000.00</td>
+</tr>
+<tr>
+<td>4</td>
+<td>David</td>
+<td>45000.00</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Eva</td>
+<td>70000.00</td>
+</tr>
+</tbody>
+</table>
+<h3 id="q9-implicit-conversion-in-comparison">Q9: Implicit conversion in comparison<a class="headerlink" href="#q9-implicit-conversion-in-comparison" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT emp_id, name
+FROM employees
+WHERE salary &gt; '50000';
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>Bob</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Eva</td>
+</tr>
+</tbody>
+</table>
+<h3 id="q10-convert-string-date-to-different-format">Q10: Convert string date to different format<a class="headerlink" href="#q10-convert-string-date-to-different-format" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT emp_id, name, CONVERT(VARCHAR(10), join_date, 101) AS join_date_us
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+<th>join_date_us</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice</td>
+<td>01/10/2025</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+<td>12/15/2024</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie</td>
+<td>03/01/2025</td>
+</tr>
+<tr>
+<td>4</td>
+<td>David</td>
+<td>02/20/2025</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Eva</td>
+<td>11/05/2024</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="explanation">Explanation:<a class="headerlink" href="#explanation" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>CAST()</strong> explicitly converts data from one type to another.</li>
+<li><strong>CONVERT()</strong> can change types and formats (especially for dates).</li>
+<li><strong>Implicit conversion</strong> happens automatically when data types are compatible.</li>
+<li><strong>Explicit conversion</strong> is safer and avoids errors in ETL.</li>
+</ol>
+<hr />
+<p><strong>Use case in ETL Testing:</strong></p>
+<ul>
+<li>Verify numeric → string conversions for reporting.</li>
+<li>Ensure string → date conversions match target format.</li>
+<li>Validate ETL handles type changes correctly during t</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

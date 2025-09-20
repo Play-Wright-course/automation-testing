@@ -1,0 +1,1827 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://Play-Wright-course.github.io/automation-testing/mysql/sql-query-practice-3/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>SQL Practice: Functions (String, Date, Numeric) with Explanations - JavaScript Playwright Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sql-practice-functions-string-date-numeric-with-explanations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JavaScript Playwright Docs" class="md-header__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaScript Playwright Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SQL Practice: Functions (String, Date, Numeric) with Explanations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JavaScript Playwright Docs" class="md-nav__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JavaScript Playwright Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    JavaScript Concepts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            JavaScript Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/dataTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/flow-statement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Flow Statements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/Arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arrays & Objects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    PlayWright With Java
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            PlayWright With Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/locator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Locators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/page-navigation-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Page Navigation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/playwright-interaction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inputs And Buttons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/checkbox-radio-button/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Checkbox And Radio buttons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/dropdown_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dropdown Handling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/iframes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    iframe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/mouse-keyboard-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mouse Keyboard Actions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/alerts-promt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Alerts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/handling-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Handle Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/file-upload-download/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File upload And Download
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/screenshot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ScreenShot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exceptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/interview-question/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InterViwe Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-string-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. String Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. String Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-remove-spaces-from-names-using-trim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q1: Remove spaces from names using TRIM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2-extract-first-3-letters-of-name-using-substr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q2: Extract first 3 letters of name using SUBSTR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-concatenate-name-with-department" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q3: Concatenate name with department
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4-get-length-of-each-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q4: Get length of each name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q5-convert-name-to-uppercase-and-lowercase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q5: Convert name to uppercase and lowercase
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-date-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Date Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Date Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q6-get-current-date-using-now-mysql-getdate-sql-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q6: Get current date using NOW (MySQL) / GETDATE (SQL Server)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q7-add-5-days-to-current-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q7: Add 5 days to current date
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q8-difference-between-two-dates-in-days" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q8: Difference between two dates (in days)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q9-convert-string-to-date-using-to_date-oracle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q9: Convert string to date using TO_DATE (Oracle)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q10-extract-year-month-from-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q10: Extract year, month from date
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-numeric-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Numeric Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Numeric Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q11-round-salary-to-nearest-1000" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q11: Round salary to nearest 1000
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q12-ceiling-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q12: Ceiling function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q13-floor-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q13: Floor function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q14-absolute-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q14: Absolute value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q15-multiply-salary-by-11-and-round" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q15: Multiply salary by 1.1 and round
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q16-add-7-days-to-date-using-dateadd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q16: Add 7 days to date using DATEADD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q17-difference-in-years-from-today" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q17: Difference in years from today
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q18-concatenate-numeric-and-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q18: Concatenate numeric and string
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q19-lowercase-department" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q19: Lowercase department
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q20-uppercase-department" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q20: Uppercase department
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="sql-practice-functions-string-date-numeric-with-explanations">SQL Practice: Functions (String, Date, Numeric) with Explanations<a class="headerlink" href="#sql-practice-functions-string-date-numeric-with-explanations" title="Permanent link">&para;</a></h1>
+<p>This file contains <strong>20 SQL practice problems</strong> covering:</p>
+<ul>
+<li>String functions: TRIM, SUBSTR, CONCAT, LENGTH, UPPER, LOWER</li>
+<li>Date functions: NOW, GETDATE, DATEADD, DATEDIFF, TO_DATE</li>
+<li>Numeric functions: ROUND, CEIL, FLOOR, ABS</li>
+</ul>
+<p>Each question includes:</p>
+<ul>
+<li>Input Table(s)</li>
+<li>Question</li>
+<li>SQL Query</li>
+<li>Explanation</li>
+<li>Output Table</li>
+</ul>
+<hr />
+<h2 id="1-string-functions">1. String Functions<a class="headerlink" href="#1-string-functions" title="Permanent link">&para;</a></h2>
+<h3 id="q1-remove-spaces-from-names-using-trim">Q1: Remove spaces from names using TRIM<a class="headerlink" href="#q1-remove-spaces-from-names-using-trim" title="Permanent link">&para;</a></h3>
+<p><strong>Input Table: employees</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>' Alice '</td>
+</tr>
+<tr>
+<td>2</td>
+<td>' Bob '</td>
+</tr>
+<tr>
+<td>3</td>
+<td>' Charlie '</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query:</strong></p>
+<pre><code class="language-sql">SELECT emp_id, TRIM(name) AS name_clean
+FROM employees;
+</code></pre>
+<p><strong>Explanation:</strong>
+<code>TRIM</code> removes leading and trailing spaces.</p>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name_clean</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q2-extract-first-3-letters-of-name-using-substr">Q2: Extract first 3 letters of name using SUBSTR<a class="headerlink" href="#q2-extract-first-3-letters-of-name-using-substr" title="Permanent link">&para;</a></h3>
+<p><strong>Input Table: employees</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">SELECT emp_id, SUBSTR(name,1,3) AS short_name
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>short_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Ali</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Cha</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q3-concatenate-name-with-department">Q3: Concatenate name with department<a class="headerlink" href="#q3-concatenate-name-with-department" title="Permanent link">&para;</a></h3>
+<p><strong>Input Table: employees</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+<th>dept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice</td>
+<td>HR</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+<td>IT</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie</td>
+<td>Sales</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">SELECT emp_id, CONCAT(name, ' - ', dept) AS name_dept
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name_dept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice - HR</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob - IT</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie - Sales</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q4-get-length-of-each-name">Q4: Get length of each name<a class="headerlink" href="#q4-get-length-of-each-name" title="Permanent link">&para;</a></h3>
+<p><strong>Input Table: employees</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">SELECT emp_id, LENGTH(name) AS name_length
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name_length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q5-convert-name-to-uppercase-and-lowercase">Q5: Convert name to uppercase and lowercase<a class="headerlink" href="#q5-convert-name-to-uppercase-and-lowercase" title="Permanent link">&para;</a></h3>
+<p><strong>Input Table: employees</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">SELECT emp_id, UPPER(name) AS upper_name, LOWER(name) AS lower_name
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>upper_name</th>
+<th>lower_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>ALICE</td>
+<td>alice</td>
+</tr>
+<tr>
+<td>2</td>
+<td>BOB</td>
+<td>bob</td>
+</tr>
+<tr>
+<td>3</td>
+<td>CHARLIE</td>
+<td>charlie</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-date-functions">2. Date Functions<a class="headerlink" href="#2-date-functions" title="Permanent link">&para;</a></h2>
+<h3 id="q6-get-current-date-using-now-mysql-getdate-sql-server">Q6: Get current date using NOW (MySQL) / GETDATE (SQL Server)<a class="headerlink" href="#q6-get-current-date-using-now-mysql-getdate-sql-server" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT NOW() AS current_date; -- MySQL
+-- SELECT GETDATE() AS current_date; -- SQL Server
+</code></pre>
+<p><strong>Output Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>current_date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2025-09-20 11:00</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q7-add-5-days-to-current-date">Q7: Add 5 days to current date<a class="headerlink" href="#q7-add-5-days-to-current-date" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT DATEADD(day, 5, GETDATE()) AS future_date; -- SQL Server
+</code></pre>
+<p><strong>Output Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>future_date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2025-09-25 11:00</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q8-difference-between-two-dates-in-days">Q8: Difference between two dates (in days)<a class="headerlink" href="#q8-difference-between-two-dates-in-days" title="Permanent link">&para;</a></h3>
+<p><strong>Input Table: projects</strong></p>
+<table>
+<thead>
+<tr>
+<th>project_id</th>
+<th>start_date</th>
+<th>end_date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2025-09-01</td>
+<td>2025-09-10</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2025-09-05</td>
+<td>2025-09-20</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">SELECT project_id, DATEDIFF(day, start_date, end_date) AS duration_days
+FROM projects; -- SQL Server
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>project_id</th>
+<th>duration_days</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>9</td>
+</tr>
+<tr>
+<td>2</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q9-convert-string-to-date-using-to_date-oracle">Q9: Convert string to date using TO_DATE (Oracle)<a class="headerlink" href="#q9-convert-string-to-date-using-to_date-oracle" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT TO_DATE('20-09-2025','DD-MM-YYYY') AS date_val FROM dual;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>date_val</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20-SEP-25</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q10-extract-year-month-from-date">Q10: Extract year, month from date<a class="headerlink" href="#q10-extract-year-month-from-date" title="Permanent link">&para;</a></h3>
+<p><strong>Input Table: employees</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+<th>joining_date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice</td>
+<td>2020-05-10</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+<td>2021-08-15</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie</td>
+<td>2022-01-20</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">SELECT emp_id, YEAR(joining_date) AS year_joined, MONTH(joining_date) AS month_joined
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>year_joined</th>
+<th>month_joined</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2020</td>
+<td>5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2021</td>
+<td>8</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2022</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-numeric-functions">3. Numeric Functions<a class="headerlink" href="#3-numeric-functions" title="Permanent link">&para;</a></h2>
+<h3 id="q11-round-salary-to-nearest-1000">Q11: Round salary to nearest 1000<a class="headerlink" href="#q11-round-salary-to-nearest-1000" title="Permanent link">&para;</a></h3>
+<p><strong>Input Table: employees</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>52345</td>
+</tr>
+<tr>
+<td>2</td>
+<td>60789</td>
+</tr>
+<tr>
+<td>3</td>
+<td>55432</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">SELECT emp_id, ROUND(salary, -3) AS rounded_salary
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>rounded_salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>52000</td>
+</tr>
+<tr>
+<td>2</td>
+<td>61000</td>
+</tr>
+<tr>
+<td>3</td>
+<td>55000</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q12-ceiling-function">Q12: Ceiling function<a class="headerlink" href="#q12-ceiling-function" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT emp_id, CEIL(salary/1000.0) AS ceil_k_salary
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>ceil_k_salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>53</td>
+</tr>
+<tr>
+<td>2</td>
+<td>61</td>
+</tr>
+<tr>
+<td>3</td>
+<td>56</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q13-floor-function">Q13: Floor function<a class="headerlink" href="#q13-floor-function" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT emp_id, FLOOR(salary/1000.0) AS floor_k_salary
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>floor_k_salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>52</td>
+</tr>
+<tr>
+<td>2</td>
+<td>60</td>
+</tr>
+<tr>
+<td>3</td>
+<td>55</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q14-absolute-value">Q14: Absolute value<a class="headerlink" href="#q14-absolute-value" title="Permanent link">&para;</a></h3>
+<p><strong>Input Table: transactions</strong></p>
+<table>
+<thead>
+<tr>
+<th>trans_id</th>
+<th>amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>-500</td>
+</tr>
+<tr>
+<td>2</td>
+<td>300</td>
+</tr>
+<tr>
+<td>3</td>
+<td>-1000</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">SELECT trans_id, ABS(amount) AS abs_amount
+FROM transactions;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>trans_id</th>
+<th>abs_amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>500</td>
+</tr>
+<tr>
+<td>2</td>
+<td>300</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q15-multiply-salary-by-11-and-round">Q15: Multiply salary by 1.1 and round<a class="headerlink" href="#q15-multiply-salary-by-11-and-round" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT emp_id, ROUND(salary*1.1,0) AS increased_salary
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>increased_salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>57579</td>
+</tr>
+<tr>
+<td>2</td>
+<td>66868</td>
+</tr>
+<tr>
+<td>3</td>
+<td>60975</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q16-add-7-days-to-date-using-dateadd">Q16: Add 7 days to date using DATEADD<a class="headerlink" href="#q16-add-7-days-to-date-using-dateadd" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT emp_id, DATEADD(day,7,joining_date) AS next_week
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>next_week</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2020-05-17</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2021-08-22</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2022-01-27</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q17-difference-in-years-from-today">Q17: Difference in years from today<a class="headerlink" href="#q17-difference-in-years-from-today" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT emp_id, DATEDIFF(year, joining_date, GETDATE()) AS years_with_company
+FROM employees;
+</code></pre>
+<p><strong>Output Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>years_with_company</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q18-concatenate-numeric-and-string">Q18: Concatenate numeric and string<a class="headerlink" href="#q18-concatenate-numeric-and-string" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT emp_id, CONCAT('Salary: ', salary) AS salary_text
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>salary_text</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Salary: 52345</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Salary: 60789</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Salary: 55432</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q19-lowercase-department">Q19: Lowercase department<a class="headerlink" href="#q19-lowercase-department" title="Permanent link">&para;</a></h3>
+<p><strong>Input Table: employees</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>dept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>HR</td>
+</tr>
+<tr>
+<td>2</td>
+<td>IT</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Sales</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">SELECT emp_id, LOWER(dept) AS lower_dept
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>lower_dept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>hr</td>
+</tr>
+<tr>
+<td>2</td>
+<td>it</td>
+</tr>
+<tr>
+<td>3</td>
+<td>sales</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q20-uppercase-department">Q20: Uppercase department<a class="headerlink" href="#q20-uppercase-department" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT emp_id, UPPER(dept) AS upper_dept
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>upper_dept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>HR</td>
+</tr>
+<tr>
+<td>2</td>
+<td>IT</td>
+</tr>
+<tr>
+<td>3</td>
+<td>SALES</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

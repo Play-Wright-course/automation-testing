@@ -1,0 +1,1158 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://Play-Wright-course.github.io/automation-testing/java-concepts/encapsulation/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Encapsulation in Java - JavaScript Playwright Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#encapsulation-in-java" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JavaScript Playwright Docs" class="md-header__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaScript Playwright Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Encapsulation in Java
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JavaScript Playwright Docs" class="md-nav__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JavaScript Playwright Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    JavaScript Concepts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            JavaScript Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/dataTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/flow-statement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Flow Statements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/Arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arrays & Objects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    PlayWright With Java
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            PlayWright With Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/locator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Locators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/page-navigation-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Page Navigation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/playwright-interaction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inputs And Buttons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/checkbox-radio-button/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Checkbox And Radio buttons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/dropdown_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dropdown Handling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/iframes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    iframe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/mouse-keyboard-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mouse Keyboard Actions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/alerts-promt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Alerts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/handling-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Handle Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/file-upload-download/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File upload And Download
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/screenshot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ScreenShot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exceptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/interview-question/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InterViwe Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      💌 Definition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-encapsulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔑 Why Encapsulation?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Key Features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-without-encapsulation-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Example Without Encapsulation (Problem)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-with-encapsulation-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Example With Encapsulation (Solution)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-world-example-bank-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌟 Real-World Example: Bank Account
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advantages-of-encapsulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⭐ Advantages of Encapsulation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encapsulation-in-selenium-java-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Encapsulation in Selenium Java Framework
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Encapsulation in Selenium Java Framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-page-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Page Object
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encapsulation-in-java-playwright-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Encapsulation in Java Playwright Framework
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Encapsulation in Java Playwright Framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-login-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Login Page
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="encapsulation-in-java">Encapsulation in Java<a class="headerlink" href="#encapsulation-in-java" title="Permanent link">&para;</a></h1>
+<h2 id="definition">💌 Definition<a class="headerlink" href="#definition" title="Permanent link">&para;</a></h2>
+<p>Encapsulation is one of the <strong>four pillars of OOP</strong>.
+It means <strong>binding data (fields) and methods (functions) together into a single unit (class)</strong> and <strong>restricting direct access</strong> to the data by making fields <code>private</code> and providing controlled access via <code>public</code> methods (getters/setters).</p>
+<hr />
+<h2 id="why-encapsulation">🔑 Why Encapsulation?<a class="headerlink" href="#why-encapsulation" title="Permanent link">&para;</a></h2>
+<p>If fields are public:</p>
+<ul>
+<li>Anyone can directly access or modify them.</li>
+<li>No control over invalid data.</li>
+<li>Difficult to maintain or change internal representation later.</li>
+</ul>
+<p>With encapsulation:</p>
+<ul>
+<li>Data is <strong>hidden</strong> from outside classes.</li>
+<li>Access is <strong>controlled</strong> through methods.</li>
+<li>Validation and business rules can be applied.</li>
+</ul>
+<hr />
+<h2 id="key-features">✅ Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Private fields</strong> → data hiding.</li>
+<li><strong>Public getters/setters</strong> → controlled access.</li>
+<li><strong>Validation</strong> → prevent invalid values.</li>
+<li><strong>Read-only / Write-only</strong> → allow only getter or only setter.</li>
+<li><strong>Flexibility</strong> → change implementation without breaking outside code.</li>
+</ol>
+<hr />
+<h2 id="example-without-encapsulation-problem">📝 Example Without Encapsulation (Problem)<a class="headerlink" href="#example-without-encapsulation-problem" title="Permanent link">&para;</a></h2>
+<pre><code class="language-java">class Student {
+    public int age;   // public field
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Student s = new Student();
+        s.age = -10;   // ❌ invalid, but allowed
+        System.out.println(&quot;Age: &quot; + s.age);
+    }
+}
+</code></pre>
+<hr />
+<h2 id="example-with-encapsulation-solution">📝 Example With Encapsulation (Solution)<a class="headerlink" href="#example-with-encapsulation-solution" title="Permanent link">&para;</a></h2>
+<pre><code class="language-java">class Student {
+    private int age;  // private field
+
+    // Setter with validation
+    public void setAge(int age) {
+        if(age &gt; 0) {
+            this.age = age;
+        } else {
+            System.out.println(&quot;❌ Age must be positive!&quot;);
+        }
+    }
+
+    // Getter
+    public int getAge() {
+        return age;
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+        Student s = new Student();
+        s.setAge(-10); // blocked
+        s.setAge(20);  // ✅ valid
+        System.out.println(&quot;Age: &quot; + s.getAge());
+    }
+}
+</code></pre>
+<hr />
+<h2 id="real-world-example-bank-account">🌟 Real-World Example: Bank Account<a class="headerlink" href="#real-world-example-bank-account" title="Permanent link">&para;</a></h2>
+<pre><code class="language-java">class BankAccount {
+    private double balance; // sensitive data
+
+    public BankAccount(double initialBalance) {
+        if(initialBalance &gt;= 0) {
+            this.balance = initialBalance;
+        }
+    }
+
+    public double getBalance() {
+        return balance; // read-only access
+    }
+
+    public void deposit(double amount) {
+        if(amount &gt; 0) balance += amount;
+    }
+
+    public void withdraw(double amount) {
+        if(amount &gt; 0 &amp;&amp; amount &lt;= balance) balance -= amount;
+        else System.out.println(&quot;❌ Invalid transaction&quot;);
+    }
+}
+
+public class BankDemo {
+    public static void main(String[] args) {
+        BankAccount acc = new BankAccount(1000);
+        acc.deposit(500);
+        acc.withdraw(2000); // ❌ not allowed
+        System.out.println(&quot;Final Balance: &quot; + acc.getBalance());
+    }
+}
+</code></pre>
+<hr />
+<h2 id="advantages-of-encapsulation">⭐ Advantages of Encapsulation<a class="headerlink" href="#advantages-of-encapsulation" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Protects data integrity.</li>
+<li>Improves code maintainability.</li>
+<li>Provides flexibility to change internal implementation.</li>
+<li>Enhances security by exposing only necessary details.</li>
+<li>Supports abstraction (hiding unnecessary details).</li>
+</ul>
+<hr />
+<h2 id="summary">📌 Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>Encapsulation = <strong>Data Hiding + Controlled Access</strong></p>
+<ul>
+<li>Keep fields <code>private</code>.</li>
+<li>Use <strong>getter</strong> and <strong>setter</strong> methods.</li>
+<li>Apply <strong>validation logic</strong> inside setters.</li>
+<li>Make class fields <strong>read-only/write-only</strong> when required.</li>
+</ul>
+<hr />
+<h2 id="encapsulation-in-selenium-java-framework">🔹 Encapsulation in Selenium Java Framework<a class="headerlink" href="#encapsulation-in-selenium-java-framework" title="Permanent link">&para;</a></h2>
+<p>In Selenium frameworks, <strong>Encapsulation is heavily used in Page Object Model (POM):</strong></p>
+<h3 id="example-page-object">Example: Page Object<a class="headerlink" href="#example-page-object" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class LoginPage {
+    private WebDriver driver;  // private driver reference
+
+    // Private WebElements
+    @FindBy(id = &quot;username&quot;)
+    private WebElement usernameField;
+
+    @FindBy(id = &quot;password&quot;)
+    private WebElement passwordField;
+
+    @FindBy(id = &quot;loginBtn&quot;)
+    private WebElement loginButton;
+
+    // Constructor
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+    // Public methods (encapsulation) to interact with elements
+    public void enterUsername(String username) {
+        usernameField.sendKeys(username);
+    }
+
+    public void enterPassword(String password) {
+        passwordField.sendKeys(password);
+    }
+
+    public void clickLogin() {
+        loginButton.click();
+    }
+}
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>Fields (<code>WebElement</code>) are private → hidden from test classes.</li>
+<li>Test classes access elements <strong>only via public methods</strong> → controlled interaction.</li>
+<li>Improves maintainability: If locators change, only the Page class changes.</li>
+</ul>
+<hr />
+<h2 id="encapsulation-in-java-playwright-framework">🔹 Encapsulation in Java Playwright Framework<a class="headerlink" href="#encapsulation-in-java-playwright-framework" title="Permanent link">&para;</a></h2>
+<p>Similarly, in <strong>Playwright (Java)</strong> framework, encapsulation is used for page objects:</p>
+<h3 id="example-login-page">Example: Login Page<a class="headerlink" href="#example-login-page" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">import com.microsoft.playwright.Page;
+
+public class LoginPage {
+    private Page page;  // private Playwright page object
+
+    // Private locators
+    private final String usernameInput = &quot;#username&quot;;
+    private final String passwordInput = &quot;#password&quot;;
+    private final String loginBtn = &quot;#loginBtn&quot;;
+
+    // Constructor
+    public LoginPage(Page page) {
+        this.page = page;
+    }
+
+    // Public methods to interact with page
+    public void enterUsername(String username) {
+        page.locator(usernameInput).fill(username);
+    }
+
+    public void enterPassword(String password) {
+        page.locator(passwordInput).fill(password);
+    }
+
+    public void clickLogin() {
+        page.locator(loginBtn).click();
+    }
+}
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>Locators are private → hidden from test scripts.</li>
+<li>Test scripts call <strong>public methods</strong> → controlled access.</li>
+<li>If locators change, only <code>LoginPage</code> needs update.</li>
+</ul>
+<hr />
+<h2 id="conclusion">✅ Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>Encapsulation in Java is <strong>not just a theory</strong>, it is <strong>widely applied in automation frameworks</strong>:</p>
+<ul>
+<li>Protects element locators and driver/page objects.</li>
+<li>Provides <strong>controlled methods</strong> to interact with UI.</li>
+<li>Improves maintainability, readability, and security of your automation code.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

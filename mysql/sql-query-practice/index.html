@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://Play-Wright-course.github.io/automation-testing/mysql/dcl-commands/">
+        <link rel="canonical" href="https://Play-Wright-course.github.io/automation-testing/mysql/sql-query-practice/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Data Control Language (DCL) in SQL - JavaScript Playwright Docs</title>
+        <title>Basic SQL Practice with Explanations - JavaScript Playwright Docs</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#data-control-language-dcl-in-sql" class="md-skip">
+        <a href="#basic-sql-practice-with-explanations" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Data Control Language (DCL) in SQL
+              Basic SQL Practice with Explanations
             
           </span>
         </div>
@@ -739,46 +739,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-dcl" class="md-nav__link">
+  <a href="#1-select-from-where" class="md-nav__link">
     <span class="md-ellipsis">
-      🔹 What is DCL?
+      1. SELECT, FROM, WHERE
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-dcl-commands-in-depth" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔹 Key DCL Commands (in depth)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🔹 Key DCL Commands (in depth)">
+    <nav class="md-nav" aria-label="1. SELECT, FROM, WHERE">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-grant" class="md-nav__link">
+  <a href="#q1-fetch-employees-from-department-hr" class="md-nav__link">
     <span class="md-ellipsis">
-      1. GRANT
+      Q1: Fetch employees from department HR
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-revoke" class="md-nav__link">
+  <a href="#q2-fetch-employees-earning-more-than-55000" class="md-nav__link">
     <span class="md-ellipsis">
-      2. REVOKE
+      Q2: Fetch employees earning more than 55,000
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-deny-sql-server" class="md-nav__link">
+  <a href="#q3-employees-from-it-or-sales-department" class="md-nav__link">
     <span class="md-ellipsis">
-      3. DENY (SQL Server)
+      Q3: Employees from IT or Sales department
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4-employees-not-in-hr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q4: Employees not in HR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q5-fetch-employee-with-emp_id-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q5: Fetch employee with emp_id = 2
     </span>
   </a>
   
@@ -790,28 +799,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pros-cons-of-dcl" class="md-nav__link">
+  <a href="#2-order-by" class="md-nav__link">
     <span class="md-ellipsis">
-      🔹 Pros &amp; Cons of DCL
+      2. ORDER BY
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🔹 Pros &amp; Cons of DCL">
+    <nav class="md-nav" aria-label="2. ORDER BY">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pros" class="md-nav__link">
+  <a href="#q6-sort-employees-by-salary-ascending" class="md-nav__link">
     <span class="md-ellipsis">
-      ✅ Pros
+      Q6: Sort employees by salary ascending
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#cons" class="md-nav__link">
+  <a href="#q7-sort-employees-by-salary-descending" class="md-nav__link">
     <span class="md-ellipsis">
-      ❌ Cons
+      Q7: Sort employees by salary descending
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q8-sort-employees-by-department-then-salary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q8: Sort employees by department, then salary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q9-sort-by-name-alphabetically" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q9: Sort by name alphabetically
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q10-sort-by-length-of-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q10: Sort by length of name
     </span>
   </a>
   
@@ -823,20 +859,122 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#summary-table" class="md-nav__link">
+  <a href="#3-distinct" class="md-nav__link">
     <span class="md-ellipsis">
-      ✅ Summary Table
+      3. DISTINCT
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. DISTINCT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q11-list-unique-departments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q11: List unique departments
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#dcl-commands-feature-comparison" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#q12-unique-salary-values" class="md-nav__link">
     <span class="md-ellipsis">
-      📊 DCL Commands – Feature Comparison
+      Q12: Unique salary values
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q13-unique-combinations-of-dept-and-salary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q13: Unique combinations of dept and salary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q14-unique-first-letters-of-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q14: Unique first letters of names
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q15-unique-job-roles-assume-another-column-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q15: Unique job roles (assume another column exists)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-limit-top-rownum" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. LIMIT / TOP / ROWNUM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. LIMIT / TOP / ROWNUM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q16-get-first-2-employees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q16: Get first 2 employees
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q17-get-top-1-highest-salary-employee-sql-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q17: Get top 1 highest salary employee (SQL Server)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q18-get-employees-with-rownum-3-oracle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q18: Get employees with ROWNUM &lt;= 3 (Oracle)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q19-get-top-2-employees-by-salary-postgres" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q19: Get top 2 employees by salary (Postgres)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q20-skip-first-1-row-and-fetch-next-2-offset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q20: Skip first 1 row and fetch next 2 (OFFSET)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -856,114 +994,327 @@
 
 
 
-<h1 id="data-control-language-dcl-in-sql">Data Control Language (DCL) in SQL<a class="headerlink" href="#data-control-language-dcl-in-sql" title="Permanent link">&para;</a></h1>
-<h2 id="what-is-dcl">🔹 What is DCL?<a class="headerlink" href="#what-is-dcl" title="Permanent link">&para;</a></h2>
-<p>DCL commands are used to <strong>control access and permissions</strong> in a database.<br />
-They define who can access, modify, or manage database objects.</p>
+<h1 id="basic-sql-practice-with-explanations">Basic SQL Practice with Explanations<a class="headerlink" href="#basic-sql-practice-with-explanations" title="Permanent link">&para;</a></h1>
+<p>This file contains <strong>20 SQL practice problems</strong> covering:
+- SELECT, FROM, WHERE
+- ORDER BY
+- DISTINCT
+- LIMIT / TOP / ROWNUM</p>
+<p>Each question includes:
+- Input Table(s)
+- Question
+- SQL Query
+- Explanation
+- Output Table</p>
 <hr />
-<h2 id="key-dcl-commands-in-depth">🔹 Key DCL Commands (in depth)<a class="headerlink" href="#key-dcl-commands-in-depth" title="Permanent link">&para;</a></h2>
-<h3 id="1-grant">1. GRANT<a class="headerlink" href="#1-grant" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Provides privileges to a user.</li>
-</ul>
-<pre><code class="language-sql">GRANT SELECT, INSERT ON Employee TO user1;
+<h2 id="1-select-from-where">1. SELECT, FROM, WHERE<a class="headerlink" href="#1-select-from-where" title="Permanent link">&para;</a></h2>
+<h3 id="q1-fetch-employees-from-department-hr">Q1: Fetch employees from department <code>HR</code><a class="headerlink" href="#q1-fetch-employees-from-department-hr" title="Permanent link">&para;</a></h3>
+<p><strong>Input Table: employees</strong>
+| emp_id | name    | dept  | salary |
+|--------|---------|-------|--------|
+| 1      | Alice   | HR    | 50000  |
+| 2      | Bob     | IT    | 60000  |
+| 3      | Charlie | HR    | 55000  |
+| 4      | David   | Sales | 45000  |</p>
+<p><strong>Query:</strong></p>
+<pre><code class="language-sql">SELECT emp_id, name, dept, salary
+FROM employees
+WHERE dept = 'HR';
 </code></pre>
-<h3 id="2-revoke">2. REVOKE<a class="headerlink" href="#2-revoke" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Removes previously granted privileges.</li>
-</ul>
-<pre><code class="language-sql">REVOKE INSERT ON Employee FROM user1;
+<p><strong>Explanation:</strong>
+We used <code>WHERE dept = 'HR'</code> to filter only HR employees.</p>
+<p><strong>Output:</strong>
+| emp_id | name    | dept | salary |
+|--------|---------|------|--------|
+| 1      | Alice   | HR   | 50000  |
+| 3      | Charlie | HR   | 55000  |</p>
+<hr />
+<h3 id="q2-fetch-employees-earning-more-than-55000">Q2: Fetch employees earning more than 55,000<a class="headerlink" href="#q2-fetch-employees-earning-more-than-55000" title="Permanent link">&para;</a></h3>
+<p><strong>Query:</strong></p>
+<pre><code class="language-sql">SELECT name, salary
+FROM employees
+WHERE salary &gt; 55000;
 </code></pre>
-<h3 id="3-deny-sql-server">3. DENY (SQL Server)<a class="headerlink" href="#3-deny-sql-server" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Explicitly denies permission to users.</li>
-</ul>
-<pre><code class="language-sql">DENY DELETE ON Employee TO user1;
+<p><strong>Explanation:</strong>
+<code>&gt;</code> operator filters salaries above 55,000.</p>
+<p><strong>Output:</strong>
+| name | salary |
+|------|--------|
+| Bob  | 60000  |</p>
+<hr />
+<h3 id="q3-employees-from-it-or-sales-department">Q3: Employees from IT or Sales department<a class="headerlink" href="#q3-employees-from-it-or-sales-department" title="Permanent link">&para;</a></h3>
+<p><strong>Query:</strong></p>
+<pre><code class="language-sql">SELECT * 
+FROM employees
+WHERE dept IN ('IT', 'Sales');
 </code></pre>
+<p><strong>Explanation:</strong>
+The <code>IN</code> operator checks if dept is one of the listed values.</p>
+<p><strong>Output:</strong>
+| emp_id | name  | dept  | salary |
+|--------|-------|-------|--------|
+| 2      | Bob   | IT    | 60000  |
+| 4      | David | Sales | 45000  |</p>
 <hr />
-<h2 id="pros-cons-of-dcl">🔹 Pros &amp; Cons of DCL<a class="headerlink" href="#pros-cons-of-dcl" title="Permanent link">&para;</a></h2>
-<h3 id="pros">✅ Pros<a class="headerlink" href="#pros" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Security</strong> → Ensures only authorized users access data.  </li>
-<li><strong>Granularity</strong> → Assign specific privileges per object.  </li>
-<li><strong>Control</strong> → Manage roles and user access.  </li>
-<li><strong>Scalability</strong> → Assign privileges to roles for teams.</li>
-</ol>
-<h3 id="cons">❌ Cons<a class="headerlink" href="#cons" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Mismanagement Risk</strong> → Wrong grants expose sensitive data.  </li>
-<li><strong>Complexity</strong> → Hard to manage in large organizations.  </li>
-<li><strong>Performance Overhead</strong> → Checking permissions for each query.  </li>
-<li><strong>Inconsistency</strong> → Syntax varies across databases.</li>
-</ol>
+<h3 id="q4-employees-not-in-hr">Q4: Employees not in HR<a class="headerlink" href="#q4-employees-not-in-hr" title="Permanent link">&para;</a></h3>
+<p><strong>Query:</strong></p>
+<pre><code class="language-sql">SELECT name, dept
+FROM employees
+WHERE dept &lt;&gt; 'HR';
+</code></pre>
+<p><strong>Explanation:</strong>
+<code>&lt;&gt;</code> means NOT EQUAL.</p>
+<p><strong>Output:</strong>
+| name  | dept  |
+|-------|-------|
+| Bob   | IT    |
+| David | Sales |</p>
 <hr />
-<h2 id="summary-table">✅ Summary Table<a class="headerlink" href="#summary-table" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Purpose</th>
-<th>Rollback Possible</th>
-<th>Example Usage</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GRANT</td>
-<td>Give permissions</td>
-<td>✅ Yes</td>
-<td>Allow SELECT on Employee</td>
-</tr>
-<tr>
-<td>REVOKE</td>
-<td>Remove permissions</td>
-<td>✅ Yes</td>
-<td>Remove INSERT privilege</td>
-</tr>
-<tr>
-<td>DENY</td>
-<td>Explicitly block access</td>
-<td>✅ Yes</td>
-<td>Prevent DELETE on Employee</td>
-</tr>
-</tbody>
-</table>
+<h3 id="q5-fetch-employee-with-emp_id-2">Q5: Fetch employee with emp_id = 2<a class="headerlink" href="#q5-fetch-employee-with-emp_id-2" title="Permanent link">&para;</a></h3>
+<p><strong>Query:</strong></p>
+<pre><code class="language-sql">SELECT * 
+FROM employees
+WHERE emp_id = 2;
+</code></pre>
+<p><strong>Explanation:</strong>
+Simple filter on primary key.</p>
+<p><strong>Output:</strong>
+| emp_id | name | dept | salary |
+|--------|------|------|--------|
+| 2      | Bob  | IT   | 60000  |</p>
 <hr />
-<h2 id="dcl-commands-feature-comparison">📊 DCL Commands – Feature Comparison<a class="headerlink" href="#dcl-commands-feature-comparison" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Rollback</th>
-<th>Data Loss</th>
-<th>Structure Change</th>
-<th>Typical Use Case</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GRANT</td>
-<td>✅ Yes</td>
-<td>❌ No</td>
-<td>❌ No</td>
-<td>Provide privileges</td>
-</tr>
-<tr>
-<td>REVOKE</td>
-<td>✅ Yes</td>
-<td>❌ No</td>
-<td>❌ No</td>
-<td>Remove privileges</td>
-</tr>
-<tr>
-<td>DENY</td>
-<td>✅ Yes</td>
-<td>❌ No</td>
-<td>❌ No</td>
-<td>Restrict user actions</td>
-</tr>
-</tbody>
-</table>
+<h2 id="2-order-by">2. ORDER BY<a class="headerlink" href="#2-order-by" title="Permanent link">&para;</a></h2>
+<h3 id="q6-sort-employees-by-salary-ascending">Q6: Sort employees by salary ascending<a class="headerlink" href="#q6-sort-employees-by-salary-ascending" title="Permanent link">&para;</a></h3>
+<p><strong>Query:</strong></p>
+<pre><code class="language-sql">SELECT name, salary
+FROM employees
+ORDER BY salary ASC;
+</code></pre>
+<p><strong>Explanation:</strong>
+Default is ascending. Employees ordered by lowest salary first.</p>
+<p><strong>Output:</strong>
+| name    | salary |
+|---------|--------|
+| David   | 45000  |
+| Alice   | 50000  |
+| Charlie | 55000  |
+| Bob     | 60000  |</p>
+<hr />
+<h3 id="q7-sort-employees-by-salary-descending">Q7: Sort employees by salary descending<a class="headerlink" href="#q7-sort-employees-by-salary-descending" title="Permanent link">&para;</a></h3>
+<p><strong>Query:</strong></p>
+<pre><code class="language-sql">SELECT name, salary
+FROM employees
+ORDER BY salary DESC;
+</code></pre>
+<p><strong>Explanation:</strong>
+<code>DESC</code> shows highest salary first.</p>
+<p><strong>Output:</strong>
+| name    | salary |
+|---------|--------|
+| Bob     | 60000  |
+| Charlie | 55000  |
+| Alice   | 50000  |
+| David   | 45000  |</p>
+<hr />
+<h3 id="q8-sort-employees-by-department-then-salary">Q8: Sort employees by department, then salary<a class="headerlink" href="#q8-sort-employees-by-department-then-salary" title="Permanent link">&para;</a></h3>
+<p><strong>Query:</strong></p>
+<pre><code class="language-sql">SELECT name, dept, salary
+FROM employees
+ORDER BY dept ASC, salary DESC;
+</code></pre>
+<p><strong>Explanation:</strong>
+First sort alphabetically by dept, then within dept sort by salary high-to-low.</p>
+<p><strong>Output:</strong>
+| name    | dept  | salary |
+|---------|-------|--------|
+| Alice   | HR    | 50000  |
+| Charlie | HR    | 55000  |
+| Bob     | IT    | 60000  |
+| David   | Sales | 45000  |</p>
+<hr />
+<h3 id="q9-sort-by-name-alphabetically">Q9: Sort by name alphabetically<a class="headerlink" href="#q9-sort-by-name-alphabetically" title="Permanent link">&para;</a></h3>
+<p><strong>Query:</strong></p>
+<pre><code class="language-sql">SELECT * 
+FROM employees
+ORDER BY name;
+</code></pre>
+<p><strong>Explanation:</strong>
+Alphabetical sort on <code>name</code> column.</p>
+<p><strong>Output:</strong>
+| emp_id | name    | dept  | salary |
+|--------|---------|-------|--------|
+| 1      | Alice   | HR    | 50000  |
+| 2      | Bob     | IT    | 60000  |
+| 3      | Charlie | HR    | 55000  |
+| 4      | David   | Sales | 45000  |</p>
+<hr />
+<h3 id="q10-sort-by-length-of-name">Q10: Sort by length of name<a class="headerlink" href="#q10-sort-by-length-of-name" title="Permanent link">&para;</a></h3>
+<p><strong>Query:</strong></p>
+<pre><code class="language-sql">SELECT name, LENGTH(name) AS name_length
+FROM employees
+ORDER BY name_length;
+</code></pre>
+<p><strong>Explanation:</strong>
+We calculated length of name, then ordered by it.</p>
+<p><strong>Output:</strong>
+| name    | name_length |
+|---------|-------------|
+| Bob     | 3           |
+| Alice   | 5           |
+| David   | 5           |
+| Charlie | 7           |</p>
+<hr />
+<h2 id="3-distinct">3. DISTINCT<a class="headerlink" href="#3-distinct" title="Permanent link">&para;</a></h2>
+<h3 id="q11-list-unique-departments">Q11: List unique departments<a class="headerlink" href="#q11-list-unique-departments" title="Permanent link">&para;</a></h3>
+<p><strong>Query:</strong></p>
+<pre><code class="language-sql">SELECT DISTINCT dept
+FROM employees;
+</code></pre>
+<p><strong>Explanation:</strong>
+Removes duplicate department names.</p>
+<p><strong>Output:</strong>
+| dept  |
+|-------|
+| HR    |
+| IT    |
+| Sales |</p>
+<hr />
+<h3 id="q12-unique-salary-values">Q12: Unique salary values<a class="headerlink" href="#q12-unique-salary-values" title="Permanent link">&para;</a></h3>
+<p><strong>Query:</strong></p>
+<pre><code class="language-sql">SELECT DISTINCT salary
+FROM employees;
+</code></pre>
+<p><strong>Explanation:</strong>
+Shows only unique salary numbers.</p>
+<p><strong>Output:</strong>
+| salary |
+|--------|
+| 50000  |
+| 60000  |
+| 55000  |
+| 45000  |</p>
+<hr />
+<h3 id="q13-unique-combinations-of-dept-and-salary">Q13: Unique combinations of dept and salary<a class="headerlink" href="#q13-unique-combinations-of-dept-and-salary" title="Permanent link">&para;</a></h3>
+<p><strong>Query:</strong></p>
+<pre><code class="language-sql">SELECT DISTINCT dept, salary
+FROM employees;
+</code></pre>
+<p><strong>Explanation:</strong>
+Checks uniqueness across multiple columns.</p>
+<p><strong>Output:</strong>
+| dept  | salary |
+|-------|--------|
+| HR    | 50000  |
+| HR    | 55000  |
+| IT    | 60000  |
+| Sales | 45000  |</p>
+<hr />
+<h3 id="q14-unique-first-letters-of-names">Q14: Unique first letters of names<a class="headerlink" href="#q14-unique-first-letters-of-names" title="Permanent link">&para;</a></h3>
+<p><strong>Query:</strong></p>
+<pre><code class="language-sql">SELECT DISTINCT SUBSTR(name,1,1) AS first_letter
+FROM employees;
+</code></pre>
+<p><strong>Explanation:</strong>
+Takes the first character from each name and removes duplicates.</p>
+<p><strong>Output:</strong>
+| first_letter |
+|--------------|
+| A            |
+| B            |
+| C            |
+| D            |</p>
+<hr />
+<h3 id="q15-unique-job-roles-assume-another-column-exists">Q15: Unique job roles (assume another column exists)<a class="headerlink" href="#q15-unique-job-roles-assume-another-column-exists" title="Permanent link">&para;</a></h3>
+<p><strong>Input Table with job column:</strong>
+| emp_id | name    | dept  | salary | job        |
+|--------|---------|-------|--------|------------|
+| 1      | Alice   | HR    | 50000  | Analyst    |
+| 2      | Bob     | IT    | 60000  | Developer  |
+| 3      | Charlie | HR    | 55000  | Analyst    |
+| 4      | David   | Sales | 45000  | Sales Rep  |</p>
+<p><strong>Query:</strong></p>
+<pre><code class="language-sql">SELECT DISTINCT job
+FROM employees;
+</code></pre>
+<p><strong>Output:</strong>
+| job       |
+|-----------|
+| Analyst   |
+| Developer |
+| Sales Rep |</p>
+<hr />
+<h2 id="4-limit-top-rownum">4. LIMIT / TOP / ROWNUM<a class="headerlink" href="#4-limit-top-rownum" title="Permanent link">&para;</a></h2>
+<h3 id="q16-get-first-2-employees">Q16: Get first 2 employees<a class="headerlink" href="#q16-get-first-2-employees" title="Permanent link">&para;</a></h3>
+<p><strong>Query (MySQL/Postgres):</strong></p>
+<pre><code class="language-sql">SELECT * 
+FROM employees
+LIMIT 2;
+</code></pre>
+<p><strong>Explanation:</strong>
+Fetches only first 2 rows.</p>
+<p><strong>Output:</strong>
+| emp_id | name  | dept | salary |
+|--------|-------|------|--------|
+| 1      | Alice | HR   | 50000  |
+| 2      | Bob   | IT   | 60000  |</p>
+<hr />
+<h3 id="q17-get-top-1-highest-salary-employee-sql-server">Q17: Get top 1 highest salary employee (SQL Server)<a class="headerlink" href="#q17-get-top-1-highest-salary-employee-sql-server" title="Permanent link">&para;</a></h3>
+<p><strong>Query:</strong></p>
+<pre><code class="language-sql">SELECT TOP 1 name, salary
+FROM employees
+ORDER BY salary DESC;
+</code></pre>
+<p><strong>Explanation:</strong>
+SQL Server uses <code>TOP</code> instead of LIMIT.</p>
+<p><strong>Output:</strong>
+| name | salary |
+|------|--------|
+| Bob  | 60000  |</p>
+<hr />
+<h3 id="q18-get-employees-with-rownum-3-oracle">Q18: Get employees with ROWNUM &lt;= 3 (Oracle)<a class="headerlink" href="#q18-get-employees-with-rownum-3-oracle" title="Permanent link">&para;</a></h3>
+<p><strong>Query:</strong></p>
+<pre><code class="language-sql">SELECT * 
+FROM employees
+WHERE ROWNUM &lt;= 3;
+</code></pre>
+<p><strong>Explanation:</strong>
+Oracle uses <code>ROWNUM</code> pseudo column.</p>
+<p><strong>Output:</strong>
+| emp_id | name    | dept | salary |
+|--------|---------|------|--------|
+| 1      | Alice   | HR   | 50000  |
+| 2      | Bob     | IT   | 60000  |
+| 3      | Charlie | HR   | 55000  |</p>
+<hr />
+<h3 id="q19-get-top-2-employees-by-salary-postgres">Q19: Get top 2 employees by salary (Postgres)<a class="headerlink" href="#q19-get-top-2-employees-by-salary-postgres" title="Permanent link">&para;</a></h3>
+<p><strong>Query:</strong></p>
+<pre><code class="language-sql">SELECT name, salary
+FROM employees
+ORDER BY salary DESC
+LIMIT 2;
+</code></pre>
+<p><strong>Explanation:</strong>
+Orders by salary then limits to 2.</p>
+<p><strong>Output:</strong>
+| name    | salary |
+|---------|--------|
+| Bob     | 60000  |
+| Charlie | 55000  |</p>
+<hr />
+<h3 id="q20-skip-first-1-row-and-fetch-next-2-offset">Q20: Skip first 1 row and fetch next 2 (OFFSET)<a class="headerlink" href="#q20-skip-first-1-row-and-fetch-next-2-offset" title="Permanent link">&para;</a></h3>
+<p><strong>Query (Postgres):</strong></p>
+<pre><code class="language-sql">SELECT name, salary
+FROM employees
+ORDER BY emp_id
+OFFSET 1 ROWS FETCH NEXT 2 ROWS ONLY;
+</code></pre>
+<p><strong>Explanation:</strong>
+Skips first record and fetches next 2.</p>
+<p><strong>Output:</strong>
+| name    | salary |
+|---------|--------|
+| Bob     | 60000  |
+| Charlie | 55000  |</p>
 
 
 

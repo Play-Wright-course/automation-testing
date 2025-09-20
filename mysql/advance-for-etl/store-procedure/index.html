@@ -1,0 +1,1339 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://Play-Wright-course.github.io/automation-testing/mysql/advance-for-etl/store-procedure/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>SQL Practice: Stored Procedures / Functions with Explanations - JavaScript Playwright Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.e53b48f4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sql-practice-stored-procedures-functions-with-explanations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="JavaScript Playwright Docs" class="md-header__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaScript Playwright Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SQL Practice: Stored Procedures / Functions with Explanations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="JavaScript Playwright Docs" class="md-nav__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JavaScript Playwright Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    JavaScript Concepts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            JavaScript Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascriptConcepts/variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascriptConcepts/dataTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascriptConcepts/operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascriptConcepts/flow-statement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Flow Statements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascriptConcepts/Arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arrays & Objects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascriptConcepts/functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    PlayWright With Java
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            PlayWright With Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/locator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Locators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/page-navigation-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Page Navigation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/playwright-interaction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inputs And Buttons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/checkbox-radio-button/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Checkbox And Radio buttons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/dropdown_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dropdown Handling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/iframes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    iframe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/mouse-keyboard-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mouse Keyboard Actions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/alerts-promt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Alerts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/handling-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Handle Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/file-upload-download/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File upload And Download
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/screenshot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ScreenShot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exceptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/interview-question/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InterViwe Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-input-table-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Input Table Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-stored-procedure-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Stored Procedure Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Stored Procedure Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-create-procedure-to-give-10-bonus-to-employee" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q1: Create procedure to give 10% bonus to employee
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2-procedure-to-increase-salary-by-for-a-department" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q2: Procedure to increase salary by % for a department
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-procedure-to-get-total-salary-of-department" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q3: Procedure to get total salary of department
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4-procedure-to-get-employee-details-by-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q4: Procedure to get employee details by ID
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-user-defined-function-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. User Defined Function Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. User Defined Function Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q5-function-to-calculate-bonus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q5: Function to calculate bonus
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q6-function-to-check-if-salary-threshold" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q6: Function to check if salary &gt; threshold
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q7-procedure-to-insert-new-employee" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q7: Procedure to insert new employee
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q8-function-to-convert-salary-to-string-with-currency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q8: Function to convert salary to string with currency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q9-procedure-to-delete-employee-by-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q9: Procedure to delete employee by ID
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q10-function-to-calculate-tax-at-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q10: Function to calculate tax at 10%
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="sql-practice-stored-procedures-functions-with-explanations">SQL Practice: Stored Procedures / Functions with Explanations<a class="headerlink" href="#sql-practice-stored-procedures-functions-with-explanations" title="Permanent link">&para;</a></h1>
+<p>This file contains <strong>10 SQL practice problems</strong> covering:</p>
+<ul>
+<li>Stored Procedures</li>
+<li>User Defined Functions (UDFs)</li>
+</ul>
+<p>Each question includes:</p>
+<ul>
+<li>Input Table(s)</li>
+<li>Question</li>
+<li>SQL Query / Procedure / Function</li>
+<li>Explanation</li>
+<li>Output Table</li>
+</ul>
+<hr />
+<h2 id="1-input-table-example">1. Input Table Example<a class="headerlink" href="#1-input-table-example" title="Permanent link">&para;</a></h2>
+<p><strong>Table: employees</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+<th>salary</th>
+<th>dept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice</td>
+<td>48000</td>
+<td>HR</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+<td>60000</td>
+<td>IT</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie</td>
+<td>55000</td>
+<td>HR</td>
+</tr>
+<tr>
+<td>4</td>
+<td>David</td>
+<td>45000</td>
+<td>IT</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Eva</td>
+<td>70000</td>
+<td>Sales</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-stored-procedure-examples">2. Stored Procedure Examples<a class="headerlink" href="#2-stored-procedure-examples" title="Permanent link">&para;</a></h2>
+<h3 id="q1-create-procedure-to-give-10-bonus-to-employee">Q1: Create procedure to give 10% bonus to employee<a class="headerlink" href="#q1-create-procedure-to-give-10-bonus-to-employee" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">CREATE PROCEDURE give_bonus(IN emp INT, OUT bonus_amt DECIMAL(10,2))
+BEGIN
+    SELECT salary*0.10 INTO bonus_amt FROM employees WHERE emp_id=emp;
+END;
+</code></pre>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-sql">CALL give_bonus(2, @b);
+SELECT @b;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>@b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6000</td>
+</tr>
+</tbody>
+</table>
+<h3 id="q2-procedure-to-increase-salary-by-for-a-department">Q2: Procedure to increase salary by % for a department<a class="headerlink" href="#q2-procedure-to-increase-salary-by-for-a-department" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">CREATE PROCEDURE increase_salary(IN dept_name VARCHAR(20), IN increment DECIMAL(5,2))
+BEGIN
+    UPDATE employees
+    SET salary = salary + (salary * increment/100)
+    WHERE dept = dept_name;
+END;
+</code></pre>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-sql">CALL increase_salary('HR', 5);
+SELECT * FROM employees WHERE dept='HR';
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+<th>salary</th>
+<th>dept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice</td>
+<td>50400</td>
+<td>HR</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie</td>
+<td>57750</td>
+<td>HR</td>
+</tr>
+</tbody>
+</table>
+<h3 id="q3-procedure-to-get-total-salary-of-department">Q3: Procedure to get total salary of department<a class="headerlink" href="#q3-procedure-to-get-total-salary-of-department" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">CREATE PROCEDURE dept_total_salary(IN dept_name VARCHAR(20), OUT total_salary DECIMAL(10,2))
+BEGIN
+    SELECT SUM(salary) INTO total_salary FROM employees WHERE dept=dept_name;
+END;
+</code></pre>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-sql">CALL dept_total_salary('IT', @ts);
+SELECT @ts;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>@ts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>105000</td>
+</tr>
+</tbody>
+</table>
+<h3 id="q4-procedure-to-get-employee-details-by-id">Q4: Procedure to get employee details by ID<a class="headerlink" href="#q4-procedure-to-get-employee-details-by-id" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">CREATE PROCEDURE emp_details(IN emp INT)
+BEGIN
+    SELECT * FROM employees WHERE emp_id = emp;
+END;
+</code></pre>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-sql">CALL emp_details(5);
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+<th>salary</th>
+<th>dept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Eva</td>
+<td>70000</td>
+<td>Sales</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-user-defined-function-examples">3. User Defined Function Examples<a class="headerlink" href="#3-user-defined-function-examples" title="Permanent link">&para;</a></h2>
+<h3 id="q5-function-to-calculate-bonus">Q5: Function to calculate bonus<a class="headerlink" href="#q5-function-to-calculate-bonus" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">CREATE FUNCTION calc_bonus(sal DECIMAL(10,2)) RETURNS DECIMAL(10,2)
+BEGIN
+    RETURN sal * 0.10;
+END;
+</code></pre>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-sql">SELECT name, calc_bonus(salary) AS bonus FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>bonus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>5040</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>6000</td>
+</tr>
+<tr>
+<td>Charlie</td>
+<td>5775</td>
+</tr>
+<tr>
+<td>David</td>
+<td>4500</td>
+</tr>
+<tr>
+<td>Eva</td>
+<td>7000</td>
+</tr>
+</tbody>
+</table>
+<h3 id="q6-function-to-check-if-salary-threshold">Q6: Function to check if salary &gt; threshold<a class="headerlink" href="#q6-function-to-check-if-salary-threshold" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">CREATE FUNCTION is_high_salary(sal DECIMAL(10,2)) RETURNS VARCHAR(3)
+BEGIN
+    RETURN IF(sal&gt;60000,'YES','NO');
+END;
+</code></pre>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-sql">SELECT name, is_high_salary(salary) AS high_sal FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>high_sal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>Charlie</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>David</td>
+<td>NO</td>
+</tr>
+<tr>
+<td>Eva</td>
+<td>YES</td>
+</tr>
+</tbody>
+</table>
+<h3 id="q7-procedure-to-insert-new-employee">Q7: Procedure to insert new employee<a class="headerlink" href="#q7-procedure-to-insert-new-employee" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">CREATE PROCEDURE add_employee(IN ename VARCHAR(50), IN esal DECIMAL(10,2), IN edept VARCHAR(20))
+BEGIN
+    INSERT INTO employees(name,salary,dept) VALUES(ename,esal,edept);
+END;
+</code></pre>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-sql">CALL add_employee('Frank', 48000, 'IT');
+SELECT * FROM employees WHERE name='Frank';
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+<th>salary</th>
+<th>dept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6</td>
+<td>Frank</td>
+<td>48000</td>
+<td>IT</td>
+</tr>
+</tbody>
+</table>
+<h3 id="q8-function-to-convert-salary-to-string-with-currency">Q8: Function to convert salary to string with currency<a class="headerlink" href="#q8-function-to-convert-salary-to-string-with-currency" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">CREATE FUNCTION salary_str(sal DECIMAL(10,2)) RETURNS VARCHAR(20)
+BEGIN
+    RETURN CONCAT('$', CAST(sal AS CHAR));
+END;
+</code></pre>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-sql">SELECT name, salary_str(salary) AS salary_display FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>salary_display</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>\$50400</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>\$60000</td>
+</tr>
+<tr>
+<td>Charlie</td>
+<td>\$57750</td>
+</tr>
+<tr>
+<td>David</td>
+<td>\$45000</td>
+</tr>
+<tr>
+<td>Eva</td>
+<td>\$70000</td>
+</tr>
+</tbody>
+</table>
+<h3 id="q9-procedure-to-delete-employee-by-id">Q9: Procedure to delete employee by ID<a class="headerlink" href="#q9-procedure-to-delete-employee-by-id" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">CREATE PROCEDURE delete_employee(IN emp INT)
+BEGIN
+    DELETE FROM employees WHERE emp_id = emp;
+END;
+</code></pre>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-sql">CALL delete_employee(6);
+SELECT * FROM employees WHERE emp_id=6;
+</code></pre>
+<p><strong>Output:</strong>
+| -- No rows -- |</p>
+<h3 id="q10-function-to-calculate-tax-at-10">Q10: Function to calculate tax at 10%<a class="headerlink" href="#q10-function-to-calculate-tax-at-10" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">CREATE FUNCTION calc_tax(sal DECIMAL(10,2)) RETURNS DECIMAL(10,2)
+BEGIN
+    RETURN sal * 0.10;
+END;
+</code></pre>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-sql">SELECT name, calc_tax(salary) AS tax FROM employees;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>tax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>5040</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>6000</td>
+</tr>
+<tr>
+<td>Charlie</td>
+<td>5775</td>
+</tr>
+<tr>
+<td>David</td>
+<td>4500</td>
+</tr>
+<tr>
+<td>Eva</td>
+<td>7000</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="explanation">Explanation:<a class="headerlink" href="#explanation" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Stored Procedures</strong>: Encapsulate SQL logic; can take input/output parameters.</li>
+<li><strong>Functions</strong>: Return a value; can be used inside SELECT statements.</li>
+<li>Useful for ETL testing when transformations are done via procedural logic.</li>
+</ol>
+<hr />
+<p><strong>Use case in ETL Testing:</strong></p>
+<ul>
+<li>Validate bonus calculations, salary increments, or other business rules.</li>
+<li>Check the correctness of procedural logic applied on data.</li>
+<li>Ensure outputs match expected results before moving to production.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

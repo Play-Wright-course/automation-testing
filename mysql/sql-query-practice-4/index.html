@@ -1,0 +1,1850 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://Play-Wright-course.github.io/automation-testing/mysql/sql-query-practice-4/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>SQL Practice: Joins with Explanations - JavaScript Playwright Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sql-practice-joins-with-explanations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JavaScript Playwright Docs" class="md-header__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaScript Playwright Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SQL Practice: Joins with Explanations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JavaScript Playwright Docs" class="md-nav__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JavaScript Playwright Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    JavaScript Concepts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            JavaScript Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/dataTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/flow-statement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Flow Statements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/Arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arrays & Objects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    PlayWright With Java
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            PlayWright With Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/locator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Locators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/page-navigation-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Page Navigation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/playwright-interaction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inputs And Buttons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/checkbox-radio-button/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Checkbox And Radio buttons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/dropdown_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dropdown Handling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/iframes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    iframe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/mouse-keyboard-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mouse Keyboard Actions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/alerts-promt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Alerts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/handling-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Handle Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/file-upload-download/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File upload And Download
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/screenshot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ScreenShot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exceptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/interview-question/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InterViwe Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-inner-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. INNER JOIN
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. INNER JOIN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-employees-with-their-department-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q1: Employees with their department names
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2-employees-with-salary-50000-and-their-departments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q2: Employees with salary &gt; 50000 and their departments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-employees-who-have-a-project-assigned" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q3: Employees who have a project assigned
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4-employees-with-matching-departments-example-with-missing-dept" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q4: Employees with matching departments (example with missing dept)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q5-inner-join-on-multiple-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q5: Inner join on multiple conditions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-left-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. LEFT JOIN
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. LEFT JOIN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q6-all-employees-and-their-departments-include-those-without-dept" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q6: All employees and their departments (include those without dept)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q7-employees-with-projects-include-those-without-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q7: Employees with projects (include those without projects)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q8-left-join-with-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q8: Left join with condition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q9-left-join-multiple-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q9: Left join multiple tables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q10-left-join-with-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q10: Left join with filtering
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-right-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. RIGHT JOIN
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. RIGHT JOIN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q11-all-departments-and-employees-include-depts-without-employees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q11: All departments and employees (include depts without employees)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q12-right-join-with-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q12: Right join with projects
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q13-right-join-multiple-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q13: Right join multiple tables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q14-right-join-with-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q14: Right join with condition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q15-right-join-with-filtering-on-null" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q15: Right join with filtering on NULL
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-full-outer-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. FULL OUTER JOIN
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. FULL OUTER JOIN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q16-employees-and-departments-all-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q16: Employees and departments (all records)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q17-employees-and-projects-all-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q17: Employees and projects (all records)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q18-full-join-with-multiple-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q18: Full join with multiple tables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-self-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. SELF JOIN
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. SELF JOIN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q19-employees-and-their-manager-self-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q19: Employees and their manager (self join)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q20-employees-reporting-to-the-same-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q20: Employees reporting to the same manager
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="sql-practice-joins-with-explanations">SQL Practice: Joins with Explanations<a class="headerlink" href="#sql-practice-joins-with-explanations" title="Permanent link">&para;</a></h1>
+<p>This file contains <strong>20 SQL practice problems</strong> covering:</p>
+<ul>
+<li>INNER JOIN</li>
+<li>LEFT JOIN</li>
+<li>RIGHT JOIN</li>
+<li>FULL OUTER JOIN</li>
+<li>SELF JOIN</li>
+</ul>
+<p>Each question includes:</p>
+<ul>
+<li>Input Table(s)</li>
+<li>Question</li>
+<li>SQL Query</li>
+<li>Explanation</li>
+<li>Output Table</li>
+</ul>
+<hr />
+<h2 id="1-inner-join">1. INNER JOIN<a class="headerlink" href="#1-inner-join" title="Permanent link">&para;</a></h2>
+<h3 id="q1-employees-with-their-department-names">Q1: Employees with their department names<a class="headerlink" href="#q1-employees-with-their-department-names" title="Permanent link">&para;</a></h3>
+<p><strong>Input Tables:</strong>
+<strong>employees</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+<th>dept_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice</td>
+<td>10</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+<td>20</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<p><strong>departments</strong></p>
+<table>
+<thead>
+<tr>
+<th>dept_id</th>
+<th>dept_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>HR</td>
+</tr>
+<tr>
+<td>20</td>
+<td>IT</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Sales</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Marketing</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query:</strong></p>
+<pre><code class="language-sql">SELECT e.emp_id, e.name, d.dept_name
+FROM employees e
+INNER JOIN departments d ON e.dept_id = d.dept_id;
+</code></pre>
+<p><strong>Explanation:</strong>
+INNER JOIN returns rows where there is a match in both tables.</p>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+<th>dept_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice</td>
+<td>HR</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+<td>IT</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie</td>
+<td>Sales</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q2-employees-with-salary-50000-and-their-departments">Q2: Employees with salary &gt; 50000 and their departments<a class="headerlink" href="#q2-employees-with-salary-50000-and-their-departments" title="Permanent link">&para;</a></h3>
+<p><strong>Input Table: salaries</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>50000</td>
+</tr>
+<tr>
+<td>2</td>
+<td>60000</td>
+</tr>
+<tr>
+<td>3</td>
+<td>55000</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">SELECT e.name, s.salary, d.dept_name
+FROM employees e
+INNER JOIN salaries s ON e.emp_id = s.emp_id
+INNER JOIN departments d ON e.dept_id = d.dept_id
+WHERE s.salary &gt; 50000;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>salary</th>
+<th>dept_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bob</td>
+<td>60000</td>
+<td>IT</td>
+</tr>
+<tr>
+<td>Charlie</td>
+<td>55000</td>
+<td>Sales</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q3-employees-who-have-a-project-assigned">Q3: Employees who have a project assigned<a class="headerlink" href="#q3-employees-who-have-a-project-assigned" title="Permanent link">&para;</a></h3>
+<p><strong>Input Table: projects</strong></p>
+<table>
+<thead>
+<tr>
+<th>project_id</th>
+<th>emp_id</th>
+<th>project_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>101</td>
+<td>1</td>
+<td>Alpha</td>
+</tr>
+<tr>
+<td>102</td>
+<td>3</td>
+<td>Beta</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">SELECT e.name, p.project_name
+FROM employees e
+INNER JOIN projects p ON e.emp_id = p.emp_id;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>project_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>Alpha</td>
+</tr>
+<tr>
+<td>Charlie</td>
+<td>Beta</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q4-employees-with-matching-departments-example-with-missing-dept">Q4: Employees with matching departments (example with missing dept)<a class="headerlink" href="#q4-employees-with-matching-departments-example-with-missing-dept" title="Permanent link">&para;</a></h3>
+<p><strong>Input Table:</strong>
+employees same as above, departments without dept_id 30</p>
+<table>
+<thead>
+<tr>
+<th>dept_id</th>
+<th>dept_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>HR</td>
+</tr>
+<tr>
+<td>20</td>
+<td>IT</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Marketing</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">SELECT e.name, d.dept_name
+FROM employees e
+INNER JOIN departments d ON e.dept_id = d.dept_id;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>dept_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>HR</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>IT</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q5-inner-join-on-multiple-conditions">Q5: Inner join on multiple conditions<a class="headerlink" href="#q5-inner-join-on-multiple-conditions" title="Permanent link">&para;</a></h3>
+<p><strong>Input Table: employee_projects</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>project_id</th>
+<th>role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>101</td>
+<td>Developer</td>
+</tr>
+<tr>
+<td>2</td>
+<td>102</td>
+<td>Manager</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">SELECT e.name, ep.role, p.project_name
+FROM employees e
+INNER JOIN employee_projects ep ON e.emp_id = ep.emp_id
+INNER JOIN projects p ON ep.project_id = p.project_id;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>role</th>
+<th>project_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>Developer</td>
+<td>Alpha</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>Manager</td>
+<td>Beta</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-left-join">2. LEFT JOIN<a class="headerlink" href="#2-left-join" title="Permanent link">&para;</a></h2>
+<h3 id="q6-all-employees-and-their-departments-include-those-without-dept">Q6: All employees and their departments (include those without dept)<a class="headerlink" href="#q6-all-employees-and-their-departments-include-those-without-dept" title="Permanent link">&para;</a></h3>
+<p><strong>Input Tables:</strong> employees and departments</p>
+<pre><code class="language-sql">SELECT e.name, d.dept_name
+FROM employees e
+LEFT JOIN departments d ON e.dept_id = d.dept_id;
+</code></pre>
+<p><strong>Explanation:</strong>
+LEFT JOIN returns all rows from left table (employees), NULL if no match in right table.</p>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>dept_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>HR</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>IT</td>
+</tr>
+<tr>
+<td>Charlie</td>
+<td>Sales</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q7-employees-with-projects-include-those-without-projects">Q7: Employees with projects (include those without projects)<a class="headerlink" href="#q7-employees-with-projects-include-those-without-projects" title="Permanent link">&para;</a></h3>
+<p><strong>Query:</strong></p>
+<pre><code class="language-sql">SELECT e.name, p.project_name
+FROM employees e
+LEFT JOIN projects p ON e.emp_id = p.emp_id;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>project_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>Alpha</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>Charlie</td>
+<td>Beta</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q8-left-join-with-condition">Q8: Left join with condition<a class="headerlink" href="#q8-left-join-with-condition" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT e.name, s.salary
+FROM employees e
+LEFT JOIN salaries s ON e.emp_id = s.emp_id
+WHERE s.salary &gt; 50000 OR s.salary IS NULL;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>50000</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>60000</td>
+</tr>
+<tr>
+<td>Charlie</td>
+<td>55000</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q9-left-join-multiple-tables">Q9: Left join multiple tables<a class="headerlink" href="#q9-left-join-multiple-tables" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT e.name, d.dept_name, p.project_name
+FROM employees e
+LEFT JOIN departments d ON e.dept_id = d.dept_id
+LEFT JOIN projects p ON e.emp_id = p.emp_id;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>dept_name</th>
+<th>project_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>HR</td>
+<td>Alpha</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>IT</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>Charlie</td>
+<td>Sales</td>
+<td>Beta</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q10-left-join-with-filtering">Q10: Left join with filtering<a class="headerlink" href="#q10-left-join-with-filtering" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT e.name, d.dept_name
+FROM employees e
+LEFT JOIN departments d ON e.dept_id = d.dept_id
+WHERE d.dept_name IS NULL;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>dept_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(none if all matched)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-right-join">3. RIGHT JOIN<a class="headerlink" href="#3-right-join" title="Permanent link">&para;</a></h2>
+<h3 id="q11-all-departments-and-employees-include-depts-without-employees">Q11: All departments and employees (include depts without employees)<a class="headerlink" href="#q11-all-departments-and-employees-include-depts-without-employees" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT e.name, d.dept_name
+FROM employees e
+RIGHT JOIN departments d ON e.dept_id = d.dept_id;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>dept_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>HR</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>IT</td>
+</tr>
+<tr>
+<td>Charlie</td>
+<td>Sales</td>
+</tr>
+<tr>
+<td>NULL</td>
+<td>Marketing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q12-right-join-with-projects">Q12: Right join with projects<a class="headerlink" href="#q12-right-join-with-projects" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT e.name, p.project_name
+FROM employees e
+RIGHT JOIN projects p ON e.emp_id = p.emp_id;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>project_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>Alpha</td>
+</tr>
+<tr>
+<td>Charlie</td>
+<td>Beta</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q13-right-join-multiple-tables">Q13: Right join multiple tables<a class="headerlink" href="#q13-right-join-multiple-tables" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT e.name, s.salary, d.dept_name
+FROM employees e
+RIGHT JOIN salaries s ON e.emp_id = s.emp_id
+RIGHT JOIN departments d ON e.dept_id = d.dept_id;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>salary</th>
+<th>dept_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>50000</td>
+<td>HR</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>60000</td>
+<td>IT</td>
+</tr>
+<tr>
+<td>Charlie</td>
+<td>55000</td>
+<td>Sales</td>
+</tr>
+<tr>
+<td>NULL</td>
+<td>NULL</td>
+<td>Marketing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q14-right-join-with-condition">Q14: Right join with condition<a class="headerlink" href="#q14-right-join-with-condition" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT e.name, d.dept_name
+FROM employees e
+RIGHT JOIN departments d ON e.dept_id = d.dept_id
+WHERE e.name IS NULL;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>dept_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NULL</td>
+<td>Marketing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q15-right-join-with-filtering-on-null">Q15: Right join with filtering on NULL<a class="headerlink" href="#q15-right-join-with-filtering-on-null" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT e.name, p.project_name
+FROM employees e
+RIGHT JOIN projects p ON e.emp_id = p.emp_id
+WHERE e.name IS NULL;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>project_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(none)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-full-outer-join">4. FULL OUTER JOIN<a class="headerlink" href="#4-full-outer-join" title="Permanent link">&para;</a></h2>
+<h3 id="q16-employees-and-departments-all-records">Q16: Employees and departments (all records)<a class="headerlink" href="#q16-employees-and-departments-all-records" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT e.name, d.dept_name
+FROM employees e
+FULL OUTER JOIN departments d ON e.dept_id = d.dept_id;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>dept_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>HR</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>IT</td>
+</tr>
+<tr>
+<td>Charlie</td>
+<td>Sales</td>
+</tr>
+<tr>
+<td>NULL</td>
+<td>Marketing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q17-employees-and-projects-all-records">Q17: Employees and projects (all records)<a class="headerlink" href="#q17-employees-and-projects-all-records" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT e.name, p.project_name
+FROM employees e
+FULL OUTER JOIN projects p ON e.emp_id = p.emp_id;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>project_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>Alpha</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>Charlie</td>
+<td>Beta</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q18-full-join-with-multiple-tables">Q18: Full join with multiple tables<a class="headerlink" href="#q18-full-join-with-multiple-tables" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT e.name, d.dept_name, p.project_name
+FROM employees e
+FULL OUTER JOIN departments d ON e.dept_id = d.dept_id
+FULL OUTER JOIN projects p ON e.emp_id = p.emp_id;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>dept_name</th>
+<th>project_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>HR</td>
+<td>Alpha</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>IT</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>Charlie</td>
+<td>Sales</td>
+<td>Beta</td>
+</tr>
+<tr>
+<td>NULL</td>
+<td>Marketing</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-self-join">5. SELF JOIN<a class="headerlink" href="#5-self-join" title="Permanent link">&para;</a></h2>
+<h3 id="q19-employees-and-their-manager-self-join">Q19: Employees and their manager (self join)<a class="headerlink" href="#q19-employees-and-their-manager-self-join" title="Permanent link">&para;</a></h3>
+<p><strong>Input Table: employees</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp_id</th>
+<th>name</th>
+<th>manager_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alice</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bob</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Charlie</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-sql">SELECT e1.name AS employee, e2.name AS manager
+FROM employees e1
+LEFT JOIN employees e2 ON e1.manager_id = e2.emp_id;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>employee</th>
+<th>manager</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>Alice</td>
+</tr>
+<tr>
+<td>Charlie</td>
+<td>Alice</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="q20-employees-reporting-to-the-same-manager">Q20: Employees reporting to the same manager<a class="headerlink" href="#q20-employees-reporting-to-the-same-manager" title="Permanent link">&para;</a></h3>
+<pre><code class="language-sql">SELECT e1.name AS emp1, e2.name AS emp2, e1.manager_id
+FROM employees e1
+INNER JOIN employees e2 ON e1.manager_id = e2.manager_id
+WHERE e1.emp_id &lt; e2.emp_id;
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>emp1</th>
+<th>emp2</th>
+<th>manager_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bob</td>
+<td>Charlie</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

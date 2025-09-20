@@ -1,0 +1,1276 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://Play-Wright-course.github.io/automation-testing/java-concepts/code-oppose-3/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>OOP Concepts Java – Examples 51-80 - JavaScript Playwright Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#oop-concepts-java-examples-51-80" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JavaScript Playwright Docs" class="md-header__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaScript Playwright Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OOP Concepts Java – Examples 51-80
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JavaScript Playwright Docs" class="md-nav__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JavaScript Playwright Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    JavaScript Concepts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            JavaScript Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/dataTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/flow-statement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Flow Statements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/Arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arrays & Objects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    PlayWright With Java
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            PlayWright With Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/locator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Locators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/page-navigation-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Page Navigation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/playwright-interaction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inputs And Buttons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/checkbox-radio-button/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Checkbox And Radio buttons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/dropdown_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dropdown Handling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/iframes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    iframe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/mouse-keyboard-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mouse Keyboard Actions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/alerts-promt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Alerts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/handling-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Handle Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/file-upload-download/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File upload And Download
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/screenshot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ScreenShot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exceptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/interview-question/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InterViwe Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example-51-complex-inheritance-5-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 51 – Complex Inheritance (5-Level)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-52-polymorphism-inheritance-overriding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 52 – Polymorphism + Inheritance (Overriding)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-53-abstraction-multiple-children" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 53 – Abstraction + Multiple Children
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-54-encapsulation-validation-multiple-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 54 – Encapsulation + Validation + Multiple Objects
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-55-polymorphism-interface-runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 55 – Polymorphism + Interface + Runtime
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-56-complex-inheritance-super-constructor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 56 – Complex Inheritance + Super Constructor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-57-polymorphism-method-overloading-overriding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 57 – Polymorphism + Method Overloading + Overriding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-58-interface-multiple-implementations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 58 – Interface + Multiple Implementations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-59-abstraction-polymorphism-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 59 – Abstraction + Polymorphism + Array
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-60-encapsulation-static-field-multiple-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 60 – Encapsulation + Static Field + Multiple Objects
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-61-multi-level-inheritance-method-overriding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 61 – Multi-Level Inheritance + Method Overriding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-62-polymorphism-casting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 62 – Polymorphism + Casting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-63-abstraction-constructor-polymorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 63 – Abstraction + Constructor + Polymorphism
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-64-interface-default-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 64 – Interface + Default Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-65-encapsulation-method-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 65 – Encapsulation + Method Validation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="oop-concepts-java-examples-51-80">OOP Concepts Java – Examples 51-80<a class="headerlink" href="#oop-concepts-java-examples-51-80" title="Permanent link">&para;</a></h1>
+<h3 id="example-51-complex-inheritance-5-level">Example 51 – Complex Inheritance (5-Level)<a class="headerlink" href="#example-51-complex-inheritance-5-level" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">class Device {
+    void powerOn() { System.out.println(&quot;Device power on&quot;); }
+}
+
+class Computer extends Device {
+    void startOS() { System.out.println(&quot;Computer OS started&quot;); }
+}
+
+class Laptop extends Computer {
+    void openLid() { System.out.println(&quot;Laptop lid opened&quot;); }
+}
+
+class GamingLaptop extends Laptop {
+    void launchGame() { System.out.println(&quot;Game launched&quot;); }
+}
+
+class Alienware extends GamingLaptop {
+    void rgbLighting() { System.out.println(&quot;RGB lighting activated&quot;); }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Alienware a = new Alienware();
+        a.powerOn();
+        a.startOS();
+        a.openLid();
+        a.launchGame();
+        a.rgbLighting();
+    }
+}
+</code></pre>
+<p><strong>Question:</strong> Predict the output.</p>
+<hr />
+<h3 id="example-52-polymorphism-inheritance-overriding">Example 52 – Polymorphism + Inheritance (Overriding)<a class="headerlink" href="#example-52-polymorphism-inheritance-overriding" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">class Vehicle {
+    void move() { System.out.println(&quot;Vehicle moves&quot;); }
+}
+
+class Car extends Vehicle {
+    void move() { System.out.println(&quot;Car moves fast&quot;); }
+}
+
+class SportsCar extends Car {
+    void move() { System.out.println(&quot;SportsCar zooms&quot;); }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Vehicle v1 = new Car();
+        Vehicle v2 = new SportsCar();
+        v1.move();
+        v2.move();
+    }
+}
+</code></pre>
+<p><strong>Question:</strong> Predict the output.</p>
+<hr />
+<h3 id="example-53-abstraction-multiple-children">Example 53 – Abstraction + Multiple Children<a class="headerlink" href="#example-53-abstraction-multiple-children" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">abstract class Employee {
+    abstract void work();
+}
+
+class Developer extends Employee {
+    void work() { System.out.println(&quot;Writing code&quot;); }
+}
+
+class Tester extends Employee {
+    void work() { System.out.println(&quot;Testing code&quot;); }
+}
+
+class Manager extends Employee {
+    void work() { System.out.println(&quot;Managing team&quot;); }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Employee[] employees = {new Developer(), new Tester(), new Manager()};
+        for(Employee e : employees) e.work();
+    }
+}
+</code></pre>
+<p><strong>Question:</strong> Predict the output.</p>
+<hr />
+<h3 id="example-54-encapsulation-validation-multiple-objects">Example 54 – Encapsulation + Validation + Multiple Objects<a class="headerlink" href="#example-54-encapsulation-validation-multiple-objects" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">class BankAccount {
+    private double balance;
+    public BankAccount(double initialBalance) {
+        balance = initialBalance &lt; 0 ? 0 : initialBalance;
+    }
+    public void deposit(double amount) {
+        if(amount &gt; 0) balance += amount;
+    }
+    public void withdraw(double amount) {
+        if(amount &lt;= balance) balance -= amount;
+        else System.out.println(&quot;Insufficient funds&quot;);
+    }
+    public double getBalance() { return balance; }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        BankAccount a1 = new BankAccount(1000);
+        BankAccount a2 = new BankAccount(-500);
+        a1.deposit(500);
+        a2.withdraw(100);
+        System.out.println(a1.getBalance());
+        System.out.println(a2.getBalance());
+    }
+}
+</code></pre>
+<p><strong>Question:</strong> Predict the output.</p>
+<hr />
+<h3 id="example-55-polymorphism-interface-runtime">Example 55 – Polymorphism + Interface + Runtime<a class="headerlink" href="#example-55-polymorphism-interface-runtime" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">interface Drawable {
+    void draw();
+}
+
+class Circle implements Drawable {
+    public void draw() { System.out.println(&quot;Circle drawn&quot;); }
+}
+
+class Rectangle implements Drawable {
+    public void draw() { System.out.println(&quot;Rectangle drawn&quot;); }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Drawable[] shapes = {new Circle(), new Rectangle()};
+        for(Drawable d : shapes) d.draw();
+    }
+}
+</code></pre>
+<p><strong>Question:</strong> Predict the output.</p>
+<hr />
+<h3 id="example-56-complex-inheritance-super-constructor">Example 56 – Complex Inheritance + Super Constructor<a class="headerlink" href="#example-56-complex-inheritance-super-constructor" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">class Animal {
+    Animal(String msg) { System.out.println(msg); }
+}
+
+class Mammal extends Animal {
+    Mammal() { super(&quot;Animal is alive&quot;); System.out.println(&quot;Mammal created&quot;); }
+}
+
+class Dog extends Mammal {
+    Dog() { System.out.println(&quot;Dog created&quot;); }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+    }
+}
+</code></pre>
+<p><strong>Question:</strong> Predict the output.</p>
+<hr />
+<h3 id="example-57-polymorphism-method-overloading-overriding">Example 57 – Polymorphism + Method Overloading + Overriding<a class="headerlink" href="#example-57-polymorphism-method-overloading-overriding" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">class Calculator {
+    int add(int a, int b) { return a + b; }
+    double add(double a, double b) { return a + b; }
+}
+
+class AdvancedCalculator extends Calculator {
+    int add(int a, int b, int c) { return a + b + c; }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        AdvancedCalculator calc = new AdvancedCalculator();
+        System.out.println(calc.add(5,10));
+        System.out.println(calc.add(2.5,3.5));
+        System.out.println(calc.add(1,2,3));
+    }
+}
+</code></pre>
+<p><strong>Question:</strong> Predict the output.</p>
+<hr />
+<h3 id="example-58-interface-multiple-implementations">Example 58 – Interface + Multiple Implementations<a class="headerlink" href="#example-58-interface-multiple-implementations" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">interface Vehicle {
+    void start();
+}
+
+class Car implements Vehicle {
+    public void start() { System.out.println(&quot;Car starts&quot;); }
+}
+
+class Bike implements Vehicle {
+    public void start() { System.out.println(&quot;Bike starts&quot;); }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Vehicle v1 = new Car();
+        Vehicle v2 = new Bike();
+        v1.start();
+        v2.start();
+    }
+}
+</code></pre>
+<p><strong>Question:</strong> Predict the output.</p>
+<hr />
+<h3 id="example-59-abstraction-polymorphism-array">Example 59 – Abstraction + Polymorphism + Array<a class="headerlink" href="#example-59-abstraction-polymorphism-array" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">abstract class Shape {
+    abstract void area();
+}
+
+class Circle extends Shape {
+    double r = 3;
+    void area() { System.out.println(3.14 * r * r); }
+}
+
+class Square extends Shape {
+    double side = 4;
+    void area() { System.out.println(side * side); }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Shape[] shapes = {new Circle(), new Square()};
+        for(Shape s : shapes) s.area();
+    }
+}
+</code></pre>
+<p><strong>Question:</strong> Predict the output.</p>
+<hr />
+<h3 id="example-60-encapsulation-static-field-multiple-objects">Example 60 – Encapsulation + Static Field + Multiple Objects<a class="headerlink" href="#example-60-encapsulation-static-field-multiple-objects" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">class Counter {
+    private static int count = 0;
+    public Counter() { count++; }
+    public static int getCount() { return count; }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        new Counter();
+        new Counter();
+        new Counter();
+        System.out.println(Counter.getCount());
+    }
+}
+</code></pre>
+<p><strong>Question:</strong> Predict the output.</p>
+<hr />
+<h3 id="example-61-multi-level-inheritance-method-overriding">Example 61 – Multi-Level Inheritance + Method Overriding<a class="headerlink" href="#example-61-multi-level-inheritance-method-overriding" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">class A { void msg() { System.out.println(&quot;A&quot;); } }
+class B extends A { void msg() { System.out.println(&quot;B&quot;); } }
+class C extends B { void msg() { System.out.println(&quot;C&quot;); } }
+class D extends C { void msg() { System.out.println(&quot;D&quot;); } }
+class E extends D { void msg() { System.out.println(&quot;E&quot;); } }
+
+public class Test {
+    public static void main(String[] args) {
+        A obj = new E();
+        obj.msg();
+    }
+}
+</code></pre>
+<p><strong>Question:</strong> Predict the output.</p>
+<hr />
+<h3 id="example-62-polymorphism-casting">Example 62 – Polymorphism + Casting<a class="headerlink" href="#example-62-polymorphism-casting" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">class Animal { void sound() { System.out.println(&quot;Animal sound&quot;); } }
+class Dog extends Animal { void sound() { System.out.println(&quot;Dog barks&quot;); } void run() { System.out.println(&quot;Dog runs&quot;); } }
+
+public class Test {
+    public static void main(String[] args) {
+        Animal a = new Dog();
+        a.sound();
+        ((Dog)a).run();
+    }
+}
+</code></pre>
+<p><strong>Question:</strong> Predict the output.</p>
+<hr />
+<h3 id="example-63-abstraction-constructor-polymorphism">Example 63 – Abstraction + Constructor + Polymorphism<a class="headerlink" href="#example-63-abstraction-constructor-polymorphism" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">abstract class Device {
+    Device() { System.out.println(&quot;Device created&quot;); }
+    abstract void start();
+}
+
+class Phone extends Device {
+    Phone() { System.out.println(&quot;Phone created&quot;); }
+    void start() { System.out.println(&quot;Phone starts&quot;); }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Device d = new Phone();
+        d.start();
+    }
+}
+</code></pre>
+<p><strong>Question:</strong> Predict the output.</p>
+<hr />
+<h3 id="example-64-interface-default-methods">Example 64 – Interface + Default Methods<a class="headerlink" href="#example-64-interface-default-methods" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">interface Vehicle {
+    void start();
+    default void stop() { System.out.println(&quot;Vehicle stopped&quot;); }
+}
+
+class Car implements Vehicle {
+    public void start() { System.out.println(&quot;Car started&quot;); }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Car c = new Car();
+        c.start();
+        c.stop();
+    }
+}
+</code></pre>
+<p><strong>Question:</strong> Predict the output.</p>
+<hr />
+<h3 id="example-65-encapsulation-method-validation">Example 65 – Encapsulation + Method Validation<a class="headerlink" href="#example-65-encapsulation-method-validation" title="Permanent link">&para;</a></h3>
+<pre><code class="language-java">class Product {
+    private int price;
+    public void setPrice(int price) { this.price = price&lt;0?0:price; }
+    public int getPrice() { return price; }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Product p = new Product();
+        p.setPrice(-100);
+        System.out.println(p.getPrice());
+
+
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

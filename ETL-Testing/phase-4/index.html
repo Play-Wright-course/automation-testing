@@ -1,0 +1,1058 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://Play-Wright-course.github.io/automation-testing/ETL-Testing/phase-4/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+    
+    
+      
+        <title>ETL Tools and Environments - Phase 4 Guide - JavaScript Playwright Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2a3383ac.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#etl-tools-and-environments-phase-4-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JavaScript Playwright Docs" class="md-header__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaScript Playwright Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ETL Tools and Environments - Phase 4 Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JavaScript Playwright Docs" class="md-nav__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JavaScript Playwright Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    JavaScript Concepts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            JavaScript Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/dataTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/flow-statement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Flow Statements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/Arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arrays & Objects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascriptConcepts/functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    PlayWright With Java
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            PlayWright With Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/locator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Locators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/page-navigation-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Page Navigation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/playwright-interaction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inputs And Buttons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/checkbox-radio-button/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Checkbox And Radio buttons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/dropdown_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dropdown Handling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/iframes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    iframe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/mouse-keyboard-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mouse Keyboard Actions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/alerts-promt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Alerts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/handling-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Handle Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/file-upload-download/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File upload And Download
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/screenshot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ScreenShot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exceptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/interview-question/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InterViwe Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#phase-4-etl-tools-and-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧰 Phase 4: ETL Tools and Environments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧰 Phase 4: ETL Tools and Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-hands-on-with-etl-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Hands-on with ETL Tools
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-data-warehouse-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Data Warehouse Tools
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-scheduling-orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Scheduling / Orchestration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="etl-tools-and-environments-phase-4-guide">ETL Tools and Environments - Phase 4 Guide<a class="headerlink" href="#etl-tools-and-environments-phase-4-guide" title="Permanent link">&para;</a></h1>
+<h2 id="phase-4-etl-tools-and-environments">🧰 Phase 4: ETL Tools and Environments<a class="headerlink" href="#phase-4-etl-tools-and-environments" title="Permanent link">&para;</a></h2>
+<p>ETL tools help automate the extraction, transformation, and loading of data. This phase covers hands-on practice, data warehouse environments, and orchestration tools.</p>
+<hr />
+<h3 id="1-hands-on-with-etl-tools">1. Hands-on with ETL Tools<a class="headerlink" href="#1-hands-on-with-etl-tools" title="Permanent link">&para;</a></h3>
+<p><strong>Popular ETL Tools:</strong></p>
+<ul>
+<li>Talend Open Studio (Free)</li>
+<li>Informatica PowerCenter (Paid, trial available)</li>
+<li>Pentaho Kettle (PDI)</li>
+<li>Apache NiFi (Open-source)</li>
+<li>SSIS (SQL Server Integration Services)</li>
+</ul>
+<p><strong>Prerequisites:</strong></p>
+<ul>
+<li>
+<p><strong>Talend Open Studio:</strong></p>
+</li>
+<li>
+<p>Java JDK 8 or above</p>
+</li>
+<li>Minimum 4GB RAM</li>
+<li>Download Talend Open Studio from official site</li>
+<li>
+<p><strong>Informatica PowerCenter:</strong></p>
+</li>
+<li>
+<p>Windows or Linux Server</p>
+</li>
+<li>Database for repository (Oracle, SQL Server)</li>
+<li>Informatica installation files</li>
+<li>
+<p><strong>Pentaho Kettle (PDI):</strong></p>
+</li>
+<li>
+<p>Java JDK 8 or above</p>
+</li>
+<li>Pentaho Data Integration installation</li>
+<li>
+<p><strong>Apache NiFi:</strong></p>
+</li>
+<li>
+<p>Java JDK 8 or above</p>
+</li>
+<li>Minimum 2GB RAM</li>
+<li>Download NiFi binary</li>
+<li>
+<p><strong>SSIS:</strong></p>
+</li>
+<li>
+<p>Windows OS</p>
+</li>
+<li>SQL Server with Integration Services installed</li>
+<li>Visual Studio (for creating packages)</li>
+</ul>
+<p><strong>Procedure to Setup Tool (Example: Talend Open Studio):</strong></p>
+<ol>
+<li>Download Talend Open Studio.</li>
+<li>Extract ZIP folder.</li>
+<li>Set <code>JAVA_HOME</code> in environment variables.</li>
+<li>Open <code>TOS_DI-win-x86_64.exe</code> (for Windows) to launch.</li>
+<li>Create a new project.</li>
+<li>Explore components: Input, Output, Transform.</li>
+</ol>
+<p><strong>Creating a Simple ETL Job:</strong></p>
+<ul>
+<li>Input: <code>customer.csv</code></li>
+<li>Transform: Assign Loyalty Status based on Sales</li>
+<li>Output: Load into <code>customer_dw</code> table</li>
+</ul>
+<p><strong>Dummy Data (customer.csv):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Customer_ID</th>
+<th>Name</th>
+<th>Birthdate</th>
+<th>Sales_Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>101</td>
+<td>Alice</td>
+<td>12/31/1985</td>
+<td>250</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Bob</td>
+<td>11/15/1990</td>
+<td>300</td>
+</tr>
+<tr>
+<td>103</td>
+<td>Charlie</td>
+<td>02/20/1982</td>
+<td>150</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Transformations:</strong></p>
+<ul>
+<li>Format <code>Birthdate</code> to <code>YYYY-MM-DD</code></li>
+<li>
+<p>Assign Loyalty Status</p>
+</li>
+<li>
+<blockquote>
+<p>= 300 → Gold</p>
+</blockquote>
+</li>
+<li>200–299 → Silver</li>
+<li>&lt;200 → Bronze</li>
+</ul>
+<p><strong>Load:</strong></p>
+<ul>
+<li>Into target table <code>DW_CUSTOMER</code></li>
+</ul>
+<p><strong>Viewing Logs &amp; Error Handling:</strong></p>
+<ul>
+<li>Each tool provides a console or logs panel.</li>
+<li>Common errors: Missing files, wrong data types, null values.</li>
+<li>Logs help debug and fix ETL jobs.</li>
+</ul>
+<hr />
+<h3 id="2-data-warehouse-tools">2. Data Warehouse Tools<a class="headerlink" href="#2-data-warehouse-tools" title="Permanent link">&para;</a></h3>
+<p><strong>Popular Data Warehouses:</strong></p>
+<ul>
+<li>Snowflake</li>
+<li>Amazon Redshift</li>
+<li>Google BigQuery</li>
+<li>Azure Synapse</li>
+</ul>
+<p><strong>Pre-requisites:</strong></p>
+<ul>
+<li>Cloud account (AWS, GCP, Azure, Snowflake)</li>
+<li>SQL knowledge</li>
+<li>Dataset for loading (e.g., dummy <code>customer.csv</code>)</li>
+</ul>
+<p><strong>Procedure Example (Snowflake):</strong></p>
+<ol>
+<li>Create free Snowflake trial account.</li>
+<li>Create database and schema.</li>
+<li>Create tables:</li>
+</ol>
+<pre><code class="language-sql">CREATE TABLE CUSTOMER_DW (
+ Customer_ID INT,
+ Name VARCHAR(50),
+ Birthdate DATE,
+ Sales_Amount INT,
+ Loyalty_Status VARCHAR(10)
+);
+</code></pre>
+<ol>
+<li>Load data from CSV using <code>COPY INTO</code> command.</li>
+<li>Query to validate transformations.</li>
+</ol>
+<hr />
+<h3 id="3-scheduling-orchestration">3. Scheduling / Orchestration<a class="headerlink" href="#3-scheduling-orchestration" title="Permanent link">&para;</a></h3>
+<p><strong>Tools:</strong></p>
+<ul>
+<li>Apache Airflow</li>
+<li>Oozie</li>
+<li>Control-M</li>
+</ul>
+<p><strong>Purpose:</strong> Schedule and orchestrate ETL jobs in sequence or based on triggers.</p>
+<p><strong>Airflow Example Setup:</strong>
+<strong>Prerequisites:</strong></p>
+<ul>
+<li>Python 3.8+</li>
+<li>Pip</li>
+<li>Minimum 2GB RAM</li>
+</ul>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Install Airflow: <code>pip install apache-airflow</code></li>
+<li>Initialize DB: <code>airflow db init</code></li>
+<li>Create DAG folder and Python DAG file</li>
+<li>Define ETL tasks (Extract, Transform, Load)</li>
+<li>Start scheduler: <code>airflow scheduler</code></li>
+<li>Monitor jobs using web UI: <code>airflow webserver</code></li>
+</ol>
+<p><strong>Dummy DAG Example:</strong></p>
+<ul>
+<li>Task 1: Extract CSV</li>
+<li>Task 2: Transform data (format date, assign loyalty)</li>
+<li>Task 3: Load into Snowflake or Redshift</li>
+</ul>
+<p><strong>Validation:</strong></p>
+<ul>
+<li>Check logs in Airflow UI</li>
+<li>Confirm data in target tables</li>
+</ul>
+<hr />
+<p><strong>Summary:</strong></p>
+<ol>
+<li>Choose ETL tool (Talend, Informatica, Pentaho, NiFi, SSIS) for hands-on practice.</li>
+<li>Load dummy data and apply transformations to simulate business logic.</li>
+<li>Use Data Warehouses (Snowflake, Redshift, BigQuery, Azure Synapse) for target storage.</li>
+<li>Schedule and orchestrate ETL jobs with Airflow, Oozie, or Control-M.</li>
+<li>Practice logs and error handling to debug ETL processes.</li>
+</ol>
+<p>This phase ensures you can set up ETL tools, perform hands-on jobs, and manage ETL workflows effectively.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

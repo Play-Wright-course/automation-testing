@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://Play-Wright-course.github.io/automation-testing/mysql/sql-query-practice-5/">
+        <link rel="canonical" href="https://Play-Wright-course.github.io/automation-testing/javascriptConcepts/var-vs-let-vaiable/">
       
       
       
@@ -21,7 +21,7 @@
     
     
       
-        <title>SQL Practice: Set Operators with Explanations - JavaScript Playwright Docs</title>
+        <title>Difference Between var and let in JavaScript - JavaScript Playwright Docs</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sql-practice-set-operators-with-explanations" class="md-skip">
+        <a href="#difference-between-var-and-let-in-javascript" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SQL Practice: Set Operators with Explanations
+              Difference Between var and let in JavaScript
             
           </span>
         </div>
@@ -241,7 +241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../javascriptConcepts/variables/" class="md-nav__link">
+      <a href="../variables/" class="md-nav__link">
         
   
   
@@ -269,7 +269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../javascriptConcepts/dataTypes/" class="md-nav__link">
+      <a href="../dataTypes/" class="md-nav__link">
         
   
   
@@ -297,7 +297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../javascriptConcepts/operator/" class="md-nav__link">
+      <a href="../operator/" class="md-nav__link">
         
   
   
@@ -325,7 +325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../javascriptConcepts/flow-statement/" class="md-nav__link">
+      <a href="../flow-statement/" class="md-nav__link">
         
   
   
@@ -353,7 +353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../javascriptConcepts/Arrays/" class="md-nav__link">
+      <a href="../Arrays/" class="md-nav__link">
         
   
   
@@ -381,7 +381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../javascriptConcepts/functions/" class="md-nav__link">
+      <a href="../functions/" class="md-nav__link">
         
   
   
@@ -854,163 +854,68 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-union" class="md-nav__link">
+  <a href="#1-scope" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. UNION
+        1. Scope
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="1. UNION">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#q1-combine-employees-from-two-departments" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Q1: Combine employees from two departments
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#q2-union-all-keep-duplicates" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Q2: UNION ALL (keep duplicates)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-intersect" class="md-nav__link">
+  <a href="#2-hoisting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. INTERSECT
+        2. Hoisting
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="2. INTERSECT">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#q3-employees-present-in-both-departments" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Q3: Employees present in both departments
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#q4-intersect-multiple-conditions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Q4: INTERSECT multiple conditions
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-minus-except" class="md-nav__link">
+  <a href="#3-re-declaration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. MINUS / EXCEPT
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. MINUS / EXCEPT">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#q5-employees-in-dept_a-but-not-in-dept_b" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Q5: Employees in dept_a but not in dept_b
+        3. Re-Declaration
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#q6-employees-in-dept_b-but-not-in-dept_a" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#4-global-object-property-browser" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Q6: Employees in dept_b but not in dept_a
+        4. Global Object Property (Browser)
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#q7-union-and-minus-combined" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#5-recommended-usage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Q7: UNION and MINUS combined
+        5. Recommended Usage
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#q8-check-mismatched-records-between-source-and-target" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#comparison-table" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Q8: Check mismatched records between source and target
+        Comparison Table
       
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#q9-except-example-sql-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Q9: EXCEPT example (SQL Server)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#q10-find-common-employees-and-unique-employees-in-one-query" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Q10: Find common employees and unique employees in one query
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1031,502 +936,72 @@
 
 
 
-<h1 id="sql-practice-set-operators-with-explanations">SQL Practice: Set Operators with Explanations<a class="headerlink" href="#sql-practice-set-operators-with-explanations" title="Permanent link">&para;</a></h1>
-<p>This file contains <strong>15 SQL practice problems</strong> covering:</p>
+<h1 id="difference-between-var-and-let-in-javascript">Difference Between <code>var</code> and <code>let</code> in JavaScript<a class="headerlink" href="#difference-between-var-and-let-in-javascript" title="Permanent link">&para;</a></h1>
+<h2 id="1-scope">1. Scope<a class="headerlink" href="#1-scope" title="Permanent link">&para;</a></h2>
 <ul>
-<li>UNION / UNION ALL</li>
-<li>INTERSECT</li>
-<li>MINUS / EXCEPT</li>
+<li><strong>var</strong><ul>
+<li>Function-scoped</li>
+<li>Available anywhere inside the function</li>
 </ul>
-<p>Each question includes:</p>
+</li>
+<li><strong>let</strong><ul>
+<li>Block-scoped</li>
+<li>Available only inside the <code>{ }</code> block where it is declared</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-hoisting">2. Hoisting<a class="headerlink" href="#2-hoisting" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Input Table(s)</li>
-<li>Question</li>
-<li>SQL Query</li>
-<li>Explanation</li>
-<li>Output Table</li>
+<li><strong>var</strong><ul>
+<li>Hoisted and initialized with <code>undefined</code></li>
+<li>Can be accessed before declaration (but will be <code>undefined</code>)</li>
 </ul>
+</li>
+<li><strong>let</strong><ul>
+<li>Hoisted but <em>not initialized</em></li>
+<li>Cannot be accessed before declaration (Temporal Dead Zone)</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-re-declaration">3. Re-Declaration<a class="headerlink" href="#3-re-declaration" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>var</strong><ul>
+<li>Allows re-declaration in the same scope</li>
+</ul>
+</li>
+<li><strong>let</strong><ul>
+<li>Does not allow re-declaration in the same scope</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-global-object-property-browser">4. Global Object Property (Browser)<a class="headerlink" href="#4-global-object-property-browser" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>var</strong><ul>
+<li>Declared globally → becomes property of <code>window</code> object</li>
+</ul>
+</li>
+<li><strong>let</strong><ul>
+<li>Declared globally → does <strong>not</strong> attach to <code>window</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="5-recommended-usage">5. Recommended Usage<a class="headerlink" href="#5-recommended-usage" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>var</code> → Not preferred; avoid using in modern JS</li>
+<li><code>let</code> → Use for variables whose values will change</li>
+<li><code>const</code> → Prefer for fixed or constant values</li>
+</ul>
+<h2 id="comparison-table">Comparison Table<a class="headerlink" href="#comparison-table" title="Permanent link">&para;</a></h2>
 <hr />
-<h2 id="1-union">1. UNION<a class="headerlink" href="#1-union" title="Permanent link">&para;</a></h2>
-<h3 id="q1-combine-employees-from-two-departments">Q1: Combine employees from two departments<a class="headerlink" href="#q1-combine-employees-from-two-departments" title="Permanent link">&para;</a></h3>
-<p><strong>Input Tables:</strong>
-<strong>dept_hr</strong></p>
-<table>
-<thead>
-<tr>
-<th>emp_id</th>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Alice</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Bob</td>
-</tr>
-</tbody>
-</table>
-<p><strong>dept_it</strong></p>
-<table>
-<thead>
-<tr>
-<th>emp_id</th>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>3</td>
-<td>Charlie</td>
-</tr>
-<tr>
-<td>4</td>
-<td>David</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Query:</strong></p>
-<pre><code class="language-sql">SELECT name FROM dept_hr
-UNION
-SELECT name FROM dept_it;
-</code></pre>
-<p><strong>Explanation:</strong>
-UNION combines results and removes duplicates.</p>
-<p><strong>Output:</strong></p>
-<table>
-<thead>
-<tr>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Alice</td>
-</tr>
-<tr>
-<td>Bob</td>
-</tr>
-<tr>
-<td>Charlie</td>
-</tr>
-<tr>
-<td>David</td>
-</tr>
-</tbody>
-</table>
+<p>Feature                   <code>var</code>                  <code>let</code></p>
 <hr />
-<h3 id="q2-union-all-keep-duplicates">Q2: UNION ALL (keep duplicates)<a class="headerlink" href="#q2-union-all-keep-duplicates" title="Permanent link">&para;</a></h3>
-<p><strong>Input Tables:</strong>
-<strong>dept_sales</strong></p>
-<table>
-<thead>
-<tr>
-<th>emp_id</th>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>5</td>
-<td>Eve</td>
-</tr>
-<tr>
-<td>6</td>
-<td>Frank</td>
-</tr>
-</tbody>
-</table>
-<p><strong>dept_marketing</strong></p>
-<table>
-<thead>
-<tr>
-<th>emp_id</th>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>6</td>
-<td>Frank</td>
-</tr>
-<tr>
-<td>7</td>
-<td>Grace</td>
-</tr>
-</tbody>
-</table>
-<pre><code class="language-sql">SELECT name FROM dept_sales
-UNION ALL
-SELECT name FROM dept_marketing;
-</code></pre>
-<p><strong>Output:</strong></p>
-<table>
-<thead>
-<tr>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Eve</td>
-</tr>
-<tr>
-<td>Frank</td>
-</tr>
-<tr>
-<td>Frank</td>
-</tr>
-<tr>
-<td>Grace</td>
-</tr>
-</tbody>
-</table>
+<p>Scope                     Function-scoped        Block-scoped</p>
+<p>Hoisting                  Yes (initialized with  Yes (uninitialized,
+                            <code>undefined</code>)           TDZ)</p>
+<p>Re-declaration            Allowed                Not allowed</p>
+<p>Global window property    Yes                    No</p>
+<p>Modern usage              Not recommended        Recommended</p>
 <hr />
-<h2 id="2-intersect">2. INTERSECT<a class="headerlink" href="#2-intersect" title="Permanent link">&para;</a></h2>
-<h3 id="q3-employees-present-in-both-departments">Q3: Employees present in both departments<a class="headerlink" href="#q3-employees-present-in-both-departments" title="Permanent link">&para;</a></h3>
-<p><strong>Input Tables:</strong>
-<strong>dept_a</strong></p>
-<table>
-<thead>
-<tr>
-<th>emp_id</th>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Alice</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Bob</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Charlie</td>
-</tr>
-</tbody>
-</table>
-<p><strong>dept_b</strong></p>
-<table>
-<thead>
-<tr>
-<th>emp_id</th>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2</td>
-<td>Bob</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Charlie</td>
-</tr>
-<tr>
-<td>4</td>
-<td>David</td>
-</tr>
-</tbody>
-</table>
-<pre><code class="language-sql">SELECT name FROM dept_a
-INTERSECT
-SELECT name FROM dept_b;
-</code></pre>
-<p><strong>Explanation:</strong>
-INTERSECT returns only rows present in both tables.</p>
-<p><strong>Output:</strong></p>
-<table>
-<thead>
-<tr>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Bob</td>
-</tr>
-<tr>
-<td>Charlie</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h3 id="q4-intersect-multiple-conditions">Q4: INTERSECT multiple conditions<a class="headerlink" href="#q4-intersect-multiple-conditions" title="Permanent link">&para;</a></h3>
-<pre><code class="language-sql">SELECT emp_id, name FROM dept_a
-INTERSECT
-SELECT emp_id, name FROM dept_b;
-</code></pre>
-<p><strong>Output:</strong></p>
-<table>
-<thead>
-<tr>
-<th>emp_id</th>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2</td>
-<td>Bob</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Charlie</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="3-minus-except">3. MINUS / EXCEPT<a class="headerlink" href="#3-minus-except" title="Permanent link">&para;</a></h2>
-<h3 id="q5-employees-in-dept_a-but-not-in-dept_b">Q5: Employees in dept_a but not in dept_b<a class="headerlink" href="#q5-employees-in-dept_a-but-not-in-dept_b" title="Permanent link">&para;</a></h3>
-<pre><code class="language-sql">SELECT name FROM dept_a
-MINUS
-SELECT name FROM dept_b; -- Oracle
--- EXCEPT in SQL Server
-</code></pre>
-<p><strong>Output:</strong></p>
-<table>
-<thead>
-<tr>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Alice</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h3 id="q6-employees-in-dept_b-but-not-in-dept_a">Q6: Employees in dept_b but not in dept_a<a class="headerlink" href="#q6-employees-in-dept_b-but-not-in-dept_a" title="Permanent link">&para;</a></h3>
-<pre><code class="language-sql">SELECT name FROM dept_b
-MINUS
-SELECT name FROM dept_a;
-</code></pre>
-<p><strong>Output:</strong></p>
-<table>
-<thead>
-<tr>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>David</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h3 id="q7-union-and-minus-combined">Q7: UNION and MINUS combined<a class="headerlink" href="#q7-union-and-minus-combined" title="Permanent link">&para;</a></h3>
-<p><strong>Input Tables:</strong>
-<strong>dept_x</strong></p>
-<table>
-<thead>
-<tr>
-<th>emp_id</th>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Alice</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Bob</td>
-</tr>
-</tbody>
-</table>
-<p><strong>dept_y</strong></p>
-<table>
-<thead>
-<tr>
-<th>emp_id</th>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2</td>
-<td>Bob</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Charlie</td>
-</tr>
-</tbody>
-</table>
-<pre><code class="language-sql">SELECT name FROM (
-  SELECT name FROM dept_x
-  UNION
-  SELECT name FROM dept_y
-) combined
-MINUS
-SELECT name FROM dept_x;
-</code></pre>
-<p><strong>Explanation:</strong>
-Combine both tables, then remove names already in dept_x.</p>
-<p><strong>Output:</strong></p>
-<table>
-<thead>
-<tr>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Charlie</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h3 id="q8-check-mismatched-records-between-source-and-target">Q8: Check mismatched records between source and target<a class="headerlink" href="#q8-check-mismatched-records-between-source-and-target" title="Permanent link">&para;</a></h3>
-<p><strong>Input Tables:</strong>
-<strong>source_employees</strong></p>
-<table>
-<thead>
-<tr>
-<th>emp_id</th>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Alice</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Bob</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Charlie</td>
-</tr>
-</tbody>
-</table>
-<p><strong>target_employees</strong></p>
-<table>
-<thead>
-<tr>
-<th>emp_id</th>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2</td>
-<td>Bob</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Charlie</td>
-</tr>
-<tr>
-<td>4</td>
-<td>David</td>
-</tr>
-</tbody>
-</table>
-<pre><code class="language-sql">SELECT name FROM source_employees
-MINUS
-SELECT name FROM target_employees;
-</code></pre>
-<p><strong>Output:</strong></p>
-<table>
-<thead>
-<tr>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Alice</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h3 id="q9-except-example-sql-server">Q9: EXCEPT example (SQL Server)<a class="headerlink" href="#q9-except-example-sql-server" title="Permanent link">&para;</a></h3>
-<pre><code class="language-sql">SELECT name FROM target_employees
-EXCEPT
-SELECT name FROM source_employees;
-</code></pre>
-<p><strong>Output:</strong></p>
-<table>
-<thead>
-<tr>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>David</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h3 id="q10-find-common-employees-and-unique-employees-in-one-query">Q10: Find common employees and unique employees in one query<a class="headerlink" href="#q10-find-common-employees-and-unique-employees-in-one-query" title="Permanent link">&para;</a></h3>
-<pre><code class="language-sql">SELECT name FROM source_employees
-INTERSECT
-SELECT name FROM target_employees; -- common
-
-SELECT name FROM source_employees
-MINUS
-SELECT name FROM target_employees; -- in source only
-
-SELECT name FROM target_employees
-MINUS
-SELECT name FROM source_employees; -- in target only
-</code></pre>
-<p><strong>Output:</strong>
-<strong>Common:</strong></p>
-<table>
-<thead>
-<tr>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Bob</td>
-</tr>
-<tr>
-<td>Charlie</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Source only:</strong></p>
-<table>
-<thead>
-<tr>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Alice</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Target only:</strong></p>
-<table>
-<thead>
-<tr>
-<th>name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>David</td>
-</tr>
-</tbody>
-</table>
 
 
 

@@ -36,6 +36,62 @@ a++;
 console.log(a);      // 11
 b--;
 console.log(b);      // 2
+
+let x;
+
+// Assignment (=)
+x = 10;
+console.log(x); // 10
+
+// Add and assign (+=)
+x += 5;          // x = x + 5
+console.log(x);  // 15
+
+// Subtract and assign (-=)
+x -= 3;          // x = x - 3
+console.log(x);  // 12
+
+// Multiply and assign (*=)
+x *= 2;          // x = x * 2
+console.log(x);  // 24
+
+// Divide and assign (/=)
+x /= 4;          // x = x / 4
+console.log(x);  // 6
+
+// Modulus and assign (%=)
+x %= 5;          // x = x % 5
+console.log(x);  // 1
+
+// Exponentiate and assign (**=)
+x **= 3;         // x = x ** 3
+console.log(x);  // 1
+
+// Bitwise AND and assign (&=)
+x = 5;
+x &= 3;          // x = x & 3
+console.log(x);  // 1
+
+// Bitwise OR and assign (|=)
+x |= 2;          // x = x | 2
+console.log(x);  // 3
+
+// Bitwise XOR and assign (^=)
+x ^= 1;          // x = x ^ 1
+console.log(x);  // 2
+
+// Left shift and assign (<<=)
+x <<= 2;         // x = x << 2
+console.log(x);  // 8
+
+// Right shift and assign (>>=)
+x >>= 1;         // x = x >> 1
+console.log(x);  // 4
+
+// Unsigned right shift and assign (>>>=)
+x >>>= 1;        // x = x >>> 1
+console.log(x);  // 2
+
 ```
 
 **Playwright Use Case:** Calculating dynamic index for lists of elements or iterations.

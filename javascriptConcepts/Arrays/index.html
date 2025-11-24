@@ -1453,6 +1453,16 @@
 <pre><code class="language-javascript">let numbers = [1, 2, 3, 4, 5];
 let fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;mango&quot;];
 let mixed = [1, &quot;apple&quot;, true, 'c']; // mixed data types
+
+== OR ==
+let marks = Array(6);
+console.log(marks);   // [ &lt;6 empty items&gt; ]
+console.log(marks.length);  // 6
+
+for (let i = 0; i &lt; marks.length; i++) {
+  marks[i] = i * 10;
+}
+console.log(marks); // [0, 10, 20, 30, 40, 50]
 </code></pre>
 <h3 id="accessing-elements">Accessing Elements<a class="headerlink" href="#accessing-elements" title="Permanent link">&para;</a></h3>
 <pre><code class="language-javascript">console.log(numbers[0]); // 1

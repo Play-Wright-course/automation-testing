@@ -37,6 +37,35 @@ console.log(a);      // 11
 b--;
 console.log(b);      // 2
 
+
+
+```
+
+**Playwright Use Case:** Calculating dynamic index for lists of elements or iterations.
+
+---
+
+## 🔹 Assignment Operators
+Used to assign values to variables.
+
+| Operator | Description |
+|----------|-------------|
+| `=`      | Assign |
+| `+=`     | Add and assign |
+| `-=`     | Subtract and assign |
+| `*=`     | Multiply and assign |
+| `/=`     | Divide and assign |
+| `%=`     | Modulus and assign |
+
+### Examples – Assignment
+```javascript
+let x = 5;
+x += 3;  // x = x + 3
+console.log(x); // 8
+
+x *= 2;  // x = x * 2
+console.log(x); // 16
+
 let x;
 
 // Assignment (=)
@@ -91,33 +120,6 @@ console.log(x);  // 4
 // Unsigned right shift and assign (>>>=)
 x >>>= 1;        // x = x >>> 1
 console.log(x);  // 2
-
-```
-
-**Playwright Use Case:** Calculating dynamic index for lists of elements or iterations.
-
----
-
-## 🔹 Assignment Operators
-Used to assign values to variables.
-
-| Operator | Description |
-|----------|-------------|
-| `=`      | Assign |
-| `+=`     | Add and assign |
-| `-=`     | Subtract and assign |
-| `*=`     | Multiply and assign |
-| `/=`     | Divide and assign |
-| `%=`     | Modulus and assign |
-
-### Examples – Assignment
-```javascript
-let x = 5;
-x += 3;  // x = x + 3
-console.log(x); // 8
-
-x *= 2;  // x = x * 2
-console.log(x); // 16
 ```
 
 ---

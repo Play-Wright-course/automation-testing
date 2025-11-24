@@ -16,6 +16,16 @@ Arrays store multiple values in an ordered list.
 let numbers = [1, 2, 3, 4, 5];
 let fruits = ["apple", "banana", "mango"];
 let mixed = [1, "apple", true, 'c']; // mixed data types
+
+== OR ==
+let marks = Array(6);
+console.log(marks);   // [ <6 empty items> ]
+console.log(marks.length);  // 6
+
+for (let i = 0; i < marks.length; i++) {
+  marks[i] = i * 10;
+}
+console.log(marks); // [0, 10, 20, 30, 40, 50]
 ```
 
 ### Accessing Elements

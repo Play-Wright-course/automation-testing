@@ -21,7 +21,7 @@
     
     
       
-        <title>JavaScript: var, let, const – Code Snippets with Output - JavaScript Playwright Docs</title>
+        <title>JavaScript: var, let, const – Code Snippets with Explanations & Outputs - JavaScript Playwright Docs</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#javascript-var-let-const-code-snippets-with-output" class="md-skip">
+        <a href="#javascript-var-let-const-code-snippets-with-explanations-outputs" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              JavaScript: var, let, const – Code Snippets with Output
+              JavaScript: var, let, const – Code Snippets with Explanations &amp; Outputs
             
           </span>
         </div>
@@ -847,135 +847,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-var-scope" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. var Scope
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-let-scope" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. let Scope
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-hoisting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Hoisting
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-let-tdz" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. let TDZ
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-redeclaration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Redeclaration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-global-behavior" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Global Behavior
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-shadowing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Shadowing
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-const-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. const Example
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-closure-var" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Closure (var)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-closure-let" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        10. Closure (let)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11-final-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        11. Final Example
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -991,83 +862,237 @@
 
 
 
-<h1 id="javascript-var-let-const-code-snippets-with-output">JavaScript: var, let, const – Code Snippets with Output<a class="headerlink" href="#javascript-var-let-const-code-snippets-with-output" title="Permanent link">&para;</a></h1>
-<h2 id="1-var-scope">1. var Scope<a class="headerlink" href="#1-var-scope" title="Permanent link">&para;</a></h2>
+<h1 id="javascript-var-let-const-code-snippets-with-explanations-outputs">JavaScript: var, let, const – Code Snippets with Explanations &amp; Outputs<a class="headerlink" href="#javascript-var-let-const-code-snippets-with-explanations-outputs" title="Permanent link">&para;</a></h1>
+<p>This file contains detailed explanations for every example to help you understand real-world JavaScript behavior clearly.</p>
+<hr />
+<h1 id="1-var-scope-function-scoped">1. var Scope (Function Scoped)<a class="headerlink" href="#1-var-scope-function-scoped" title="Permanent link">&para;</a></h1>
 <pre><code class="language-javascript">function testVarScope() {
   if (true) {
-    var x = 10;
+    var x = 10; // var is function-scoped
   }
-  console.log(&quot;var x =&quot;, x);
+  console.log(&quot;var x =&quot;, x); // Accessible here
 }
 testVarScope();
 </code></pre>
-<p>Output:</p>
+<h3 id="explanation">Explanation<a class="headerlink" href="#explanation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>var</code> ignores block scope.</li>
+<li>Even though <code>x</code> is declared inside the <code>if</code> block, it becomes available throughout the entire function.</li>
+</ul>
+<h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">&para;</a></h3>
 <pre><code>var x = 10
 </code></pre>
-<h2 id="2-let-scope">2. let Scope<a class="headerlink" href="#2-let-scope" title="Permanent link">&para;</a></h2>
+<hr />
+<h1 id="2-let-scope-block-scoped">2. let Scope (Block Scoped)<a class="headerlink" href="#2-let-scope-block-scoped" title="Permanent link">&para;</a></h1>
 <pre><code class="language-javascript">function testLetScope() {
   if (true) {
-    let y = 20;
+    let y = 20; // let is block-scoped
     console.log(&quot;Inside block y =&quot;, y);
   }
+  // console.log(y); // ReferenceError
 }
 testLetScope();
 </code></pre>
-<p>Output:</p>
+<h3 id="explanation_1">Explanation<a class="headerlink" href="#explanation_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>let</code> respects block scope (<code>{}</code>).</li>
+<li><code>y</code> is only available inside the <code>if</code> block.</li>
+</ul>
+<h3 id="output_1">Output<a class="headerlink" href="#output_1" title="Permanent link">&para;</a></h3>
 <pre><code>Inside block y = 20
 </code></pre>
-<h2 id="3-hoisting">3. Hoisting<a class="headerlink" href="#3-hoisting" title="Permanent link">&para;</a></h2>
-<pre><code class="language-javascript">console.log(a);
+<hr />
+<h1 id="3-hoisting-with-var">3. Hoisting with var<a class="headerlink" href="#3-hoisting-with-var" title="Permanent link">&para;</a></h1>
+<pre><code class="language-javascript">console.log(a); // undefined
 var a = 5;
 </code></pre>
-<p>Output:</p>
+<h3 id="explanation_2">Explanation<a class="headerlink" href="#explanation_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>var</code> is hoisted AND initialized with <code>undefined</code> during the memory creation phase.</li>
+<li>This allows accessing it before declaration (but value is undefined).</li>
+</ul>
+<h3 id="output_2">Output<a class="headerlink" href="#output_2" title="Permanent link">&para;</a></h3>
 <pre><code>undefined
 </code></pre>
-<h2 id="4-let-tdz">4. let TDZ<a class="headerlink" href="#4-let-tdz" title="Permanent link">&para;</a></h2>
-<pre><code class="language-javascript">let b = 10;
+<hr />
+<h1 id="4-hoisting-with-let-tdz">4. Hoisting with let (TDZ)<a class="headerlink" href="#4-hoisting-with-let-tdz" title="Permanent link">&para;</a></h1>
+<pre><code class="language-javascript">// console.log(b); // ReferenceError
+let b = 10;
 </code></pre>
-<h2 id="5-redeclaration">5. Redeclaration<a class="headerlink" href="#5-redeclaration" title="Permanent link">&para;</a></h2>
+<h3 id="explanation_3">Explanation<a class="headerlink" href="#explanation_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>let</code> is hoisted but NOT initialized.</li>
+<li>Accessing it before the declaration line results in a <strong>Temporal Dead Zone (TDZ)</strong> error.</li>
+</ul>
+<hr />
+<h1 id="5-redeclaration-difference">5. Redeclaration Difference<a class="headerlink" href="#5-redeclaration-difference" title="Permanent link">&para;</a></h1>
 <pre><code class="language-javascript">var name = &quot;Nitin&quot;;
-var name = &quot;Patil&quot;;
+var name = &quot;Patil&quot;; // ✔ allowed
+
 let city = &quot;Pune&quot;;
-city = &quot;Mumbai&quot;;
+// let city = &quot;Mumbai&quot;; // ❌ SyntaxError
+city = &quot;Mumbai&quot;; // ✔ allowed
 </code></pre>
-<h2 id="6-global-behavior">6. Global Behavior<a class="headerlink" href="#6-global-behavior" title="Permanent link">&para;</a></h2>
+<h3 id="explanation_4">Explanation<a class="headerlink" href="#explanation_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>var</code> allows redeclaration in the same scope.</li>
+<li><code>let</code> does not allow redeclaration but does allow reassignment.</li>
+</ul>
+<h3 id="output_3">Output<a class="headerlink" href="#output_3" title="Permanent link">&para;</a></h3>
+<pre><code>var redeclared = Patil
+let reassigned = Mumbai
+</code></pre>
+<hr />
+<h1 id="6-global-behavior-browser-only">6. Global Behavior (Browser Only)<a class="headerlink" href="#6-global-behavior-browser-only" title="Permanent link">&para;</a></h1>
 <pre><code class="language-javascript">var aVar = 100;
 let aLet = 200;
+
+console.log(window.aVar); // 100
+console.log(window.aLet); // undefined
 </code></pre>
-<h2 id="7-shadowing">7. Shadowing<a class="headerlink" href="#7-shadowing" title="Permanent link">&para;</a></h2>
+<h3 id="explanation_5">Explanation<a class="headerlink" href="#explanation_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Global <code>var</code> variables become properties of the global object (<code>window</code>).</li>
+<li>Global <code>let</code> variables DO NOT attach to <code>window</code>.</li>
+</ul>
+<h3 id="output_4">Output<a class="headerlink" href="#output_4" title="Permanent link">&para;</a></h3>
+<pre><code>100
+undefined
+</code></pre>
+<hr />
+<h1 id="7-shadowing-function-level">7. Shadowing (Function Level)<a class="headerlink" href="#7-shadowing-function-level" title="Permanent link">&para;</a></h1>
 <pre><code class="language-javascript">var x = 1;
+
 function demo() {
-  var x = 2;
+  var x = 2; // shadows global x
   console.log(&quot;Inside function x =&quot;, x);
 }
 demo();
 console.log(&quot;Outside x =&quot;, x);
 </code></pre>
-<h2 id="8-const-example">8. const Example<a class="headerlink" href="#8-const-example" title="Permanent link">&para;</a></h2>
-<pre><code class="language-javascript">const user = { name: &quot;Nitin&quot;, city: &quot;Pune&quot; };
-user.city = &quot;Mumbai&quot;;
-console.log(user);
+<h3 id="explanation_6">Explanation<a class="headerlink" href="#explanation_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Re-declaring <code>x</code> inside the function creates a new variable, shadowing the global one.</li>
+</ul>
+<h3 id="output_5">Output<a class="headerlink" href="#output_5" title="Permanent link">&para;</a></h3>
+<pre><code>Inside function x = 2
+Outside x = 1
 </code></pre>
-<h2 id="9-closure-var">9. Closure (var)<a class="headerlink" href="#9-closure-var" title="Permanent link">&para;</a></h2>
+<hr />
+<h1 id="8-shadowing-with-let-block-level">8. Shadowing with let (Block Level)<a class="headerlink" href="#8-shadowing-with-let-block-level" title="Permanent link">&para;</a></h1>
+<pre><code class="language-javascript">let num = 10;
+
+{
+  let num = 20; // block-level shadowing
+  console.log(&quot;Inside block =&quot;, num);
+}
+
+console.log(&quot;Outside block =&quot;, num);
+</code></pre>
+<h3 id="explanation_7">Explanation<a class="headerlink" href="#explanation_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The inner <code>let num</code> shadows the outer variable only inside the block.</li>
+</ul>
+<h3 id="output_6">Output<a class="headerlink" href="#output_6" title="Permanent link">&para;</a></h3>
+<pre><code>Inside block = 20
+Outside block = 10
+</code></pre>
+<hr />
+<h1 id="9-const-with-mutable-objects">9. const with Mutable Objects<a class="headerlink" href="#9-const-with-mutable-objects" title="Permanent link">&para;</a></h1>
+<pre><code class="language-javascript">const user = { name: &quot;Nitin&quot;, city: &quot;Pune&quot; };
+
+user.city = &quot;Mumbai&quot;; // allowed
+console.log(user);
+
+// user = {}; // ❌ not allowed
+</code></pre>
+<h3 id="explanation_8">Explanation<a class="headerlink" href="#explanation_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>const</code> prevents reassignment, <strong>not mutation</strong>.</li>
+<li>You cannot assign a new object, but you can modify properties.</li>
+</ul>
+<h3 id="output_7">Output<a class="headerlink" href="#output_7" title="Permanent link">&para;</a></h3>
+<pre><code>{ name: &quot;Nitin&quot;, city: &quot;Mumbai&quot; }
+</code></pre>
+<hr />
+<h1 id="10-for-loop-behavior-var-vs-let">10. for-loop Behavior (var vs let)<a class="headerlink" href="#10-for-loop-behavior-var-vs-let" title="Permanent link">&para;</a></h1>
+<h2 id="var-example">var Example<a class="headerlink" href="#var-example" title="Permanent link">&para;</a></h2>
+<pre><code class="language-javascript">for (var i = 1; i &lt;= 3; i++) {}
+console.log(&quot;After loop, i =&quot;, i);
+</code></pre>
+<h3 id="explanation_9">Explanation<a class="headerlink" href="#explanation_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>var</code> leaks outside the loop because it is function scoped.</li>
+</ul>
+<h3 id="output_8">Output<a class="headerlink" href="#output_8" title="Permanent link">&para;</a></h3>
+<pre><code>After loop, i = 4
+</code></pre>
+<hr />
+<h2 id="let-example">let Example<a class="headerlink" href="#let-example" title="Permanent link">&para;</a></h2>
+<pre><code class="language-javascript">for (let j = 1; j &lt;= 3; j++) {}
+// console.log(j); // ReferenceError
+</code></pre>
+<h3 id="explanation_10">Explanation<a class="headerlink" href="#explanation_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>let</code> is block-scoped → not available outside the loop.</li>
+</ul>
+<hr />
+<h1 id="11-closures-var-vs-let">11. Closures: var vs let<a class="headerlink" href="#11-closures-var-vs-let" title="Permanent link">&para;</a></h1>
+<h2 id="problem-with-var">Problem with var<a class="headerlink" href="#problem-with-var" title="Permanent link">&para;</a></h2>
 <pre><code class="language-javascript">for (var i = 1; i &lt;= 3; i++) {
   setTimeout(() =&gt; console.log(&quot;var i =&quot;, i), 100);
 }
 </code></pre>
-<h2 id="10-closure-let">10. Closure (let)<a class="headerlink" href="#10-closure-let" title="Permanent link">&para;</a></h2>
+<h3 id="explanation_11">Explanation<a class="headerlink" href="#explanation_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>var i</code> is shared by all iterations.</li>
+<li>When timeout executes, <code>i</code> is already 4.</li>
+</ul>
+<h3 id="output_9">Output<a class="headerlink" href="#output_9" title="Permanent link">&para;</a></h3>
+<pre><code>var i = 4
+var i = 4
+var i = 4
+</code></pre>
+<hr />
+<h2 id="correct-with-let">Correct with let<a class="headerlink" href="#correct-with-let" title="Permanent link">&para;</a></h2>
 <pre><code class="language-javascript">for (let i = 1; i &lt;= 3; i++) {
   setTimeout(() =&gt; console.log(&quot;let i =&quot;, i), 100);
 }
 </code></pre>
-<h2 id="11-final-example">11. Final Example<a class="headerlink" href="#11-final-example" title="Permanent link">&para;</a></h2>
+<h3 id="explanation_12">Explanation<a class="headerlink" href="#explanation_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>let</code> creates a new <code>i</code> for each loop iteration.</li>
+</ul>
+<h3 id="output_10">Output<a class="headerlink" href="#output_10" title="Permanent link">&para;</a></h3>
+<pre><code>let i = 1
+let i = 2
+let i = 3
+</code></pre>
+<hr />
+<h1 id="12-temporal-dead-zone-tdz-example">12. Temporal Dead Zone (TDZ) Example<a class="headerlink" href="#12-temporal-dead-zone-tdz-example" title="Permanent link">&para;</a></h1>
+<pre><code class="language-javascript">{
+  // console.log(a); // ReferenceError
+  let a = 50;
+  console.log(a);
+}
+</code></pre>
+<h3 id="explanation_13">Explanation<a class="headerlink" href="#explanation_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Accessing <code>a</code> before line of declaration causes TDZ error.</li>
+</ul>
+<h3 id="output_11">Output<a class="headerlink" href="#output_11" title="Permanent link">&para;</a></h3>
+<pre><code>50
+</code></pre>
+<hr />
+<h1 id="13-final-interview-level-example">13. Final Interview-Level Example<a class="headerlink" href="#13-final-interview-level-example" title="Permanent link">&para;</a></h1>
 <pre><code class="language-javascript">var v = 1;
 let l = 2;
 const c = 3;
+
 function show() {
   if (true) {
-    var v = 10;
-    let l = 20;
+    var v = 10; // function scoped
+    let l = 20; // block scoped
     const c2 = 30;
     console.log(v, l, c2);
   }
@@ -1075,6 +1100,17 @@ function show() {
 }
 show();
 </code></pre>
+<h3 id="explanation_14">Explanation<a class="headerlink" href="#explanation_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>var v</code> inside block overrides outer <code>v</code> inside function.</li>
+<li><code>let l</code> and <code>const c2</code> remain block-scoped.</li>
+</ul>
+<h3 id="output_12">Output<a class="headerlink" href="#output_12" title="Permanent link">&para;</a></h3>
+<pre><code>10 20 30
+10
+</code></pre>
+<hr />
+<h1 id="end-of-file">End of File<a class="headerlink" href="#end-of-file" title="Permanent link">&para;</a></h1>
 
 
 

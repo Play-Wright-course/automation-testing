@@ -12,6 +12,7 @@ nav:
       - Arrays & Objects: javascriptConcepts/Arrays.md
       - Functions: javascriptConcepts/functions.md
       - Arrow Functions: javascriptConcepts/arrow-functions.md
+      - Interview code: javascriptConcepts/basics-interview-code.md
       
       
   - PlayWright With Java:
@@ -39,6 +40,7 @@ markdown_extensions:
   - toc:
       permalink: true
   - tables
+
 
 
 

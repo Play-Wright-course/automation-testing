@@ -1,0 +1,1444 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://Play-Wright-course.github.io/automation-testing/javascriptConcepts/basics-interview-code/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>JavaScript Variables and Loops – Interview Snippets - JavaScript Playwright Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#javascript-variables-and-loops-interview-snippets" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JavaScript Playwright Docs" class="md-header__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaScript Playwright Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              JavaScript Variables and Loops – Interview Snippets
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JavaScript Playwright Docs" class="md-nav__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JavaScript Playwright Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JavaScript Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    JavaScript Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../var-vs-let-vaiable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Var vs Let
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variables-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vaiables snipped code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flow-statement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flow Statements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrays & Objects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arrow-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrow Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PlayWright With Java
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    PlayWright With Java
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/locator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Locators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/page-navigation-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Page Navigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/playwright-interaction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inputs And Buttons
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/checkbox-radio-button/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Checkbox And Radio buttons
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/dropdown_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dropdown Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/iframes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iframe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/mouse-keyboard-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mouse Keyboard Actions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/alerts-promt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alerts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/handling-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Handle Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/file-upload-download/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File upload And Download
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/screenshot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ScreenShot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exceptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/interview-question/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InterViwe Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-variable-hoisting-var-vs-let" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣ Variable Hoisting (var vs let)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-re-declaration-and-re-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2️⃣ Re-declaration and Re-assignment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-for-loop-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3️⃣ For Loop Basics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-loop-over-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4️⃣ Loop Over Array
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-sum-of-array-using-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5️⃣ Sum of Array Using Loop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-reverse-a-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6️⃣ Reverse a String
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-nested-loops-multiplication-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7️⃣ Nested Loops (Multiplication Table)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-variable-scope-in-loops-var-vs-let" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8️⃣ Variable Scope in Loops (var vs let)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-filtering-even-numbers-using-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9️⃣ Filtering Even Numbers Using Loops
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-loop-with-break-and-continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣0️⃣ Loop with break and continue
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-array-methods-filter-map-reduce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣1️⃣ Array Methods – filter(), map(), reduce()
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1️⃣1️⃣ Array Methods – filter(), map(), reduce()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filter-even-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filter even numbers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sum-using-reduce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sum using reduce
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#square-of-each-number-using-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Square of each number using map
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-arrow-function-vs-traditional-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣2️⃣ Arrow Function vs Traditional Function
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-unique-array-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣3️⃣ Unique Array Elements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-nested-loops-2d-array-traversal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣4️⃣ Nested Loops – 2D Array Traversal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-loop-with-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1️⃣5️⃣ Loop with Objects
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1️⃣5️⃣ Loop with Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tips-for-interview-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Tips for Interview Preparation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="javascript-variables-and-loops-interview-snippets">JavaScript Variables and Loops – Interview Snippets<a class="headerlink" href="#javascript-variables-and-loops-interview-snippets" title="Permanent link">&para;</a></h1>
+<p>This file contains <strong>popular JavaScript code examples</strong> on variables, loops, and array operations commonly asked in interviews. Each snippet includes <strong>explanation</strong> and <strong>output</strong>.</p>
+<hr />
+<h2 id="1-variable-hoisting-var-vs-let">1️⃣ Variable Hoisting (<code>var</code> vs <code>let</code>)<a class="headerlink" href="#1-variable-hoisting-var-vs-let" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">console.log(a); // undefined
+var a = 10;
+
+console.log(b); // ReferenceError: Cannot access 'b' before initialization
+let b = 20;
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><code>var</code> is <strong>hoisted</strong> and initialized with <code>undefined</code>.</li>
+<li><code>let</code> is hoisted but in <strong>Temporal Dead Zone</strong> until declaration.</li>
+</ul>
+<hr />
+<h2 id="2-re-declaration-and-re-assignment">2️⃣ Re-declaration and Re-assignment<a class="headerlink" href="#2-re-declaration-and-re-assignment" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">var x = 5;
+var x = 10; // ✅ Allowed
+x = 15;     // ✅ Allowed
+
+let y = 20;
+// let y = 25; // ❌ Error
+y = 30;      // ✅ Allowed
+
+const z = 50;
+// z = 60; // ❌ Error
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><code>var</code> allows re-declare + reassign.</li>
+<li><code>let</code> allows reassign only.</li>
+<li><code>const</code> allows neither.</li>
+</ul>
+<hr />
+<h2 id="3-for-loop-basics">3️⃣ For Loop Basics<a class="headerlink" href="#3-for-loop-basics" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">for (let i = 0; i &lt; 5; i++) {
+    console.log(i);
+}
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code>0
+1
+2
+3
+4
+</code></pre>
+<hr />
+<h2 id="4-loop-over-array">4️⃣ Loop Over Array<a class="headerlink" href="#4-loop-over-array" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">const arr = [10, 20, 30, 40];
+
+// Using traditional for
+for (let i = 0; i &lt; arr.length; i++) console.log(arr[i]);
+
+// Using for...of
+for (let value of arr) console.log(value);
+
+// Using forEach
+arr.forEach(value =&gt; console.log(value));
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code>10 20 30 40 (3 times for each loop)
+</code></pre>
+<hr />
+<h2 id="5-sum-of-array-using-loop">5️⃣ Sum of Array Using Loop<a class="headerlink" href="#5-sum-of-array-using-loop" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">const nums = [1, 2, 3, 4, 5];
+let sum = 0;
+
+for (let i = 0; i &lt; nums.length; i++) sum += nums[i];
+
+console.log(&quot;Sum:&quot;, sum);
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code>Sum: 15
+</code></pre>
+<hr />
+<h2 id="6-reverse-a-string">6️⃣ Reverse a String<a class="headerlink" href="#6-reverse-a-string" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">const str = &quot;Playwright&quot;;
+let reversed = &quot;&quot;;
+
+for (let i = str.length - 1; i &gt;= 0; i--) reversed += str[i];
+
+console.log(reversed);
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code>thgiryalP
+</code></pre>
+<hr />
+<h2 id="7-nested-loops-multiplication-table">7️⃣ Nested Loops (Multiplication Table)<a class="headerlink" href="#7-nested-loops-multiplication-table" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">for (let i = 1; i &lt;= 3; i++) {
+    let row = &quot;&quot;;
+    for (let j = 1; j &lt;= 3; j++) row += i * j + &quot; &quot;;
+    console.log(row);
+}
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code>1 2 3
+2 4 6
+3 6 9
+</code></pre>
+<hr />
+<h2 id="8-variable-scope-in-loops-var-vs-let">8️⃣ Variable Scope in Loops (<code>var</code> vs <code>let</code>)<a class="headerlink" href="#8-variable-scope-in-loops-var-vs-let" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">for (var i = 0; i &lt; 3; i++) {}
+console.log(i); // 3 ✅ var is function-scoped
+
+for (let j = 0; j &lt; 3; j++) {}
+// console.log(j); // ❌ ReferenceError
+</code></pre>
+<hr />
+<h2 id="9-filtering-even-numbers-using-loops">9️⃣ Filtering Even Numbers Using Loops<a class="headerlink" href="#9-filtering-even-numbers-using-loops" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">const numbers = [1,2,3,4,5,6];
+let evens = [];
+
+for (let n of numbers) if (n % 2 === 0) evens.push(n);
+
+console.log(evens);
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code>[2,4,6]
+</code></pre>
+<hr />
+<h2 id="10-loop-with-break-and-continue">1️⃣0️⃣ Loop with <code>break</code> and <code>continue</code><a class="headerlink" href="#10-loop-with-break-and-continue" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">for (let i = 0; i &lt;= 5; i++) {
+    if (i === 3) break;      // Stops loop
+    console.log(i);
+}
+
+for (let i = 0; i &lt;= 5; i++) {
+    if (i === 3) continue;   // Skips current iteration
+    console.log(i);
+}
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code>0 1 2
+0 1 2 4 5
+</code></pre>
+<hr />
+<h2 id="11-array-methods-filter-map-reduce">1️⃣1️⃣ Array Methods – filter(), map(), reduce()<a class="headerlink" href="#11-array-methods-filter-map-reduce" title="Permanent link">&para;</a></h2>
+<h3 id="filter-even-numbers">Filter even numbers<a class="headerlink" href="#filter-even-numbers" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">const nums = [1,2,3,4,5];
+let evens = nums.filter(n =&gt; n % 2 === 0);
+console.log(evens); // [2,4]
+</code></pre>
+<h3 id="sum-using-reduce">Sum using reduce<a class="headerlink" href="#sum-using-reduce" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">let sum = nums.reduce((acc, val) =&gt; acc + val, 0);
+console.log(sum); // 15
+</code></pre>
+<h3 id="square-of-each-number-using-map">Square of each number using map<a class="headerlink" href="#square-of-each-number-using-map" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">let squares = nums.map(n =&gt; n*n);
+console.log(squares); // [1,4,9,16,25]
+</code></pre>
+<hr />
+<h2 id="12-arrow-function-vs-traditional-function">1️⃣2️⃣ Arrow Function vs Traditional Function<a class="headerlink" href="#12-arrow-function-vs-traditional-function" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">// Traditional function
+let squares1 = nums.map(function(n) { return n * n; });
+
+// Arrow function
+let squares2 = nums.map(n =&gt; n * n);
+
+console.log(squares1); // [1,4,9,16,25]
+console.log(squares2); // [1,4,9,16,25]
+</code></pre>
+<hr />
+<h2 id="13-unique-array-elements">1️⃣3️⃣ Unique Array Elements<a class="headerlink" href="#13-unique-array-elements" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">let arr = [1,2,2,3,4,4,5];
+let unique = arr.filter((n, i, self) =&gt; self.indexOf(n) === i);
+console.log(unique); // [1,2,3,4,5]
+</code></pre>
+<hr />
+<h2 id="14-nested-loops-2d-array-traversal">1️⃣4️⃣ Nested Loops – 2D Array Traversal<a class="headerlink" href="#14-nested-loops-2d-array-traversal" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">const matrix = [
+  [1,2,3],
+  [4,5,6],
+  [7,8,9]
+];
+
+for (let i = 0; i &lt; matrix.length; i++) {
+    for (let j = 0; j &lt; matrix[i].length; j++)
+        console.log(matrix[i][j]);
+}
+</code></pre>
+<hr />
+<h2 id="15-loop-with-objects">1️⃣5️⃣ Loop with Objects<a class="headerlink" href="#15-loop-with-objects" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">const users = [
+  {name:&quot;Nitin&quot;, age:25},
+  {name:&quot;Rahul&quot;, age:17},
+  {name:&quot;Sneha&quot;, age:30}
+];
+
+for (let user of users) {
+    if (user.age &gt;= 18) console.log(user.name);
+}
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code>Nitin
+Sneha
+</code></pre>
+<hr />
+<h3 id="tips-for-interview-preparation">🎯 Tips for Interview Preparation<a class="headerlink" href="#tips-for-interview-preparation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Know <code>var</code> vs <code>let</code> vs <code>const</code></li>
+<li>Understand hoisting and scope</li>
+<li>Be comfortable with <code>for</code>, <code>for...of</code>, <code>forEach</code></li>
+<li>Practice array methods: <code>filter</code>, <code>map</code>, <code>reduce</code></li>
+<li>Understand arrow functions vs traditional functions</li>
+<li>Solve nested loop and object iteration problems</li>
+</ul>
+<hr />
+<p>This file covers <strong>all essential variable and loop questions</strong> often asked in JavaScript interviews.
+You can use it as a <strong>cheat sheet</strong> for Playwright automation scripts or general JS coding.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

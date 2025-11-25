@@ -4,11 +4,14 @@ use_directory_urls: true
 nav:
   - JavaScript Concepts:
       - Variables: javascriptConcepts/variables.md
+      - Var vs Let: javascriptConcepts/var-vs-let-vaiable.md
+      - Vaiables snipped code: javascriptConcepts/variables-code.md
       - Data Types: javascriptConcepts/dataTypes.md
       - Operators: javascriptConcepts/operator.md
       - Flow Statements: javascriptConcepts/flow-statement.md
       - Arrays & Objects: javascriptConcepts/Arrays.md
       - Functions: javascriptConcepts/functions.md
+      - Arrow Functions: javascriptConcepts/arrow-functions.md
       
       
   - PlayWright With Java:
@@ -36,6 +39,7 @@ markdown_extensions:
   - toc:
       permalink: true
   - tables
+
 
 
 

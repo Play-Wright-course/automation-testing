@@ -316,31 +316,32 @@ Returns primitive string.
 
 ## 6. String Methods Table (Cheat Sheet)
 
-  Method                Description                Example
-  --------------------- -------------------------- ----------------------------
-  **charAt()**          Returns char at index      `"Hi".charAt(1)`
-  **at()**              Supports negative index    `"Hi".at(-1)`
-  **indexOf()**         First occurrence           `"test".indexOf("t")`
-  **lastIndexOf()**     Last occurrence            `"test".lastIndexOf("t")`
-  **includes()**        True if substring exists   `"abc".includes("b")`
-  **startsWith()**      Checks starting            `"Java".startsWith("J")`
-  **endsWith()**        Checks ending              `"Java".endsWith("a")`
-  **slice()**           Extracts part              `"Java".slice(1,3)`
-  **substring()**       Similar to slice           `"Java".substring(1,3)`
-  **substr()**          start + length             `"JavaScript".substr(4,6)`
-  **toUpperCase()**     Uppercase                  `"hi".toUpperCase()`
-  **toLowerCase()**     Lowercase                  `"HI".toLowerCase()`
-  **trim()**            Removes spaces             `" hi ".trim()`
-  **replace()**         Replace first match        `"aabb".replace("a","c")`
-  **replaceAll()**      Replace all                `"aa".replaceAll("a","b")`
-  **split()**           String → array             `"a,b".split(",")`
-  **concat()**          Joins strings              `"a".concat("b")`
-  **match()**           Regex match                `"abc".match(/a/)`
-  **matchAll()**        All regex matches          `[...str.matchAll(/a/g)]`
-  **padStart()**        Left padding               `"5".padStart(3,"0")`
-  **padEnd()**          Right padding              `"5".padEnd(3,"0")`
-  **repeat()**          Repeat string              `"ha".repeat(3)`
-  **localeCompare()**   Compare strings            `"a".localeCompare("b")`
+
+| Method          | Description                 | Example                    | Output |
+|----------------|-----------------------------|----------------------------|--------|
+| **charAt()**   | Returns char at index       | `"Hi".charAt(1)`           | `i` |
+| **at()**       | Supports negative index     | `"Hi".at(-1)`              | `i` |
+| **indexOf()**  | First occurrence            | `"test".indexOf("t")`      | `0` |
+| **lastIndexOf()** | Last occurrence         | `"test".lastIndexOf("t")`  | `3` |
+| **includes()** | True if substring exists    | `"abc".includes("b")`      | `true` |
+| **startsWith()** | Checks starting          | `"Java".startsWith("J")`   | `true` |
+| **endsWith()** | Checks ending               | `"Java".endsWith("a")`     | `true` |
+| **slice()**    | Extracts part               | `"Java".slice(1,3)`        | `av` |
+| **substring()** | Similar to slice          | `"Java".substring(1,3)`    | `av` |
+| **substr()**   | start + length             | `"JavaScript".substr(4,6)` | `Script` |
+| **toUpperCase()** | Uppercase               | `"hi".toUpperCase()`       | `HI` |
+| **toLowerCase()** | Lowercase               | `"HI".toLowerCase()`       | `hi` |
+| **trim()**     | Removes spaces              | `" hi ".trim()`            | `hi` |
+| **replace()**  | Replace first match         | `"aabb".replace("a","c")`  | `cabb` |
+| **replaceAll()** | Replace all              | `"aa".replaceAll("a","b")` | `bb` |
+| **split()**    | String → array             | `"a,b".split(",")`         | `["a","b"]` |
+| **concat()**   | Joins strings               | `"a".concat("b")`          | `ab` |
+| **match()**    | Regex match                 | `"abc".match(/a/)`         | `["a"]` |
+| **matchAll()** | All regex matches           | `[... "a1a2".matchAll(/a/g)]` | `[["a"], ["a"]]` |
+| **padStart()** | Left padding                | `"5".padStart(3,"0")`      | `005` |
+| **padEnd()**   | Right padding               | `"5".padEnd(3,"0")`        | `500` |
+| **repeat()**   | Repeat string               | `"ha".repeat(3)`           | `hahaha` |
+| **localeCompare()** | Compare strings       | `"a".localeCompare("b")`   | `-1` |
 
 ------------------------------------------------------------------------
 

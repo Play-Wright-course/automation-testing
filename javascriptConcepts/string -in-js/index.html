@@ -1,0 +1,1758 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://Play-Wright-course.github.io/automation-testing/javascriptConcepts/string%20-in-js/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>JavaScript Strings --- Complete Guide - JavaScript Playwright Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#javascript-strings-complete-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JavaScript Playwright Docs" class="md-header__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaScript Playwright Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              JavaScript Strings --- Complete Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JavaScript Playwright Docs" class="md-nav__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JavaScript Playwright Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JavaScript Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    JavaScript Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../var-vs-let-vaiable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Var vs Let
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variables-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vaiables snipped code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dataTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flow-statement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flow Statements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrays & Objects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arrow-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrow Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basics-interview-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PlayWright With Java
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    PlayWright With Java
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/locator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Locators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/page-navigation-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Page Navigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/playwright-interaction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inputs And Buttons
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/checkbox-radio-button/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Checkbox And Radio buttons
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/dropdown_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dropdown Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/iframes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iframe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/mouse-keyboard-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mouse Keyboard Actions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/alerts-promt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alerts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/handling-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Handle Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/file-upload-download/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File upload And Download
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/screenshot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ScreenShot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exceptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../playwright-Java/interview-question/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InterViwe Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-is-a-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. What is a String?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-string-declaration-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. String Declaration Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. String Declaration Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-single-quotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a) Single Quotes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-double-quotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b) Double Quotes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-backticks-template-literals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        c) Backticks (Template Literals)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-string-immutability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. String Immutability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-string-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. String Comparison
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. String Comparison">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loose-equality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        == (loose equality)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strict-equality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        === (strict equality)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#localecompare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        localeCompare()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-string-methods-detailed-with-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. String Methods --- Detailed With Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. String Methods --- Detailed With Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-charatindex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. charAt(index)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-atindex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. at(index)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-indexof" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. indexOf()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-lastindexof" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. lastIndexOf()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-includes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. includes()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-startswith" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. startsWith()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-endswith" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. endsWith()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-slicestart-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. slice(start, end)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-substringstart-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. substring(start, end)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-substrstart-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. substr(start, length)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-touppercase-tolowercase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. toUpperCase() / toLowerCase()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-trim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. trim()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trimstart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        trimStart()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trimend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        trimEnd()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-replace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. replace()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replaceall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        replaceAll()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-split" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. split()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-concat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. concat()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-match" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. match()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-matchall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. matchAll()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-padstart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        18. padStart()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19-padend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        19. padEnd()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#20-repeat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        20. repeat()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#21-localecompare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        21. localeCompare()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-valueof" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        22. valueOf()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-tostring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        23. toString()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-string-methods-table-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. String Methods Table (Cheat Sheet)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-small-interview-programs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Small Interview Programs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Small Interview Programs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reverse-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reverse string
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-palindrome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check palindrome
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#count-vowels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Count vowels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#character-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Character frequency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first-non-repeating-character" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        First non-repeating character
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="javascript-strings-complete-guide">JavaScript Strings --- Complete Guide<a class="headerlink" href="#javascript-strings-complete-guide" title="Permanent link">&para;</a></h1>
+<h2 id="1-what-is-a-string">1. What is a String?<a class="headerlink" href="#1-what-is-a-string" title="Permanent link">&para;</a></h2>
+<p>A <strong>string</strong> in JavaScript is a sequence of characters used to represent
+text.\
+Example:</p>
+<pre><code class="language-js">let name = &quot;Nitin&quot;;
+</code></pre>
+<hr />
+<h2 id="2-string-declaration-methods">2. String Declaration Methods<a class="headerlink" href="#2-string-declaration-methods" title="Permanent link">&para;</a></h2>
+<h3 id="a-single-quotes"><strong>a) Single Quotes</strong><a class="headerlink" href="#a-single-quotes" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">let city = 'Pune';
+</code></pre>
+<h3 id="b-double-quotes"><strong>b) Double Quotes</strong><a class="headerlink" href="#b-double-quotes" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">let job = &quot;Developer&quot;;
+</code></pre>
+<h3 id="c-backticks-template-literals"><strong>c) Backticks (Template Literals)</strong><a class="headerlink" href="#c-backticks-template-literals" title="Permanent link">&para;</a></h3>
+<p>Supports: - multiline strings\
+- interpolation (<code>${variable}</code>)</p>
+<pre><code class="language-js">let user = &quot;Nitin&quot;;
+let msg = `Hello ${user}, welcome!`;
+</code></pre>
+<hr />
+<h2 id="3-string-immutability">3. String Immutability<a class="headerlink" href="#3-string-immutability" title="Permanent link">&para;</a></h2>
+<p>Strings in JavaScript <strong>cannot be changed after creation</strong>.</p>
+<pre><code class="language-js">let s = &quot;Hi&quot;;
+s[0] = &quot;h&quot;; // ❌ does nothing
+console.log(s); // &quot;Hi&quot;
+</code></pre>
+<p>To modify a string, create a new one:</p>
+<pre><code class="language-js">s = &quot;h&quot; + s[1];
+console.log(s); // &quot;hi&quot;
+</code></pre>
+<hr />
+<h2 id="4-string-comparison">4. String Comparison<a class="headerlink" href="#4-string-comparison" title="Permanent link">&para;</a></h2>
+<h3 id="loose-equality"><strong>== (loose equality)</strong><a class="headerlink" href="#loose-equality" title="Permanent link">&para;</a></h3>
+<p>Converts types before comparison.</p>
+<pre><code class="language-js">&quot;10&quot; == 10   // true
+</code></pre>
+<h3 id="strict-equality"><strong>=== (strict equality)</strong><a class="headerlink" href="#strict-equality" title="Permanent link">&para;</a></h3>
+<p>No type conversion.</p>
+<pre><code class="language-js">&quot;10&quot; === 10  // false
+</code></pre>
+<h3 id="localecompare"><strong>localeCompare()</strong><a class="headerlink" href="#localecompare" title="Permanent link">&para;</a></h3>
+<p>Used for lexicographical comparison:</p>
+<pre><code class="language-js">&quot;apple&quot;.localeCompare(&quot;banana&quot;); // -1
+</code></pre>
+<hr />
+<h2 id="5-string-methods-detailed-with-examples">5. String Methods --- Detailed With Examples<a class="headerlink" href="#5-string-methods-detailed-with-examples" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="1-charatindex"><strong>1. charAt(index)</strong><a class="headerlink" href="#1-charatindex" title="Permanent link">&para;</a></h3>
+<p>Returns character at given index.</p>
+<pre><code class="language-js">&quot;Hello&quot;.charAt(1); // 'e'
+</code></pre>
+<hr />
+<h3 id="2-atindex"><strong>2. at(index)</strong><a class="headerlink" href="#2-atindex" title="Permanent link">&para;</a></h3>
+<p>Supports negative index.</p>
+<pre><code class="language-js">&quot;Hello&quot;.at(-1); // 'o'
+</code></pre>
+<hr />
+<h3 id="3-indexof"><strong>3. indexOf()</strong><a class="headerlink" href="#3-indexof" title="Permanent link">&para;</a></h3>
+<p>Finds first occurrence.</p>
+<pre><code class="language-js">&quot;javascript&quot;.indexOf(&quot;a&quot;); // 1
+</code></pre>
+<hr />
+<h3 id="4-lastindexof"><strong>4. lastIndexOf()</strong><a class="headerlink" href="#4-lastindexof" title="Permanent link">&para;</a></h3>
+<p>Finds last occurrence.</p>
+<pre><code class="language-js">&quot;javascript&quot;.lastIndexOf(&quot;a&quot;); // 3
+</code></pre>
+<hr />
+<h3 id="5-includes"><strong>5. includes()</strong><a class="headerlink" href="#5-includes" title="Permanent link">&para;</a></h3>
+<p>Checks substring present or not.</p>
+<pre><code class="language-js">&quot;hello world&quot;.includes(&quot;world&quot;); // true
+</code></pre>
+<hr />
+<h3 id="6-startswith"><strong>6. startsWith()</strong><a class="headerlink" href="#6-startswith" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">&quot;JavaScript&quot;.startsWith(&quot;Java&quot;); // true
+</code></pre>
+<h3 id="7-endswith"><strong>7. endsWith()</strong><a class="headerlink" href="#7-endswith" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">&quot;JavaScript&quot;.endsWith(&quot;Script&quot;); // true
+</code></pre>
+<hr />
+<h3 id="8-slicestart-end"><strong>8. slice(start, end)</strong><a class="headerlink" href="#8-slicestart-end" title="Permanent link">&para;</a></h3>
+<p>Supports negative index.</p>
+<pre><code class="language-js">&quot;JavaScript&quot;.slice(0, 4); // 'Java'
+&quot;JavaScript&quot;.slice(-6);  // 'Script'
+</code></pre>
+<hr />
+<h3 id="9-substringstart-end"><strong>9. substring(start, end)</strong><a class="headerlink" href="#9-substringstart-end" title="Permanent link">&para;</a></h3>
+<p>Negative values treated as 0.</p>
+<pre><code class="language-js">&quot;JavaScript&quot;.substring(4, 10); // &quot;Script&quot;
+</code></pre>
+<hr />
+<h3 id="10-substrstart-length"><strong>10. substr(start, length)</strong><a class="headerlink" href="#10-substrstart-length" title="Permanent link">&para;</a></h3>
+<p>(Deprecated but asked in interviews)</p>
+<pre><code class="language-js">&quot;JavaScript&quot;.substr(4, 6); // &quot;Script&quot;
+</code></pre>
+<hr />
+<h3 id="11-touppercase-tolowercase"><strong>11. toUpperCase() / toLowerCase()</strong><a class="headerlink" href="#11-touppercase-tolowercase" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">&quot;hello&quot;.toUpperCase(); // &quot;HELLO&quot;
+</code></pre>
+<hr />
+<h3 id="12-trim"><strong>12. trim()</strong><a class="headerlink" href="#12-trim" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">&quot;   hi   &quot;.trim(); // &quot;hi&quot;
+</code></pre>
+<h3 id="trimstart"><strong>trimStart()</strong><a class="headerlink" href="#trimstart" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">&quot;   hi&quot;.trimStart();
+</code></pre>
+<h3 id="trimend"><strong>trimEnd()</strong><a class="headerlink" href="#trimend" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">&quot;hi   &quot;.trimEnd();
+</code></pre>
+<hr />
+<h3 id="13-replace"><strong>13. replace()</strong><a class="headerlink" href="#13-replace" title="Permanent link">&para;</a></h3>
+<p>Replaces first match.</p>
+<pre><code class="language-js">&quot;hello world&quot;.replace(&quot;world&quot;,&quot;JS&quot;);
+</code></pre>
+<h3 id="replaceall"><strong>replaceAll()</strong><a class="headerlink" href="#replaceall" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">&quot;aa11aa&quot;.replaceAll(&quot;a&quot;,&quot;b&quot;);
+</code></pre>
+<hr />
+<h3 id="14-split"><strong>14. split()</strong><a class="headerlink" href="#14-split" title="Permanent link">&para;</a></h3>
+<p>Converts string → array.</p>
+<pre><code class="language-js">&quot;apple,mango&quot;.split(&quot;,&quot;); 
+</code></pre>
+<hr />
+<h3 id="15-concat"><strong>15. concat()</strong><a class="headerlink" href="#15-concat" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">&quot;Hello&quot;.concat(&quot; JavaScript&quot;);
+</code></pre>
+<hr />
+<h3 id="16-match"><strong>16. match()</strong><a class="headerlink" href="#16-match" title="Permanent link">&para;</a></h3>
+<p>Regex matching.</p>
+<pre><code class="language-js">&quot;abc123&quot;.match(/[0-9]+/);
+</code></pre>
+<hr />
+<h3 id="17-matchall"><strong>17. matchAll()</strong><a class="headerlink" href="#17-matchall" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">[... &quot;a1b2&quot;.matchAll(/[a-z]/g)];
+</code></pre>
+<hr />
+<h3 id="18-padstart"><strong>18. padStart()</strong><a class="headerlink" href="#18-padstart" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">&quot;7&quot;.padStart(3,&quot;0&quot;); // &quot;007&quot;
+</code></pre>
+<h3 id="19-padend"><strong>19. padEnd()</strong><a class="headerlink" href="#19-padend" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">&quot;7&quot;.padEnd(3,&quot;0&quot;); // &quot;700&quot;
+</code></pre>
+<hr />
+<h3 id="20-repeat"><strong>20. repeat()</strong><a class="headerlink" href="#20-repeat" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">&quot;ha&quot;.repeat(3); // &quot;hahaha&quot;
+</code></pre>
+<hr />
+<h3 id="21-localecompare"><strong>21. localeCompare()</strong><a class="headerlink" href="#21-localecompare" title="Permanent link">&para;</a></h3>
+<p>Lexicographic comparison.</p>
+<pre><code class="language-js">&quot;apple&quot;.localeCompare(&quot;banana&quot;); // -1
+</code></pre>
+<hr />
+<h3 id="22-valueof"><strong>22. valueOf()</strong><a class="headerlink" href="#22-valueof" title="Permanent link">&para;</a></h3>
+<p>Returns primitive string.</p>
+<pre><code class="language-js">&quot;hello&quot;.valueOf();
+</code></pre>
+<hr />
+<h3 id="23-tostring"><strong>23. toString()</strong><a class="headerlink" href="#23-tostring" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">(100).toString();
+</code></pre>
+<hr />
+<h2 id="6-string-methods-table-cheat-sheet">6. String Methods Table (Cheat Sheet)<a class="headerlink" href="#6-string-methods-table-cheat-sheet" title="Permanent link">&para;</a></h2>
+<p>Method                Description                Example</p>
+<hr />
+<p><strong>charAt()</strong>          Returns char at index      <code>"Hi".charAt(1)</code>
+  <strong>at()</strong>              Supports negative index    <code>"Hi".at(-1)</code>
+  <strong>indexOf()</strong>         First occurrence           <code>"test".indexOf("t")</code>
+  <strong>lastIndexOf()</strong>     Last occurrence            <code>"test".lastIndexOf("t")</code>
+  <strong>includes()</strong>        True if substring exists   <code>"abc".includes("b")</code>
+  <strong>startsWith()</strong>      Checks starting            <code>"Java".startsWith("J")</code>
+  <strong>endsWith()</strong>        Checks ending              <code>"Java".endsWith("a")</code>
+  <strong>slice()</strong>           Extracts part              <code>"Java".slice(1,3)</code>
+  <strong>substring()</strong>       Similar to slice           <code>"Java".substring(1,3)</code>
+  <strong>substr()</strong>          start + length             <code>"JavaScript".substr(4,6)</code>
+  <strong>toUpperCase()</strong>     Uppercase                  <code>"hi".toUpperCase()</code>
+  <strong>toLowerCase()</strong>     Lowercase                  <code>"HI".toLowerCase()</code>
+  <strong>trim()</strong>            Removes spaces             <code>" hi ".trim()</code>
+  <strong>replace()</strong>         Replace first match        <code>"aabb".replace("a","c")</code>
+  <strong>replaceAll()</strong>      Replace all                <code>"aa".replaceAll("a","b")</code>
+  <strong>split()</strong>           String → array             <code>"a,b".split(",")</code>
+  <strong>concat()</strong>          Joins strings              <code>"a".concat("b")</code>
+  <strong>match()</strong>           Regex match                <code>"abc".match(/a/)</code>
+  <strong>matchAll()</strong>        All regex matches          <code>[...str.matchAll(/a/g)]</code>
+  <strong>padStart()</strong>        Left padding               <code>"5".padStart(3,"0")</code>
+  <strong>padEnd()</strong>          Right padding              <code>"5".padEnd(3,"0")</code>
+  <strong>repeat()</strong>          Repeat string              <code>"ha".repeat(3)</code>
+  <strong>localeCompare()</strong>   Compare strings            <code>"a".localeCompare("b")</code></p>
+<hr />
+<h2 id="7-small-interview-programs">7. Small Interview Programs<a class="headerlink" href="#7-small-interview-programs" title="Permanent link">&para;</a></h2>
+<h3 id="reverse-string">Reverse string<a class="headerlink" href="#reverse-string" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">str.split(&quot;&quot;).reverse().join(&quot;&quot;);
+</code></pre>
+<h3 id="check-palindrome">Check palindrome<a class="headerlink" href="#check-palindrome" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">function isPalindrome(s){ return s === s.split(&quot;&quot;).reverse().join(&quot;&quot;); }
+</code></pre>
+<h3 id="count-vowels">Count vowels<a class="headerlink" href="#count-vowels" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">(str.match(/[aeiou]/gi) || []).length;
+</code></pre>
+<h3 id="character-frequency">Character frequency<a class="headerlink" href="#character-frequency" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">for(let ch of str){ map[ch]=(map[ch]||0)+1; }
+</code></pre>
+<h3 id="first-non-repeating-character">First non-repeating character<a class="headerlink" href="#first-non-repeating-character" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">for(let c of str){
+  if(str.indexOf(c)===str.lastIndexOf(c)) return c;
+}
+</code></pre>
+<hr />
+<h1 id="end-of-document">End of Document<a class="headerlink" href="#end-of-document" title="Permanent link">&para;</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

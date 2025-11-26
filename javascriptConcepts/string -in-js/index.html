@@ -1653,31 +1653,156 @@ console.log(s); // &quot;hi&quot;
 </code></pre>
 <hr />
 <h2 id="6-string-methods-table-cheat-sheet">6. String Methods Table (Cheat Sheet)<a class="headerlink" href="#6-string-methods-table-cheat-sheet" title="Permanent link">&para;</a></h2>
-<p>Method                Description                Example</p>
-<hr />
-<p><strong>charAt()</strong>          Returns char at index      <code>"Hi".charAt(1)</code>
-  <strong>at()</strong>              Supports negative index    <code>"Hi".at(-1)</code>
-  <strong>indexOf()</strong>         First occurrence           <code>"test".indexOf("t")</code>
-  <strong>lastIndexOf()</strong>     Last occurrence            <code>"test".lastIndexOf("t")</code>
-  <strong>includes()</strong>        True if substring exists   <code>"abc".includes("b")</code>
-  <strong>startsWith()</strong>      Checks starting            <code>"Java".startsWith("J")</code>
-  <strong>endsWith()</strong>        Checks ending              <code>"Java".endsWith("a")</code>
-  <strong>slice()</strong>           Extracts part              <code>"Java".slice(1,3)</code>
-  <strong>substring()</strong>       Similar to slice           <code>"Java".substring(1,3)</code>
-  <strong>substr()</strong>          start + length             <code>"JavaScript".substr(4,6)</code>
-  <strong>toUpperCase()</strong>     Uppercase                  <code>"hi".toUpperCase()</code>
-  <strong>toLowerCase()</strong>     Lowercase                  <code>"HI".toLowerCase()</code>
-  <strong>trim()</strong>            Removes spaces             <code>" hi ".trim()</code>
-  <strong>replace()</strong>         Replace first match        <code>"aabb".replace("a","c")</code>
-  <strong>replaceAll()</strong>      Replace all                <code>"aa".replaceAll("a","b")</code>
-  <strong>split()</strong>           String → array             <code>"a,b".split(",")</code>
-  <strong>concat()</strong>          Joins strings              <code>"a".concat("b")</code>
-  <strong>match()</strong>           Regex match                <code>"abc".match(/a/)</code>
-  <strong>matchAll()</strong>        All regex matches          <code>[...str.matchAll(/a/g)]</code>
-  <strong>padStart()</strong>        Left padding               <code>"5".padStart(3,"0")</code>
-  <strong>padEnd()</strong>          Right padding              <code>"5".padEnd(3,"0")</code>
-  <strong>repeat()</strong>          Repeat string              <code>"ha".repeat(3)</code>
-  <strong>localeCompare()</strong>   Compare strings            <code>"a".localeCompare("b")</code></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Example</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>charAt()</strong></td>
+<td>Returns char at index</td>
+<td><code>"Hi".charAt(1)</code></td>
+<td><code>i</code></td>
+</tr>
+<tr>
+<td><strong>at()</strong></td>
+<td>Supports negative index</td>
+<td><code>"Hi".at(-1)</code></td>
+<td><code>i</code></td>
+</tr>
+<tr>
+<td><strong>indexOf()</strong></td>
+<td>First occurrence</td>
+<td><code>"test".indexOf("t")</code></td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><strong>lastIndexOf()</strong></td>
+<td>Last occurrence</td>
+<td><code>"test".lastIndexOf("t")</code></td>
+<td><code>3</code></td>
+</tr>
+<tr>
+<td><strong>includes()</strong></td>
+<td>True if substring exists</td>
+<td><code>"abc".includes("b")</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><strong>startsWith()</strong></td>
+<td>Checks starting</td>
+<td><code>"Java".startsWith("J")</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><strong>endsWith()</strong></td>
+<td>Checks ending</td>
+<td><code>"Java".endsWith("a")</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><strong>slice()</strong></td>
+<td>Extracts part</td>
+<td><code>"Java".slice(1,3)</code></td>
+<td><code>av</code></td>
+</tr>
+<tr>
+<td><strong>substring()</strong></td>
+<td>Similar to slice</td>
+<td><code>"Java".substring(1,3)</code></td>
+<td><code>av</code></td>
+</tr>
+<tr>
+<td><strong>substr()</strong></td>
+<td>start + length</td>
+<td><code>"JavaScript".substr(4,6)</code></td>
+<td><code>Script</code></td>
+</tr>
+<tr>
+<td><strong>toUpperCase()</strong></td>
+<td>Uppercase</td>
+<td><code>"hi".toUpperCase()</code></td>
+<td><code>HI</code></td>
+</tr>
+<tr>
+<td><strong>toLowerCase()</strong></td>
+<td>Lowercase</td>
+<td><code>"HI".toLowerCase()</code></td>
+<td><code>hi</code></td>
+</tr>
+<tr>
+<td><strong>trim()</strong></td>
+<td>Removes spaces</td>
+<td><code>" hi ".trim()</code></td>
+<td><code>hi</code></td>
+</tr>
+<tr>
+<td><strong>replace()</strong></td>
+<td>Replace first match</td>
+<td><code>"aabb".replace("a","c")</code></td>
+<td><code>cabb</code></td>
+</tr>
+<tr>
+<td><strong>replaceAll()</strong></td>
+<td>Replace all</td>
+<td><code>"aa".replaceAll("a","b")</code></td>
+<td><code>bb</code></td>
+</tr>
+<tr>
+<td><strong>split()</strong></td>
+<td>String → array</td>
+<td><code>"a,b".split(",")</code></td>
+<td><code>["a","b"]</code></td>
+</tr>
+<tr>
+<td><strong>concat()</strong></td>
+<td>Joins strings</td>
+<td><code>"a".concat("b")</code></td>
+<td><code>ab</code></td>
+</tr>
+<tr>
+<td><strong>match()</strong></td>
+<td>Regex match</td>
+<td><code>"abc".match(/a/)</code></td>
+<td><code>["a"]</code></td>
+</tr>
+<tr>
+<td><strong>matchAll()</strong></td>
+<td>All regex matches</td>
+<td><code>[... "a1a2".matchAll(/a/g)]</code></td>
+<td><code>[["a"], ["a"]]</code></td>
+</tr>
+<tr>
+<td><strong>padStart()</strong></td>
+<td>Left padding</td>
+<td><code>"5".padStart(3,"0")</code></td>
+<td><code>005</code></td>
+</tr>
+<tr>
+<td><strong>padEnd()</strong></td>
+<td>Right padding</td>
+<td><code>"5".padEnd(3,"0")</code></td>
+<td><code>500</code></td>
+</tr>
+<tr>
+<td><strong>repeat()</strong></td>
+<td>Repeat string</td>
+<td><code>"ha".repeat(3)</code></td>
+<td><code>hahaha</code></td>
+</tr>
+<tr>
+<td><strong>localeCompare()</strong></td>
+<td>Compare strings</td>
+<td><code>"a".localeCompare("b")</code></td>
+<td><code>-1</code></td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="7-small-interview-programs">7. Small Interview Programs<a class="headerlink" href="#7-small-interview-programs" title="Permanent link">&para;</a></h2>
 <h3 id="reverse-string">Reverse string<a class="headerlink" href="#reverse-string" title="Permanent link">&para;</a></h3>

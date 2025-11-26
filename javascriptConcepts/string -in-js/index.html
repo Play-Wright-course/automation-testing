@@ -1468,6 +1468,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#find-occurance-of-substring-into-main-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Find occurance of substring into main string
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1824,6 +1835,18 @@ console.log(s); // &quot;hi&quot;
 <pre><code class="language-js">for(let c of str){
   if(str.indexOf(c)===str.lastIndexOf(c)) return c;
 }
+</code></pre>
+<h3 id="find-occurance-of-substring-into-main-string">Find occurance of substring into main string<a class="headerlink" href="#find-occurance-of-substring-into-main-string" title="Permanent link">&para;</a></h3>
+<pre><code>let newQuote='happy new year, new day, new vision'
+let values=newQuote.indexOf(&quot;day&quot;)
+let count=0
+
+while(values!==-1){
+    count++
+    values =newQuote.indexOf(&quot;new&quot;,values+1)
+}
+
+console.log(count) //3
 </code></pre>
 <hr />
 <h1 id="end-of-document">End of Document<a class="headerlink" href="#end-of-document" title="Permanent link">&para;</a></h1>

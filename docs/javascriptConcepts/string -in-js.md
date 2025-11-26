@@ -385,6 +385,21 @@ for(let c of str){
 }
 ```
 
+### Find occurance of substring into main string
+
+```
+let newQuote='happy new year, new day, new vision'
+let values=newQuote.indexOf("day")
+let count=0
+
+while(values!==-1){
+    count++
+    values =newQuote.indexOf("new",values+1)
+}
+
+console.log(count) //3
+```
+
 ------------------------------------------------------------------------
 
 # End of Document

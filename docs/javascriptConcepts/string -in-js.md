@@ -117,6 +117,12 @@ Finds first occurrence.
 "javascript".indexOf("a"); // 1
 ```
 
+Find After specific index
+
+``` js
+"javascript".indexOf("a", 2); //3
+```
+
 ------------------------------------------------------------------------
 
 ### **4. lastIndexOf()**

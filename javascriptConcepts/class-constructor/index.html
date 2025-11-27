@@ -21,7 +21,7 @@
     
     
       
-        <title>Class constructor - JavaScript Playwright Docs</title>
+        <title>JavaScript Classes, Constructors, and Objects - JavaScript Playwright Docs</title>
       
     
     
@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#javascript-classes-constructors-and-objects" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -93,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Class constructor
+              JavaScript Classes, Constructors, and Objects
             
           </span>
         </div>
@@ -951,6 +956,82 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📘 What is a Class?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-constructor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔧 What is a Constructor?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-an-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚗 What is an Object?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#composition-using-one-class-inside-another" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧩 Composition (Using one class inside another)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inheritance-one-class-extending-another" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧬 Inheritance (One class extending another)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Summary Table
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -967,146 +1048,76 @@
 
 
 
-  <h1>Class constructor</h1>
-
-<p>📘 JavaScript Classes, Constructors, Objects &amp; Using One Class in Another</p>
-<p>A complete beginner-friendly guide with examples</p>
-<p>1️⃣ What is a Class in JavaScript?</p>
-<p>A class is a blueprint for creating objects.
-It groups data (properties) and behaviors (methods).</p>
-<p>class Car {
-  // constructor is like the "setup" function for each object
+<h1 id="javascript-classes-constructors-and-objects">JavaScript Classes, Constructors, and Objects<a class="headerlink" href="#javascript-classes-constructors-and-objects" title="Permanent link">&para;</a></h1>
+<h2 id="what-is-a-class">📘 What is a Class?<a class="headerlink" href="#what-is-a-class" title="Permanent link">&para;</a></h2>
+<p>A <strong>class</strong> is a blueprint to create objects.</p>
+<pre><code class="language-javascript">class Car {
+  // Constructor
   constructor(brand, color) {
     this.brand = brand;
     this.color = color;
-  }</p>
-<p>displayInfo() {
-    console.log(<code>Brand: ${this.brand}, Color: ${this.color}</code>);
   }
-}</p>
-<p>2️⃣ What is a Constructor?</p>
-<p>The constructor is a special method inside a class that runs automatically when an object is created.</p>
-<p>constructor(brand, color) {
-  this.brand = brand;
-  this.color = color;
-}</p>
-<p>✔ this.brand → property saved inside the object
-✔ Values passed while creating object → become class properties</p>
-<p>3️⃣ Creating an Object from a Class
-const myCar = new Car("Toyota", "Red");
-myCar.displayInfo();</p>
-<p>Output:</p>
-<p>Brand: Toyota, Color: Red</p>
-<p>4️⃣ Adding More Methods
-class Car {
-  constructor(brand, color, price) {
-    this.brand = brand;
-    this.color = color;
-    this.price = price;
-  }</p>
-<p>start() {
-    console.log(<code>${this.brand} is starting...</code>);
-  }</p>
-<p>getPrice() {
-    return this.price;
+
+  start() {
+    console.log(`${this.brand} is starting...`);
   }
-}</p>
-<p>const tesla = new Car("Tesla", "Blue", 50000);
-tesla.start();
-console.log(tesla.getPrice());</p>
-<p>5️⃣ Calling One Class From Another</p>
-<p>You will use this concept in Page Object Model, Playwright utilities, helper classes, etc.</p>
-<p>There are 3 common ways:</p>
-<p>✅ A) Use class instance inside another class (Composition)</p>
-<p>Most common in Playwright</p>
-<p>utils/logger.js
-class Logger {
+}
+</code></pre>
+<hr />
+<h2 id="what-is-a-constructor">🔧 What is a Constructor?<a class="headerlink" href="#what-is-a-constructor" title="Permanent link">&para;</a></h2>
+<p>A <strong>constructor</strong> initializes object properties when an object is
+created.</p>
+<hr />
+<h2 id="what-is-an-object">🚗 What is an Object?<a class="headerlink" href="#what-is-an-object" title="Permanent link">&para;</a></h2>
+<p>An <strong>object</strong> is an instance of a class.</p>
+<pre><code class="language-javascript">const myCar = new Car(&quot;BMW&quot;, &quot;Black&quot;);
+myCar.start();
+</code></pre>
+<hr />
+<h2 id="composition-using-one-class-inside-another">🧩 Composition (Using one class inside another)<a class="headerlink" href="#composition-using-one-class-inside-another" title="Permanent link">&para;</a></h2>
+<pre><code class="language-javascript">class Logger {
   log(message) {
-    console.log(<code>[LOG]: ${message}</code>);
+    console.log(&quot;LOG:&quot;, message);
   }
-}</p>
-<p>module.exports = Logger;</p>
-<p>pages/LoginPage.js
-const Logger = require('../utils/logger');</p>
-<p>class LoginPage {
-  constructor(page) {
-    this.page = page;
-    this.logger = new Logger(); // using Logger class
-  }</p>
-<p>async login(username, password) {
-    this.logger.log("Trying to log in...");
-    await this.page.fill("#user", username);
-    await this.page.fill("#pass", password);
-    await this.page.click("#loginBtn");
+}
+
+class UserService {
+  constructor() {
+    this.logger = new Logger(); // composition
   }
-}</p>
-<p>module.exports = LoginPage;</p>
-<p>test.js
-const LoginPage = require('./pages/LoginPage');</p>
-<p>const loginPage = new LoginPage(page);
-await loginPage.login("admin", "admin123");</p>
-<p>✔ This is how utilities are used in real-world automation.
-✔ Easy to reuse utility classes.</p>
-<p>✅ B) Import methods from another class using ES6 Modules
-mathUtils.js
-export class MathUtils {
-  add(a, b) {
-    return a + b;
+
+  createUser(name) {
+    this.logger.log(`User created: ${name}`);
   }
-}</p>
-<p>app.js
-import { MathUtils } from "./mathUtils.js";</p>
-<p>const utils = new MathUtils();
-console.log(utils.add(5, 10));</p>
-<p>✅ C) Inheritance (extends)</p>
-<p>One class reuses properties/methods of another class.</p>
-<p>class Animal {
+}
+</code></pre>
+<hr />
+<h2 id="inheritance-one-class-extending-another">🧬 Inheritance (One class extending another)<a class="headerlink" href="#inheritance-one-class-extending-another" title="Permanent link">&para;</a></h2>
+<pre><code class="language-javascript">class Animal {
   speak() {
-    console.log("Animal makes sound");
+    console.log(&quot;Animal speaks&quot;);
   }
-}</p>
-<p>class Dog extends Animal {
+}
+
+class Dog extends Animal {
   bark() {
-    console.log("Dog barks");
+    console.log(&quot;Dog barks&quot;);
   }
-}</p>
-<p>const d = new Dog();
-d.speak(); // from parent class
-d.bark();  // from child class</p>
-<p>✔ Useful when classes share common logic
-✔ Common in frameworks with BasePage, BaseAPI, etc.</p>
-<p>6️⃣ Real-World Automation Example
-BasePage.js
-class BasePage {
-  constructor(page) {
-    this.page = page;
-  }</p>
-<p>async waitForPageLoad() {
-    await this.page.waitForLoadState("domcontentloaded");
-  }
-}</p>
-<p>module.exports = BasePage;</p>
-<p>HomePage.js
-const BasePage = require("./BasePage");</p>
-<p>class HomePage extends BasePage {
-  constructor(page) {
-    super(page); // calling parent constructor
-  }</p>
-<p>async clickMenu() {
-    await this.page.click("#menu");
-  }
-}</p>
-<p>module.exports = HomePage;</p>
-<p>✔ HomePage inherits BasePage
-✔ This is super common in Playwright</p>
-<p>🎯 Summary
-| Concept      | Meaning                        | Example                      |
-|--------------|--------------------------------|-------------------------------|
-| <strong>Class</strong>    | Blueprint for creating objects | <code>class Car {}</code>               |
-| <strong>Constructor</strong> | Initializes object properties | <code>constructor(a, b)</code>          |
-| <strong>Object</strong>   | Instance of a class            | <code>new Car()</code>                  |
-| <strong>Composition</strong> | One class uses another class (HAS-A) | <code>new Logger()</code>           |
-| <strong>Inheritance</strong> | One class extends another (IS-A) | <code>class Dog extends Animal</code> |</p>
+}
+
+const d = new Dog();
+d.speak(); 
+d.bark();
+</code></pre>
+<hr />
+<h2 id="summary-table">🎯 Summary Table<a class="headerlink" href="#summary-table" title="Permanent link">&para;</a></h2>
+<p>Concept       Meaning                     Example</p>
+<hr />
+<p>Class         Blueprint                   <code>class Car {}</code>
+  Constructor   Initializes object          <code>constructor(a,b)</code>
+  Object        Instance of class           <code>new Car()</code>
+  Composition   Class uses another class    <code>new Logger()</code>
+  Inheritance   One class extends another   <code>class Dog extends Animal</code></p>
 
 
 

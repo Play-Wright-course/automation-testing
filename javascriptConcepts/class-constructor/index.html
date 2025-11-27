@@ -21,7 +21,7 @@
     
     
       
-        <title>JavaScript Classes, Constructors, and Objects - JavaScript Playwright Docs</title>
+        <title>JavaScript Classes & Object-Oriented Concepts - JavaScript Playwright Docs</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#javascript-classes-constructors-and-objects" class="md-skip">
+        <a href="#javascript-classes-object-oriented-concepts" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              JavaScript Classes, Constructors, and Objects
+              JavaScript Classes &amp; Object-Oriented Concepts
             
           </span>
         </div>
@@ -966,10 +966,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-a-class" class="md-nav__link">
+  <a href="#table-of-contents" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📘 What is a Class?
+        📌 Table of Contents
       
     </span>
   </a>
@@ -977,10 +977,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-is-a-constructor" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔧 What is a Constructor?
+        Introduction
       
     </span>
   </a>
@@ -988,46 +988,113 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-is-an-object" class="md-nav__link">
+  <a href="#1-classes-constructors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚗 What is an Object?
+        1. Classes &amp; Constructors
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Classes &amp; Constructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#defining-a-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✔ Defining a Class
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#composition-using-one-class-inside-another" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#creating-an-object" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🧩 Composition (Using one class inside another)
+        ✔ Creating an Object
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#inheritance-one-class-extending-another" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#2-object-creation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🧬 Inheritance (One class extending another)
+        2. Object Creation
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#summary-table" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#3-using-one-class-inside-another" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎯 Summary Table
+        3. Using One Class Inside Another
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="3. Using One Class Inside Another">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-direct-instantiation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A) Direct Instantiation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-dependency-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B) Dependency Injection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-interview-based-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Interview-Based Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1048,76 +1115,178 @@
 
 
 
-<h1 id="javascript-classes-constructors-and-objects">JavaScript Classes, Constructors, and Objects<a class="headerlink" href="#javascript-classes-constructors-and-objects" title="Permanent link">&para;</a></h1>
-<h2 id="what-is-a-class">📘 What is a Class?<a class="headerlink" href="#what-is-a-class" title="Permanent link">&para;</a></h2>
-<p>A <strong>class</strong> is a blueprint to create objects.</p>
-<pre><code class="language-javascript">class Car {
-  // Constructor
-  constructor(brand, color) {
-    this.brand = brand;
-    this.color = color;
-  }
+<h1 id="javascript-classes-object-oriented-concepts">JavaScript Classes &amp; Object-Oriented Concepts<a class="headerlink" href="#javascript-classes-object-oriented-concepts" title="Permanent link">&para;</a></h1>
+<p>A GitHub-ready guide covering classes, constructors, object creation, dependency usage, and interview-specific examples.</p>
+<hr />
+<h2 id="table-of-contents">📌 Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#1-classes--constructors">1. Classes &amp; Constructors</a></li>
+<li><a href="#2-object-creation">2. Object Creation</a></li>
+<li><a href="#3-using-one-class-inside-another">3. Using One Class Inside Another</a></li>
+<li><a href="#a-direct-instantiation">Direct Instantiation</a></li>
+<li><a href="#b-dependency-injection">Dependency Injection</a></li>
+<li><a href="#4-interview-based-examples">4. Interview-Based Examples</a></li>
+<li><a href="#static-methods">Static Methods</a></li>
+<li><a href="#inheritance">Inheritance</a></li>
+<li><a href="#private-fields">Private Fields</a></li>
+<li><a href="#singleton-pattern">Singleton Pattern</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+<hr />
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>JavaScript supports Object-Oriented Programming using <strong>classes</strong>, introduced in ES6.<br />
+This guide explains how to create classes, use constructors, create objects, share utilities across classes, and prepare for interviews.</p>
+<hr />
+<h2 id="1-classes-constructors">1. Classes &amp; Constructors<a class="headerlink" href="#1-classes-constructors" title="Permanent link">&para;</a></h2>
+<h3 id="defining-a-class">✔ Defining a Class<a class="headerlink" href="#defining-a-class" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
 
-  start() {
-    console.log(`${this.brand} is starting...`);
-  }
+    greet() {
+        console.log(`Hello, I am ${this.name}`);
+    }
 }
 </code></pre>
-<hr />
-<h2 id="what-is-a-constructor">🔧 What is a Constructor?<a class="headerlink" href="#what-is-a-constructor" title="Permanent link">&para;</a></h2>
-<p>A <strong>constructor</strong> initializes object properties when an object is
-created.</p>
-<hr />
-<h2 id="what-is-an-object">🚗 What is an Object?<a class="headerlink" href="#what-is-an-object" title="Permanent link">&para;</a></h2>
-<p>An <strong>object</strong> is an instance of a class.</p>
-<pre><code class="language-javascript">const myCar = new Car(&quot;BMW&quot;, &quot;Black&quot;);
-myCar.start();
+<h3 id="creating-an-object">✔ Creating an Object<a class="headerlink" href="#creating-an-object" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">Copy code
+const p1 = new Person(&quot;Alice&quot;, 25);
+p1.greet();
 </code></pre>
-<hr />
-<h2 id="composition-using-one-class-inside-another">🧩 Composition (Using one class inside another)<a class="headerlink" href="#composition-using-one-class-inside-another" title="Permanent link">&para;</a></h2>
-<pre><code class="language-javascript">class Logger {
-  log(message) {
-    console.log(&quot;LOG:&quot;, message);
-  }
+<h3 id="2-object-creation">2. Object Creation<a class="headerlink" href="#2-object-creation" title="Permanent link">&para;</a></h3>
+<p>Objects are created using the new keyword:</p>
+<pre><code class="language-javascript">Copy code
+const obj = new ClassName(args);
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-javascript">Copy code
+const p = new Person(&quot;John&quot;, 30);
+</code></pre>
+<h3 id="3-using-one-class-inside-another">3. Using One Class Inside Another<a class="headerlink" href="#3-using-one-class-inside-another" title="Permanent link">&para;</a></h3>
+<h4 id="a-direct-instantiation">A) Direct Instantiation<a class="headerlink" href="#a-direct-instantiation" title="Permanent link">&para;</a></h4>
+<p>Most common in utility-based architectures.</p>
+<pre><code class="language-javascript">Copy code
+class Logger {
+    log(message) {
+        console.log(&quot;[LOG]:&quot;, message);
+    }
 }
 
 class UserService {
-  constructor() {
-    this.logger = new Logger(); // composition
-  }
+    constructor() {
+        this.logger = new Logger(); // direct object creation
+    }
 
-  createUser(name) {
-    this.logger.log(`User created: ${name}`);
-  }
+    createUser(username) {
+        this.logger.log(`User '${username}' created`);
+    }
 }
+
+const service = new UserService();
+service.createUser(&quot;rahul123&quot;);
 </code></pre>
-<hr />
-<h2 id="inheritance-one-class-extending-another">🧬 Inheritance (One class extending another)<a class="headerlink" href="#inheritance-one-class-extending-another" title="Permanent link">&para;</a></h2>
-<pre><code class="language-javascript">class Animal {
-  speak() {
-    console.log(&quot;Animal speaks&quot;);
-  }
+<h4 id="b-dependency-injection">B) Dependency Injection<a class="headerlink" href="#b-dependency-injection" title="Permanent link">&para;</a></h4>
+<p>Preferred in scalable or testable systems.</p>
+<pre><code class="language-javascript">class Logger {
+    log(message) {
+        console.log(&quot;[LOG]:&quot;, message);
+    }
+}
+
+class OrderService {
+    constructor(logger) {
+        this.logger = logger;
+    }
+
+    placeOrder(id) {
+        this.logger.log(`Order #${id} placed`);
+    }
+}
+
+const logger = new Logger();
+const orderService = new OrderService(logger);
+orderService.placeOrder(101);
+</code></pre>
+<h3 id="4-interview-based-examples">4. Interview-Based Examples<a class="headerlink" href="#4-interview-based-examples" title="Permanent link">&para;</a></h3>
+<p>⭐ Static Methods</p>
+<pre><code class="language-javascript">Copy code
+class MathUtil {
+    static add(a, b) {
+        return a + b;
+    }
+}
+
+console.log(MathUtil.add(5, 7));
+</code></pre>
+<p>⭐ Inheritance</p>
+<pre><code class="language-javascript">Copy code
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    speak() {
+        console.log(`${this.name} makes a sound`);
+    }
 }
 
 class Dog extends Animal {
-  bark() {
-    console.log(&quot;Dog barks&quot;);
-  }
+    speak() {
+        console.log(`${this.name} barks`);
+    }
 }
 
-const d = new Dog();
-d.speak(); 
-d.bark();
+const d = new Dog(&quot;Tommy&quot;);
+d.speak();
 </code></pre>
-<hr />
-<h2 id="summary-table">🎯 Summary Table<a class="headerlink" href="#summary-table" title="Permanent link">&para;</a></h2>
-<p>Concept       Meaning                     Example</p>
-<hr />
-<p>Class         Blueprint                   <code>class Car {}</code>
-  Constructor   Initializes object          <code>constructor(a,b)</code>
-  Object        Instance of class           <code>new Car()</code>
-  Composition   Class uses another class    <code>new Logger()</code>
-  Inheritance   One class extends another   <code>class Dog extends Animal</code></p>
+<p>⭐ Private Fields</p>
+<pre><code class="language-javascript">Copy code
+class BankAccount {
+    #balance = 0;
+
+    deposit(amount) {
+        this.#balance += amount;
+    }
+
+    getBalance() {
+        return this.#balance;
+    }
+}
+
+const acc = new BankAccount();
+acc.deposit(500);
+console.log(acc.getBalance());
+</code></pre>
+<p>⭐ Singleton Pattern</p>
+<pre><code class="language-javascript">Copy code
+class Config {
+    constructor() {
+        if (Config.instance) return Config.instance;
+        this.settings = {};
+        Config.instance = this;
+    }
+
+    set(key, value) {
+        this.settings[key] = value;
+    }
+}
+
+const c1 = new Config();
+const c2 = new Config();
+
+console.log(c1 === c2); // true
+</code></pre>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use classes to structure reusable objects.</li>
+<li>Constructors initialize values.</li>
+<li>Objects can be created directly or injected.</li>
+<li>Understand OOP concepts: inheritance, static methods, encapsulation, and patterns.</li>
+<li>Practice real interview examples like Singleton and private fields.</li>
+</ul>
 
 
 

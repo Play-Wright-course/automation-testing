@@ -1083,6 +1083,45 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#4-how-to-share-utility-classes-across-multiple-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. How to Share Utility Classes Across Multiple Files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. How to Share Utility Classes Across Multiple Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-utility-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a utility class
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#import-and-use-anywhere" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Import and use anywhere
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1278,6 +1317,22 @@ const c1 = new Config();
 const c2 = new Config();
 
 console.log(c1 === c2); // true
+</code></pre>
+<h3 id="4-how-to-share-utility-classes-across-multiple-files">4. How to Share Utility Classes Across Multiple Files<a class="headerlink" href="#4-how-to-share-utility-classes-across-multiple-files" title="Permanent link">&para;</a></h3>
+<h4 id="create-a-utility-class">Create a utility class<a class="headerlink" href="#create-a-utility-class" title="Permanent link">&para;</a></h4>
+<pre><code>class DateUtils {
+  getToday() {
+    return new Date().toISOString().split(&quot;T&quot;)[0];
+  }
+}
+
+module.exports = DateUtils;
+</code></pre>
+<h4 id="import-and-use-anywhere">Import and use anywhere<a class="headerlink" href="#import-and-use-anywhere" title="Permanent link">&para;</a></h4>
+<pre><code>const DateUtils = require(&quot;./DateUtils&quot;);
+
+const utils = new DateUtils();
+console.log(utils.getToday());
 </code></pre>
 <h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
 <ul>

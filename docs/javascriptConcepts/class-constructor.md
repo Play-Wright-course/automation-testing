@@ -191,6 +191,26 @@ const c2 = new Config();
 console.log(c1 === c2); // true
 ```
 
+### 4. How to Share Utility Classes Across Multiple Files
+
+#### Create a utility class
+```
+class DateUtils {
+  getToday() {
+    return new Date().toISOString().split("T")[0];
+  }
+}
+
+module.exports = DateUtils;
+```
+
+####  Import and use anywhere
+```
+const DateUtils = require("./DateUtils");
+
+const utils = new DateUtils();
+console.log(utils.getToday());
+```
 ### Summary
 - Use classes to structure reusable objects.
 - Constructors initialize values.

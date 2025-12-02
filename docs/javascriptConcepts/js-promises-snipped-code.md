@@ -18,7 +18,7 @@ simpleTask.then((msg) => console.log("Output:", msg));
 ```
 
 ✅ Output
-```
+```javascript
 arduino
 Copy code
 Output: Simple Task Done!
@@ -26,7 +26,7 @@ Output: Simple Task Done!
 
 # 2️⃣ Intermediate Example — Multiple Promises (Promise Chaining)
 
-```
+```javascript
 function step1() {
   return new Promise((resolve) => {
     setTimeout(() => resolve("Step 1 completed"), 1000);
@@ -59,7 +59,7 @@ step1()
 
 ✅ Output
 
-```
+```javascript
 Copy code
 Step 1 completed
 Step 2 completed
@@ -69,7 +69,7 @@ Step 3 completed
 # 3️⃣ Real-Time Example — Calling API With Promises
 (Useful for Playwright API testing)
 
-```
+```javascript
 javascript
 Copy code
 function getUserData() {
@@ -83,7 +83,7 @@ getUserData().then((data) => {
 ```
 
 ✅ Output
-```
+```javascript
 Copy code
 User Name: Leanne Graham
 ```
@@ -91,7 +91,7 @@ User Name: Leanne Graham
 # 4️⃣ Complex Example — Run Tasks in Parallel
 (Real-Time Use Case: Fetch multiple APIs or run multiple operations simultaneously)
 
-```
+```javascript
 const fetchUser = () =>
   new Promise((resolve) => {
     setTimeout(() => resolve("User Fetched"), 1500);
@@ -115,13 +115,13 @@ Promise.all([fetchUser(), fetchOrders(), fetchPayments()])
 ```
 
 ✅ Output
-```
+```javascript
 All tasks completed:
 [ 'User Fetched', 'Orders Fetched', 'Payments Fetched' ]
 ```
 
 # 5️⃣ Complex Example — Promise.race()
-```
+```javascript
 const fast = new Promise((resolve) => setTimeout(() => resolve("Fast API"), 500));
 const slow = new Promise((resolve) => setTimeout(() => resolve("Slow API"), 2000));
 
@@ -130,13 +130,13 @@ Promise.race([fast, slow]).then((result) => console.log("Winner:", result));
 
 ✅ Output
 
-```
+```javascript
 Winner: Fast API
 ```
 # 6️⃣ Complex Example — Retry Mechanism With Promises
 (Real-Time: Retry API/network calls)
 
-```
+```javascript
 function fetchWithRetry(retries = 3) {
   return new Promise((resolve, reject) => {
     const success = Math.random() > 0.5; // Random fail/success
@@ -160,7 +160,7 @@ fetchWithRetry()
 ```
 
 Possible Output
-```
+```javascript
 mathematica
 Copy code
 Trying API…
@@ -171,7 +171,7 @@ Trying API…
 API Success!
 ```
 OR
-```
+```javascript
 nginx
 Copy code
 Trying API…
@@ -182,7 +182,7 @@ Trying API…
 API Failed after retries
 ```
 # 7️⃣ Real-Time Playwright-Style Example — Custom Wait Using Promises
-```
+```javascript
 function waitForElement(selector) {
   return new Promise((resolve) => {
     const check = setInterval(() => {
@@ -198,12 +198,12 @@ function waitForElement(selector) {
 waitForElement("#login-button").then((msg) => console.log(msg));
 ```
 Example Output
-```
+```javascript
 Element found: #login-button
 ```
 
 # 8️⃣ Real-Time Example — Playwright Test Simulated With Promises
-```
+```javascript
 function navigateTo(url) {
   return new Promise((resolve) => {
     console.log("Navigating to:", url);
@@ -243,7 +243,7 @@ runTest();
 
 Output
 
-```
+```javascript
 Navigating to: https://example.com
 Page Loaded
 Clicking Login Button

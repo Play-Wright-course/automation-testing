@@ -1064,307 +1064,103 @@
 <td><strong>toBeVisible()</strong></td>
 <td>Element should be visible</td>
 <td><code>await expect(locator).toBeVisible()</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page.getByText("Login")).toBeVisible();</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>toBeHidden()</strong></td>
 <td>Element exists but not visible</td>
 <td><code>await expect(locator).toBeHidden()</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page.locator('#loader')).toBeHidden();</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>toBeEnabled()</strong></td>
 <td>Element is enabled</td>
 <td><code>await expect(locator).toBeEnabled()</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page.locator('#submit')).toBeEnabled();</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>toBeDisabled()</strong></td>
 <td>Element is disabled</td>
 <td><code>await expect(locator).toBeDisabled()</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page.locator('#submit')).toBeDisabled();</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>toBeEditable()</strong></td>
 <td>Input is editable</td>
 <td><code>await expect(locator).toBeEditable()</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page.locator('#name')).toBeEditable();</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>toBeChecked()</strong></td>
 <td>Checkbox is checked</td>
 <td><code>await expect(locator).toBeChecked()</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page.locator('#terms')).toBeChecked();</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>not.toBeChecked()</strong></td>
 <td>Checkbox not checked</td>
 <td><code>await expect(locator).not.toBeChecked()</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page.locator('#subscribe')).not.toBeChecked();</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>toHaveAttribute()</strong></td>
 <td>Matches attribute value</td>
 <td><code>await expect(locator).toHaveAttribute(name, value)</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page.locator('#loginBtn')).toHaveAttribute('type','submit');</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>toHaveClass()</strong></td>
 <td>Matches CSS class</td>
 <td><code>await expect(locator).toHaveClass(value)</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page.locator('.item')).toHaveClass(/active/);</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>toHaveId()</strong></td>
 <td>Matches element id</td>
 <td><code>await expect(locator).toHaveId(value)</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page.locator('#username')).toHaveId('username');</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>toHaveText()</strong></td>
 <td>Exact/regex text match</td>
 <td><code>await expect(locator).toHaveText(value)</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page.locator('.msg')).toHaveText(/Success/);</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>toContainText()</strong></td>
 <td>Partial text match</td>
 <td><code>await expect(locator).toContainText(value)</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page.locator('.label')).toContainText("Hello");</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>toHaveValue()</strong></td>
 <td>Input value match</td>
 <td><code>await expect(locator).toHaveValue(value)</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page.locator('#email')).toHaveValue("test@gmail.com");</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>toHaveValues()</strong></td>
 <td>Multi-select values</td>
 <td><code>await expect(locator).toHaveValues(array)</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page.locator('#cities')).toHaveValues(['NY', 'LA']);</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>toHaveCount()</strong></td>
 <td>Number of elements</td>
 <td><code>await expect(locator).toHaveCount(number)</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page.locator('.cart-item')).toHaveCount(3);</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>toBeEmpty()</strong></td>
 <td>No content</td>
 <td><code>await expect(locator).toBeEmpty()</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page.locator('#output')).toBeEmpty();</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>toBeInViewport()</strong></td>
 <td>Element inside viewport</td>
 <td><code>await expect(locator).toBeInViewport()</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page.locator('#banner')).toBeInViewport();</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -1383,37 +1179,13 @@
 <td><strong>toHaveURL()</strong></td>
 <td>Matches URL</td>
 <td><code>await expect(page).toHaveURL(value)</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page).toHaveURL(/dashboard/);</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>toHaveTitle()</strong></td>
 <td>Matches page title</td>
 <td><code>await expect(page).toHaveTitle(value)</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page).toHaveTitle("Login Page");</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -1432,67 +1204,19 @@
 <td><strong>toBeOK()</strong></td>
 <td>Status is 2xx</td>
 <td><code>await expect(response).toBeOK()</code></td>
-<td>```js</td>
-</tr>
-<tr>
-<td>const res = await request.get(url);</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>await expect(res).toBeOK();</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
+<td>const res = await request.get(url);<br>     await expect(res).toBeOK();</td>
 </tr>
 <tr>
 <td><strong>status() code</strong></td>
 <td>Exact HTTP code</td>
 <td><code>expect(response.status()).toBe(value)</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>expect(res.status()).toBe(201);</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td><strong>json body check</strong></td>
 <td>Validate JSON</td>
 <td><code>expect(await res.json()).toEqual(obj)</code></td>
-<td>```js</td>
-</tr>
-<tr>
-<td>const body = await res.json();</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>expect(body.success).toBe(true);</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
-<td></td>
+<td>const body = await res.json();<br>     expect(body.success).toBe(true);</td>
 </tr>
 </tbody>
 </table>
@@ -1509,22 +1233,7 @@
 <tr>
 <td>Soft assertion</td>
 <td><code>expect.soft(locator).assertion()</code></td>
-<td>```js</td>
-</tr>
-<tr>
-<td>expect.soft(page.locator('#msg')).toContainText('Success');</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>console.log("Test continues");</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
-<td></td>
+<td>expect.soft(page.locator('#msg')).toContainText('Success');<br>     console.log("Test continues");</td>
 </tr>
 </tbody>
 </table>
@@ -1539,39 +1248,15 @@
 <tbody>
 <tr>
 <td><code>expect(locator).not.toBeVisible()</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page.locator('#error')).not.toBeVisible();</td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
 </tr>
 <tr>
 <td><code>expect(locator).not.toHaveText(value)</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page.locator('#msg')).not.toHaveText('Error');</td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
 </tr>
 <tr>
 <td><code>expect(page).not.toHaveURL(value)</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page).not.toHaveURL(/login/);</td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -1586,15 +1271,7 @@
 <tbody>
 <tr>
 <td><code>await expect(locator).assertion({ timeout: ms })</code></td>
-<td>```js</td>
-</tr>
-<tr>
 <td>await expect(page.locator('#status')).toHaveText("Done", { timeout: 8000 });</td>
-<td></td>
-</tr>
-<tr>
-<td>```</td>
-<td></td>
 </tr>
 </tbody>
 </table>

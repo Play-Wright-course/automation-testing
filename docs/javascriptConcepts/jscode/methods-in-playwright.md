@@ -1,0 +1,3 @@
+- type - entering values
+- click - click
+- textContent() - get text from locator

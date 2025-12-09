@@ -32,7 +32,12 @@
       await page.locator("#userEmail").fill("anshika@gmail.com");
       await page.locator("#userPassword").fill("Iamking@000");
       await page.locator("[value='Login']").click();
-      await page.waitForLoadState('networkidle');
+      await page.waitForLoadState('networkidle'); // Sometimes not woks fine- Also mention in playwright official document. so we use below case
       const titles=await page.locator(".card-body b").allTextContents();
       concole.log(titles);
+      ```
+    - waitFor() we can use
+      ```
+      await page.locator(".card-body b").first().waitFor(); - Waiting for first
+      await page.locator(".card-body b").last().waitFor(); - waiting for last
       ```

@@ -19,3 +19,9 @@
   OR
   await page.locator(".card-body a").last().textContent - It return last element
   ```
+
+  - Scenario Want to store all product text in list etc.
+     -  locator.alltextContents();
+       ``` js
+       const allTitle=await page.locator(".card-body a").alltextContents();
+       ```

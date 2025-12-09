@@ -10,3 +10,8 @@
   ``` error
   STRINCT MODE VIOLATION
   ```
+
+  - How we can travel from parent to child in playwright with css
+  ```
+  await page.locator(".card-body a").nth(0).textContent
+  ```

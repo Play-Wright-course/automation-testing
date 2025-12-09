@@ -998,6 +998,15 @@
    <code>js
    console.log(await cardTitles.nth(1).textContent()); //textContent() by default have wait mechanism
    const allTitle=await page.locator(".card-body a").alltextContents(); // It didint not have and It will fail if we run only this line</code></li>
+<li>To avoid failure in above step we have to add wait till all api network call done.
+  <code>js
+  await page.goto("https://rahulshettyacademy.com/client");
+  await page.locator("#userEmail").fill("anshika@gmail.com");
+  await page.locator("#userPassword").fill("Iamking@000");
+  await page.locator("[value='Login']").click();
+  await page.waitForLoadState('networkidle');
+  const titles=await page.locator(".card-body b").allTextContents();
+  concole.log(titles);</code></li>
 </ul>
 </li>
 </ul>

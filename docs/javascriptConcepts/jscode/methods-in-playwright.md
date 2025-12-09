@@ -23,5 +23,6 @@
   - Scenario Want to store all product text in list etc.
      -  locator.alltextContents();
        ``` js
-       const allTitle=await page.locator(".card-body a").alltextContents();
+       console.log(await cardTitles.nth(1).textContent()); //textContent() by default have wait mechanism
+       const allTitle=await page.locator(".card-body a").alltextContents(); // It didint not have and It will fail if we run only this line
        ```

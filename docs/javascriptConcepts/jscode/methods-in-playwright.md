@@ -22,12 +22,12 @@
 
   - Scenario Want to store all product text in list etc.
      -  locator.alltextContents();
-       ``` js
+  ``` js
        console.log(await cardTitles.nth(1).textContent()); //textContent() by default have wait mechanism
        const allTitle=await page.locator(".card-body a").alltextContents(); // It didint not have and It will fail if we run only this line
-       ```
+  ```
     - To avoid failure in above step we have to add wait till all api network call done.
-      ```js
+  ```js
       await page.goto("https://rahulshettyacademy.com/client");
       await page.locator("#userEmail").fill("anshika@gmail.com");
       await page.locator("#userPassword").fill("Iamking@000");
@@ -35,9 +35,9 @@
       await page.waitForLoadState('networkidle'); // Sometimes not woks fine- Also mention in playwright official document. so we use below case
       const titles=await page.locator(".card-body b").allTextContents();
       concole.log(titles);
-      ```
+  ```
     - waitFor() we can use
-      ```
+  ```
       await page.locator(".card-body b").first().waitFor(); - Waiting for first
       await page.locator(".card-body b").last().waitFor(); - waiting for last
-      ```
+  ```

@@ -13,5 +13,9 @@
 
   - How we can travel from parent to child in playwright with css
   ```
-  await page.locator(".card-body a").nth(0).textContent
+  await page.locator(".card-body a").nth(0).textContent  - It return 1st element/index bases
+  OR
+  await page.locator(".card-body a").first().textContent - It return 1st element
+  OR
+  await page.locator(".card-body a").last().textContent - It return last element
   ```

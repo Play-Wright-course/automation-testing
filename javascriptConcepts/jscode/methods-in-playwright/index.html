@@ -995,7 +995,7 @@
 <p>Scenario Want to store all product text in list etc.</p>
 <ul>
 <li>locator.alltextContents();
-   <code>js
+  <code>js
    console.log(await cardTitles.nth(1).textContent()); //textContent() by default have wait mechanism
    const allTitle=await page.locator(".card-body a").alltextContents(); // It didint not have and It will fail if we run only this line</code></li>
 <li>To avoid failure in above step we have to add wait till all api network call done.

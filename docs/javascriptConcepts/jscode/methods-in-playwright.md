@@ -37,7 +37,7 @@
       concole.log(titles);
   ```
     - waitFor() we can use
-  ```
+  ```js
       await page.locator(".card-body b").first().waitFor(); - Waiting for first
       await page.locator(".card-body b").last().waitFor(); - waiting for last
   ```

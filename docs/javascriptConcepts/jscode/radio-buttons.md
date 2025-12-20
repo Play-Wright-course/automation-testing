@@ -145,6 +145,7 @@ test('Complex radio button flow', async ({ page }) => {
 
   await page.locator('input[value="pro"]').check();
   await expect(page.locator('input[value="pro"]')).toBeChecked();
+  await expect(page.locator('input[value="pro"]').isChecked).toBeTruthy();
 });
 ```
 

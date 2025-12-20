@@ -1385,6 +1385,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sample-snipped-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample snipped code
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1653,6 +1664,28 @@ await adminPage.goto('https://admin.example.com');
 <p>Validate title or URL before switching tabs</p>
 </li>
 </ul>
+<h2 id="sample-snipped-code">Sample snipped code<a class="headerlink" href="#sample-snipped-code" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js"> test('@Child windows hadl', async ({browser})=&gt;
+ {
+    const context = await browser.newContext();
+    const page =  await context.newPage();
+    const userName = page.locator('#username');
+    await page.goto(&quot;https://rahulshettyacademy.com/loginpagePractise/&quot;);
+    const documentLink = page.locator(&quot;[href*='documents-request']&quot;);
+
+    const [newPage]=Promise.all(
+   [
+      context.waitForEvent('page'),//listen for any new page pending,rejected,fulfilled
+      documentLink.click(),
+
+   ])//new page is opened
+    const  text = await newPage.locator(&quot;.red&quot;).textContent();
+    const arrayText = text.split(&quot;@&quot;)
+    const domain =  arrayText[1].split(&quot; &quot;)[0]
+    console.log(domain);
+    await page.locator(&quot;#username&quot;).fill(domain);
+    console.log(await page.locator(&quot;#username&quot;).textContent());
+</code></pre>
 
 
 

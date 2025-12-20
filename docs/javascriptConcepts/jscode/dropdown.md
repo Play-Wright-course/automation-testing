@@ -32,6 +32,12 @@ This guide covers **ALL real-world dropdown scenarios** with examples.
 ```
 
 ### Select by value
+
+```js
+const dropdown=page.locator('#country');
+dropdown.selectOption("IN");
+```
+
 ```js
 await page.selectOption('#country', 'IN');
 ```

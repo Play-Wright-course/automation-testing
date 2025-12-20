@@ -1,0 +1,1712 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://Play-Wright-course.github.io/automation-testing/javascriptConcepts/jscode/window-tab-handle/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Handling Multiple Tabs and Windows in Playwright (JavaScript) - JavaScript Playwright Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#handling-multiple-tabs-and-windows-in-playwright-javascript" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="JavaScript Playwright Docs" class="md-header__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaScript Playwright Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Handling Multiple Tabs and Windows in Playwright (JavaScript)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="JavaScript Playwright Docs" class="md-nav__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JavaScript Playwright Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JavaScript Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    JavaScript Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../var-vs-let-vaiable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Var vs Let
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../variables-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vaiables snipped code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dataTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../flow-statement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flow Statements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrays & Objects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arrow-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrow Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics-interview-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PlayWright With Java
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    PlayWright With Java
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/locator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Locators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/page-navigation-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Page Navigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/playwright-interaction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inputs And Buttons
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/checkbox-radio-button/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Checkbox And Radio buttons
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/dropdown_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dropdown Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/iframes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iframe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/mouse-keyboard-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mouse Keyboard Actions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/alerts-promt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alerts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/handling-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Handle Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/file-upload-download/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File upload And Download
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/screenshot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ScreenShot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exceptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/interview-question/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InterViwe Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-1-handle-new-tab-opened-by-clicking-a-link" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 1: Handle New Tab Opened by Clicking a Link
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario 1: Handle New Tab Opened by Clicking a Link">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Case
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-clicks-a-link-target_blank-and-a-new-tab-opens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User clicks a link (target="_blank") and a new tab opens.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explanation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-2-switch-between-multiple-open-tabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 2: Switch Between Multiple Open Tabs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario 2: Switch Between Multiple Open Tabs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-case_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Case
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#application-opens-multiple-tabs-and-user-needs-to-switch-between-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application opens multiple tabs and user needs to switch between them.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explanation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-3-handle-popup-window-windowopen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 3: Handle Popup Window (window.open)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario 3: Handle Popup Window (window.open)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-case_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Case
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clicking-a-button-opens-a-popup-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clicking a button opens a popup window.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explanation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-4-close-child-tab-and-return-to-parent-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 4: Close Child Tab and Return to Parent Tab
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario 4: Close Child Tab and Return to Parent Tab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-case_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Case
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#child-tab-opens-perform-action-close-it-return-to-parent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Child tab opens → perform action → close it → return to parent.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explanation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-5-switch-to-a-tab-based-on-title" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 5: Switch to a Tab Based on Title
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario 5: Switch to a Tab Based on Title">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-case_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Case
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiple-tabs-are-open-switch-to-required-one-using-title" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple tabs are open → switch to required one using title.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explanation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-6-handle-oauth-google-login-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 6: Handle OAuth / Google Login Window
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario 6: Handle OAuth / Google Login Window">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-case_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Case
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clicking-login-with-google-opens-authentication-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clicking "Login with Google" opens authentication window.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explanation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-7-open-new-tab-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 7: Open New Tab Manually
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario 7: Open New Tab Manually">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-case_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Case
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-admin-reports-page-manually-within-same-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open Admin / Reports page manually within same session.
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explanation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explanation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="handling-multiple-tabs-and-windows-in-playwright-javascript">Handling Multiple Tabs and Windows in Playwright (JavaScript)<a class="headerlink" href="#handling-multiple-tabs-and-windows-in-playwright-javascript" title="Permanent link">&para;</a></h1>
+<p>This document explains <strong>7 real-world scenarios</strong> for handling multiple tabs and windows in <strong>Playwright with JavaScript</strong>.
+Each scenario includes:
+- Practical use case
+- Complete code snippet
+- Line-by-line explanation</p>
+<hr />
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>Install Playwright:</p>
+<pre><code class="language-bash">npm init -y
+npm install playwright
+</code></pre>
+<p>Import Playwright:</p>
+<pre><code class="language-js">javascript
+Copy code
+const { chromium } = require('@playwright/test');
+</code></pre>
+<h2 id="scenario-1-handle-new-tab-opened-by-clicking-a-link">Scenario 1: Handle New Tab Opened by Clicking a Link<a class="headerlink" href="#scenario-1-handle-new-tab-opened-by-clicking-a-link" title="Permanent link">&para;</a></h2>
+<h3 id="use-case">Use Case<a class="headerlink" href="#use-case" title="Permanent link">&para;</a></h3>
+<h4 id="user-clicks-a-link-target_blank-and-a-new-tab-opens">User clicks a link (target="_blank") and a new tab opens.<a class="headerlink" href="#user-clicks-a-link-target_blank-and-a-new-tab-opens" title="Permanent link">&para;</a></h4>
+<pre><code class="language-js">Code
+javascript
+Copy code
+// Launch browser
+const browser = await chromium.launch();
+
+// Create isolated browser context
+const context = await browser.newContext();
+
+// Open a new tab
+const page = await context.newPage();
+
+// Navigate to application
+await page.goto('https://example.com');
+
+// Capture the new tab opened on click
+const [newPage] = await Promise.all([
+  context.waitForEvent('page'),  // Waits for new tab
+  page.click('a[target=&quot;_blank&quot;]') // Action that opens new tab
+]);
+
+// Wait until new tab loads completely
+await newPage.waitForLoadState();
+
+// Print title of new tab
+console.log(await newPage.title());
+
+// Close browser
+await browser.close();
+</code></pre>
+<h4 id="explanation">Explanation<a class="headerlink" href="#explanation" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><code>chromium.launch()</code> → Starts browser</p>
+</li>
+<li>
+<p><code>browser.newContext()</code> → Creates fresh session</p>
+</li>
+<li>
+<p><code>context.waitForEvent('page')</code> → Detects new tab</p>
+</li>
+<li>
+<p><code>Promise.all()</code> → Avoids race condition</p>
+</li>
+<li>
+<p><code>newPage</code> → Reference to new tab</p>
+</li>
+</ul>
+<h2 id="scenario-2-switch-between-multiple-open-tabs">Scenario 2: Switch Between Multiple Open Tabs<a class="headerlink" href="#scenario-2-switch-between-multiple-open-tabs" title="Permanent link">&para;</a></h2>
+<h3 id="use-case_1">Use Case<a class="headerlink" href="#use-case_1" title="Permanent link">&para;</a></h3>
+<h4 id="application-opens-multiple-tabs-and-user-needs-to-switch-between-them">Application opens multiple tabs and user needs to switch between them.<a class="headerlink" href="#application-opens-multiple-tabs-and-user-needs-to-switch-between-them" title="Permanent link">&para;</a></h4>
+<pre><code class="language-js">Code
+javascript
+Copy code
+// Get all open tabs
+const pages = context.pages();
+
+// Switch to second tab
+await pages[1].bringToFront();
+console.log(await pages[1].url());
+
+// Switch back to first tab
+await pages[0].bringToFront();
+</code></pre>
+<h4 id="explanation_1">Explanation<a class="headerlink" href="#explanation_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><code>context.pages()</code> → Returns array of all tabs</p>
+</li>
+<li>
+<p><code>bringToFront()</code> → Brings tab into focus</p>
+</li>
+<li>
+<p><code>Index</code> represents tab order</p>
+</li>
+</ul>
+<h2 id="scenario-3-handle-popup-window-windowopen">Scenario 3: Handle Popup Window (window.open)<a class="headerlink" href="#scenario-3-handle-popup-window-windowopen" title="Permanent link">&para;</a></h2>
+<h3 id="use-case_2">Use Case<a class="headerlink" href="#use-case_2" title="Permanent link">&para;</a></h3>
+<h4 id="clicking-a-button-opens-a-popup-window">Clicking a button opens a popup window.<a class="headerlink" href="#clicking-a-button-opens-a-popup-window" title="Permanent link">&para;</a></h4>
+<pre><code class="language-js">Code
+javascript
+Copy code
+const [popup] = await Promise.all([
+  page.waitForEvent('popup'), // Waits for popup window
+  page.click('#printInvoice') // Action triggering popup
+]);
+
+// Wait for popup to load
+await popup.waitForLoadState();
+
+// Print popup title
+console.log(await popup.title());
+</code></pre>
+<h3 id="explanation_2">Explanation<a class="headerlink" href="#explanation_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><code>page.waitForEvent('popup')</code> → Captures popup window</p>
+</li>
+<li>
+<p>Popup is linked to parent page automatically</p>
+</li>
+<li>
+<p>Treated same as a normal page</p>
+</li>
+</ul>
+<h2 id="scenario-4-close-child-tab-and-return-to-parent-tab">Scenario 4: Close Child Tab and Return to Parent Tab<a class="headerlink" href="#scenario-4-close-child-tab-and-return-to-parent-tab" title="Permanent link">&para;</a></h2>
+<h3 id="use-case_3">Use Case<a class="headerlink" href="#use-case_3" title="Permanent link">&para;</a></h3>
+<h4 id="child-tab-opens-perform-action-close-it-return-to-parent">Child tab opens → perform action → close it → return to parent.<a class="headerlink" href="#child-tab-opens-perform-action-close-it-return-to-parent" title="Permanent link">&para;</a></h4>
+<pre><code class="language-js">Code
+javascript
+Copy code
+// Store parent tab reference
+const parentPage = page;
+
+// Open child tab
+const [childPage] = await Promise.all([
+  context.waitForEvent('page'),
+  page.click('#openChildTab')
+]);
+
+// Wait for child tab to load
+await childPage.waitForLoadState();
+
+// Close child tab
+await childPage.close();
+
+// Bring parent tab back to focus
+await parentPage.bringToFront();
+</code></pre>
+<h3 id="explanation_3">Explanation<a class="headerlink" href="#explanation_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><code>Parent page</code> reference is stored</p>
+</li>
+<li>
+<p><code>Child page</code> is captured and closed</p>
+</li>
+<li>
+<p>Control is returned to parent tab</p>
+</li>
+</ul>
+<h2 id="scenario-5-switch-to-a-tab-based-on-title">Scenario 5: Switch to a Tab Based on Title<a class="headerlink" href="#scenario-5-switch-to-a-tab-based-on-title" title="Permanent link">&para;</a></h2>
+<h3 id="use-case_4">Use Case<a class="headerlink" href="#use-case_4" title="Permanent link">&para;</a></h3>
+<h4 id="multiple-tabs-are-open-switch-to-required-one-using-title">Multiple tabs are open → switch to required one using title.<a class="headerlink" href="#multiple-tabs-are-open-switch-to-required-one-using-title" title="Permanent link">&para;</a></h4>
+<pre><code class="language-js">Code
+javascript
+Copy code
+for (const p of context.pages()) {
+  const title = await p.title();
+
+  if (title.includes('Dashboard')) {
+    await p.bringToFront();
+    break;
+  }
+}
+</code></pre>
+<h3 id="explanation_4">Explanation<a class="headerlink" href="#explanation_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Iterates through all open tabs</p>
+</li>
+<li>
+<p>Matches tab using title</p>
+</li>
+<li>
+<p>Switches to correct tab</p>
+</li>
+</ul>
+<h2 id="scenario-6-handle-oauth-google-login-window">Scenario 6: Handle OAuth / Google Login Window<a class="headerlink" href="#scenario-6-handle-oauth-google-login-window" title="Permanent link">&para;</a></h2>
+<h3 id="use-case_5">Use Case<a class="headerlink" href="#use-case_5" title="Permanent link">&para;</a></h3>
+<h4 id="clicking-login-with-google-opens-authentication-window">Clicking "Login with Google" opens authentication window.<a class="headerlink" href="#clicking-login-with-google-opens-authentication-window" title="Permanent link">&para;</a></h4>
+<pre><code class="language-js">Code
+javascript
+Copy code
+const [loginPage] = await Promise.all([
+  context.waitForEvent('page'), // New OAuth window
+  page.click('#googleLogin')    // Trigger login
+]);
+
+// Interact with login window
+await loginPage.fill('#identifierId', 'test@gmail.com');
+await loginPage.click('#identifierNext');
+</code></pre>
+<h3 id="explanation_5">Explanation<a class="headerlink" href="#explanation_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>OAuth login opens in new tab/window</p>
+</li>
+<li>
+<p>New window is treated as normal page</p>
+</li>
+<li>
+<p>Can interact using Playwright actions</p>
+</li>
+</ul>
+<h2 id="scenario-7-open-new-tab-manually">Scenario 7: Open New Tab Manually<a class="headerlink" href="#scenario-7-open-new-tab-manually" title="Permanent link">&para;</a></h2>
+<h3 id="use-case_6">Use Case<a class="headerlink" href="#use-case_6" title="Permanent link">&para;</a></h3>
+<h4 id="open-admin-reports-page-manually-within-same-session">Open Admin / Reports page manually within same session.<a class="headerlink" href="#open-admin-reports-page-manually-within-same-session" title="Permanent link">&para;</a></h4>
+<pre><code class="language-js">Code
+javascript
+Copy code
+// Create new tab manually
+const adminPage = await context.newPage();
+
+// Navigate to admin page
+await adminPage.goto('https://admin.example.com');
+</code></pre>
+<h3 id="explanation_6">Explanation<a class="headerlink" href="#explanation_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>context.newPage() → Opens new tab</p>
+</li>
+<li>
+<p>Shares cookies and session with existing tabs</p>
+</li>
+</ul>
+<h4 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Always use Promise.all() when handling new tabs</p>
+</li>
+<li>
+<p>Prefer waitForEvent() over static waits</p>
+</li>
+<li>
+<p>Close unused tabs to save memory</p>
+</li>
+<li>
+<p>Validate title or URL before switching tabs</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

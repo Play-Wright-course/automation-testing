@@ -1232,6 +1232,7 @@ await page.keyboard.press('ArrowRight');
 
   await page.locator('input[value=&quot;pro&quot;]').check();
   await expect(page.locator('input[value=&quot;pro&quot;]')).toBeChecked();
+  await expect(page.locator('input[value=&quot;pro&quot;]').isChecked).toBeTruthy();
 });
 </code></pre>
 <hr />

@@ -1289,6 +1289,9 @@ Playwright provides <strong>multiple ways</strong> to handle different types of 
 &lt;/select&gt;
 </code></pre>
 <h3 id="select-by-value">Select by value<a class="headerlink" href="#select-by-value" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">const dropdown=page.locator('#country');
+dropdown.selectOption(&quot;IN&quot;);
+</code></pre>
 <pre><code class="language-js">await page.selectOption('#country', 'IN');
 </code></pre>
 <h3 id="select-by-label">Select by label<a class="headerlink" href="#select-by-label" title="Permanent link">&para;</a></h3>

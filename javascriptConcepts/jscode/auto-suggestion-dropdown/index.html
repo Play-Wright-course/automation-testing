@@ -1220,8 +1220,25 @@ await countryInput.press('Enter');
 </ul>
 <hr />
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
 <p>Using <code>pressSequentially()</code> is the most reliable way to handle auto-suggestion
 dropdowns in Playwright with JavaScript.</p>
+</li>
+<li>
+<p>In the previous lecture, we used the following step to enter characters into an edit dropbox:</p>
+</li>
+<li>
+<p><code>await page.locator("[placeholder*='Country']").pressSequentially("ind");</code>
+   This step may occasionally fail if the application server is slow due to heavy traffic. In such cases, you can introduce a delay and rewrite the step as:</p>
+</li>
+<li>
+<p><code>await page.locator("[placeholder*='Country']").pressSequentially("ind", { delay: 150 });</code>
+Here, a delay of 150 milliseconds is introduced between each key press.
+That means it enters  i → (delay 150 ms) → enters n → (delay 150 ms) → enters d</p>
+</li>
+</ul>
+<p>By doing this, you give the application enough time to respond with the relevant options.</p>
 
 
 

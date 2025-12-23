@@ -144,7 +144,8 @@ page.getByPlaceholder("Enter email").fill("abc@test.com");
 
 Automatically links `<label>` to its corresponding `<input>`.
 
-### 🔸 HTML:
+### 🔸 HTML: (Applicable)
+
 - It will work onlu when there is association with label field see below example.
 - here you can see email is linked between label and input id.
 - In some cases input field is wrapped in labes.
@@ -153,6 +154,17 @@ Automatically links `<label>` to its corresponding `<input>`.
 <label for="email">Email</label>
 <input id="email" />
 ```
+
+### 🔸 HTML: (NOT Applicable)
+- It will not work  when there is NO association with label and input field see below example.
+
+```html
+div class="form-group">
+    <label>Name</label>
+       <input class="form-control ng-untouched ng-pristine ng-invalid" minlength="2" name="name" required="" type="text">
+</div>
+```
+            
 
 ### 🔸 Playwright:
 

@@ -1057,9 +1057,9 @@ test('@Webst Client App login', async ({ page }) =&gt; {
       }
    }
    const orderIdDetails = await page.locator(&quot;.col-text&quot;).textContent();
-   expect(orderId.includes(orderIdDetails)).toBeTruthy();
+   expect(orderId.includes(orderIdDetails)).toBeTruthy(); 
+});
 </code></pre>
-<p>});</p>
 
 
 

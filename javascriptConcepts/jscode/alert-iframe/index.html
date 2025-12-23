@@ -1,0 +1,1497 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://Play-Wright-course.github.io/automation-testing/javascriptConcepts/jscode/alert-iframe/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Handling iFrames and Java-Based Dialogs/Popups in Playwright (JavaScript) - JavaScript Playwright Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#handling-iframes-and-java-based-dialogspopups-in-playwright-javascript" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="JavaScript Playwright Docs" class="md-header__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JavaScript Playwright Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Handling iFrames and Java-Based Dialogs/Popups in Playwright (JavaScript)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="JavaScript Playwright Docs" class="md-nav__button md-logo" aria-label="JavaScript Playwright Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JavaScript Playwright Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JavaScript Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    JavaScript Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../var-vs-let-vaiable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Var vs Let
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../variables-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vaiables snipped code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dataTypes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../flow-statement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flow Statements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrays & Objects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arrow-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arrow Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics-interview-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PlayWright With Java
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    PlayWright With Java
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/locator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Locators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/page-navigation-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Page Navigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/playwright-interaction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inputs And Buttons
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/checkbox-radio-button/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Checkbox And Radio buttons
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/dropdown_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dropdown Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/iframes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    iframe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/mouse-keyboard-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mouse Keyboard Actions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/alerts-promt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alerts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/handling-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Handle Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/file-upload-download/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File upload And Download
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/screenshot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ScreenShot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exceptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../playwright-Java/interview-question/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InterViwe Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-handling-iframes-in-playwright" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Handling iFrames in Playwright
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-iframes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types of iFrames
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-html-structure-iframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample HTML Structure (iFrame)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-iframe-using-framelocator-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing iFrame Using frameLocator() (Recommended)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Accessing iFrame Using frameLocator() (Recommended)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-framelocator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why frameLocator()?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-iframe-using-frame" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing iFrame Using frame()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-nested-iframes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handling Nested iFrames
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switching-back-to-main-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Switching Back to Main Page
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-handling-java-based-dialogs-popups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Handling Java-Based Dialogs / Popups
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-alert-popup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handling Alert Popup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-confirmation-popup-ok-cancel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handling Confirmation Popup (OK / Cancel)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-prompt-popup-enter-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handling Prompt Popup (Enter Value)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-beforeunload-dialog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handling BeforeUnload Dialog
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-dialog-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Dialog Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#difference-web-popup-vs-java-dialog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Difference: Web Popup vs Java Dialog
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-multiple-dialogs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handling Multiple Dialogs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-issues-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Issues &amp; Solutions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Issues &amp; Solutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-element-not-found-inside-iframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue: Element not found inside iframe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-dialog-not-handled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue: Dialog not handled
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="handling-iframes-and-java-based-dialogspopups-in-playwright-javascript">Handling iFrames and Java-Based Dialogs/Popups in Playwright (JavaScript)<a class="headerlink" href="#handling-iframes-and-java-based-dialogspopups-in-playwright-javascript" title="Permanent link">&para;</a></h1>
+<p>Modern web applications often use <strong>iFrames</strong> and <strong>dialog boxes/popups</strong>
+to display embedded content, alerts, confirmations, or system messages.</p>
+<p>This document explains <strong>how to handle iFrames and Java-based dialogs/popups in Playwright</strong>
+with clear explanations and code examples.</p>
+<hr />
+<h2 id="1-handling-iframes-in-playwright">1. Handling iFrames in Playwright<a class="headerlink" href="#1-handling-iframes-in-playwright" title="Permanent link">&para;</a></h2>
+<p>An <strong>iFrame (Inline Frame)</strong> is an HTML document embedded inside another HTML document.
+Elements inside an iframe <strong>cannot be accessed directly</strong> from the main page.</p>
+<hr />
+<h2 id="types-of-iframes">Types of iFrames<a class="headerlink" href="#types-of-iframes" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Single iFrame  </li>
+<li>Multiple iFrames  </li>
+<li>Nested iFrames  </li>
+<li>Dynamic iFrames  </li>
+</ol>
+<hr />
+<h2 id="sample-html-structure-iframe">Sample HTML Structure (iFrame)<a class="headerlink" href="#sample-html-structure-iframe" title="Permanent link">&para;</a></h2>
+<pre><code class="language-html">&lt;iframe id=&quot;loginFrame&quot; src=&quot;login.html&quot;&gt;&lt;/iframe&gt;
+</code></pre>
+<hr />
+<h2 id="accessing-iframe-using-framelocator-recommended">Accessing iFrame Using <code>frameLocator()</code> (Recommended)<a class="headerlink" href="#accessing-iframe-using-framelocator-recommended" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">const frame = page.frameLocator('#loginFrame');
+await frame.locator('#username').fill('admin');
+await frame.locator('#password').fill('password');
+await frame.locator('#loginBtn').click();
+</code></pre>
+<h3 id="why-framelocator">Why <code>frameLocator()</code>?<a class="headerlink" href="#why-framelocator" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Auto-waits for iframe</li>
+<li>More reliable than <code>frame()</code></li>
+<li>Cleaner syntax</li>
+</ul>
+<hr />
+<h2 id="accessing-iframe-using-frame">Accessing iFrame Using <code>frame()</code><a class="headerlink" href="#accessing-iframe-using-frame" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">const frame = page.frame({ name: 'loginFrame' });
+
+await frame.fill('#username', 'admin');
+await frame.fill('#password', 'password');
+await frame.click('#loginBtn');
+</code></pre>
+<hr />
+<h2 id="handling-nested-iframes">Handling Nested iFrames<a class="headerlink" href="#handling-nested-iframes" title="Permanent link">&para;</a></h2>
+<pre><code class="language-html">&lt;iframe id=&quot;outerFrame&quot;&gt;
+  &lt;iframe id=&quot;innerFrame&quot;&gt;&lt;/iframe&gt;
+&lt;/iframe&gt;
+</code></pre>
+<pre><code class="language-js">const innerFrame = page
+  .frameLocator('#outerFrame')
+  .frameLocator('#innerFrame');
+
+await innerFrame.locator('#submit').click();
+</code></pre>
+<hr />
+<h2 id="switching-back-to-main-page">Switching Back to Main Page<a class="headerlink" href="#switching-back-to-main-page" title="Permanent link">&para;</a></h2>
+<p>Playwright automatically switches context.
+Just use <code>page.locator()</code>.</p>
+<pre><code class="language-js">await page.locator('#logout').click();
+</code></pre>
+<hr />
+<h2 id="2-handling-java-based-dialogs-popups">2. Handling Java-Based Dialogs / Popups<a class="headerlink" href="#2-handling-java-based-dialogs-popups" title="Permanent link">&para;</a></h2>
+<p>Java-based or browser dialogs include:
+- Alert
+- Confirm
+- Prompt
+- BeforeUnload</p>
+<p>These dialogs <strong>cannot be inspected using DOM locators</strong>.</p>
+<hr />
+<h2 id="handling-alert-popup">Handling Alert Popup<a class="headerlink" href="#handling-alert-popup" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">page.on('dialog', async dialog =&gt; {
+  console.log(dialog.message());
+  await dialog.accept();
+});
+
+await page.click('#alertButton');
+</code></pre>
+<hr />
+<h2 id="handling-confirmation-popup-ok-cancel">Handling Confirmation Popup (OK / Cancel)<a class="headerlink" href="#handling-confirmation-popup-ok-cancel" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">page.on('dialog', async dialog =&gt; {
+  if (dialog.type() === 'confirm') {
+    await dialog.dismiss(); // Click Cancel
+  }
+});
+
+await page.click('#confirmButton');
+</code></pre>
+<hr />
+<h2 id="handling-prompt-popup-enter-value">Handling Prompt Popup (Enter Value)<a class="headerlink" href="#handling-prompt-popup-enter-value" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">page.on('dialog', async dialog =&gt; {
+  await dialog.accept('Playwright User');
+});
+
+await page.click('#promptButton');
+</code></pre>
+<hr />
+<h2 id="handling-beforeunload-dialog">Handling BeforeUnload Dialog<a class="headerlink" href="#handling-beforeunload-dialog" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">page.on('dialog', async dialog =&gt; {
+  await dialog.accept();
+});
+</code></pre>
+<hr />
+<h2 id="important-dialog-methods">Important Dialog Methods<a class="headerlink" href="#important-dialog-methods" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dialog.accept()</td>
+<td>Click OK</td>
+</tr>
+<tr>
+<td>dialog.dismiss()</td>
+<td>Click Cancel</td>
+</tr>
+<tr>
+<td>dialog.message()</td>
+<td>Get dialog text</td>
+</tr>
+<tr>
+<td>dialog.type()</td>
+<td>alert / confirm / prompt</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="difference-web-popup-vs-java-dialog">Difference: Web Popup vs Java Dialog<a class="headerlink" href="#difference-web-popup-vs-java-dialog" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Web Popup</th>
+<th>Java Dialog</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DOM-based</td>
+<td>Browser-level</td>
+</tr>
+<tr>
+<td>Handled using locators</td>
+<td>Handled using dialog event</td>
+</tr>
+<tr>
+<td>Inspectable</td>
+<td>Not inspectable</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="handling-multiple-dialogs">Handling Multiple Dialogs<a class="headerlink" href="#handling-multiple-dialogs" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">page.on('dialog', async dialog =&gt; {
+  console.log(`Dialog type: ${dialog.type()}`);
+  await dialog.accept();
+});
+</code></pre>
+<hr />
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Use <code>frameLocator()</code> for iFrames</li>
+<li>Always register dialog handler <strong>before</strong> clicking</li>
+<li>Avoid hard waits</li>
+<li>Validate dialog text when required</li>
+</ul>
+<hr />
+<h2 id="common-issues-solutions">Common Issues &amp; Solutions<a class="headerlink" href="#common-issues-solutions" title="Permanent link">&para;</a></h2>
+<h3 id="issue-element-not-found-inside-iframe">Issue: Element not found inside iframe<a class="headerlink" href="#issue-element-not-found-inside-iframe" title="Permanent link">&para;</a></h3>
+<p>✔ Ensure correct iframe locator<br />
+✔ Wait for iframe to load  </p>
+<h3 id="issue-dialog-not-handled">Issue: Dialog not handled<a class="headerlink" href="#issue-dialog-not-handled" title="Permanent link">&para;</a></h3>
+<p>✔ Register <code>page.on('dialog')</code> before action  </p>
+<hr />
+<h2 id="complete-example">Complete Example<a class="headerlink" href="#complete-example" title="Permanent link">&para;</a></h2>
+<pre><code class="language-js">import { test } from '@playwright/test';
+
+test('iFrame and dialog handling', async ({ page }) =&gt; {
+
+  await page.goto('https://example.com');
+
+  // Handle iframe
+  const frame = page.frameLocator('#loginFrame');
+  await frame.locator('#username').fill('admin');
+
+  // Handle alert dialog
+  page.on('dialog', async dialog =&gt; {
+    await dialog.accept();
+  });
+
+  await frame.locator('#submit').click();
+});
+</code></pre>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>Playwright provides powerful and reliable APIs to handle:
+- iFrames using <code>frameLocator()</code>
+- Java-based dialogs using <code>page.on('dialog')</code></p>
+<p>These approaches are <strong>industry best practices</strong> for stable automation.</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

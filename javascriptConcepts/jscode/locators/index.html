@@ -1148,6 +1148,25 @@ const banana = page.locator(&quot;.item&quot;).filter({ hasText: &quot;Banana&qu
 page.locator(&quot;.item&quot;).first();
 page.locator(&quot;.item&quot;).last();
 </code></pre>
+<h3 id="snap-code">🔸 Snap code:<a class="headerlink" href="#snap-code" title="Permanent link">&para;</a></h3>
+<pre><code class="language-js">import { test, expect } from '@playwright/test';
+
+test('Playwright Special locators', async ({ page }) =&gt; {
+
+    await page.goto(&quot;https://rahulshettyacademy.com/angularpractice/&quot;);
+    await page.getByLabel(&quot;Check me out if you Love IceCreams!&quot;).click();
+    await page.getByLabel(&quot;Employed&quot;).check();
+    await page.getByLabel(&quot;Gender&quot;).selectOption(&quot;Female&quot;);
+    await page.getByPlaceholder(&quot;Password&quot;).fill(&quot;abc123&quot;);
+    await page.getByRole(&quot;button&quot;, {name: 'Submit'}).click();
+    await page.getByText(&quot;Success! The Form has been submitted successfully!.&quot;).isVisible();
+    await page.getByRole(&quot;link&quot;,{name : &quot;Shop&quot;}).click();
+    await page.locator(&quot;app-card&quot;).filter({hasText: 'Nokia Edge'}).getByRole(&quot;button&quot;).click();
+
+    //locator(css)
+
+});
+</code></pre>
 <hr />
 <h1 id="summary">🔹 Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
 <ul>

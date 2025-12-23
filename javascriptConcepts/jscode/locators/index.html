@@ -1182,6 +1182,43 @@ test('Playwright Special locators', async ({ page }) =&gt; {
 });
 </code></pre>
 <hr />
+<pre><code class="language-js">const { test, expect } = require('@playwright/test');
+
+
+
+
+test('@Webst Client App login', async ({ page }) =&gt; {
+   //js file- Login js, DashboardPage
+   const email = &quot;anshika@gmail.com&quot;;
+   const productName = 'ZARA COAT 3';
+   const products = page.locator(&quot;.card-body&quot;);
+   await page.goto(&quot;https://rahulshettyacademy.com/client&quot;);
+   await page.getByPlaceholder(&quot;email@example.com&quot;).fill(email);
+   await page.getByPlaceholder(&quot;enter your passsword&quot;).fill(&quot;Iamking@000&quot;);
+   await page.getByRole('button',{name:&quot;Login&quot;}).click();
+   await page.waitForLoadState('networkidle');
+   await page.locator(&quot;.card-body b&quot;).first().waitFor();
+
+   await page.locator(&quot;.card-body&quot;).filter({hasText:&quot;ZARA COAT 3&quot;})
+   .getByRole(&quot;button&quot;,{name:&quot;Add to Cart&quot;}).click();
+
+   await page.getByRole(&quot;listitem&quot;).getByRole('button',{name:&quot;Cart&quot;}).click();
+
+   //await page.pause();
+   await page.locator(&quot;div li&quot;).first().waitFor();
+   await expect(page.getByText(&quot;ZARA COAT 3&quot;)).toBeVisible();
+
+   await page.getByRole(&quot;button&quot;,{name :&quot;Checkout&quot;}).click();
+
+   await page.getByPlaceholder(&quot;Select Country&quot;).pressSequentially(&quot;ind&quot;);
+
+   await page.getByRole(&quot;button&quot;,{name :&quot;India&quot;}).nth(1).click();
+   await page.getByText(&quot;PLACE ORDER&quot;).click();
+
+   await expect(page.getByText(&quot;Thankyou for the order.&quot;)).toBeVisible();
+})
+</code></pre>
+<hr />
 <h1 id="summary">🔹 Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h1>
 <ul>
 <li>Prefer semantic locators → <code>getByRole</code>, <code>getByLabel</code>,

@@ -11,3 +11,5 @@ getByPlaceholder
 getByRole
 
 playwrigh debugg/trace/ui
+
+filters - in locator use to filter from multiple WebElement

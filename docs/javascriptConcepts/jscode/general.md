@@ -9,3 +9,5 @@ Example "ind2"  -> i later n later d  -> fill directly past ind --> It helps to 
 getByLabel
 getByPlaceholder
 getByRole
+
+playwrigh debugg/trace/ui

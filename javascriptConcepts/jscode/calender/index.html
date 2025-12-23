@@ -969,32 +969,34 @@
 
   <h1>Calender</h1>
 
-<p>```js
-const {test,expect} = require("@playwright/test");</p>
-<p>test("Calendar validations",async({page})=&gt;
-{</p>
-<pre><code>const monthNumber = "6";
-const date = "15";
-const year = "2027";
-const expectedList = [monthNumber,date,year];
+<pre><code class="language-js">const {test,expect} = require(&quot;@playwright/test&quot;);
 
-await page.goto("https://rahulshettyacademy.com/seleniumPractise/#/offers");
-await page.locator(".react-date-picker__inputGroup").click();
-await page.locator(".react-calendar__navigation__label").click();
-await page.locator(".react-calendar__navigation__label").click();
-await page.getByText(year).click();
-await page.locator(".react-calendar__year-view__months__month").nth(Number(monthNumber)-1).click();
-await page.locator("//abbr[text()='"+date+"']").click();
 
-const inputs =  page.locator('.react-date-picker__inputGroup__input')
-
-for(let i =0; i&lt;expectedList.length;i++)
+test(&quot;Calendar validations&quot;,async({page})=&gt;
 {
-    const value = await inputs.nth(i).inputValue();
-    expect(value).toEqual(expectedList[i]);
 
-}
-```
+    const monthNumber = &quot;6&quot;;
+    const date = &quot;15&quot;;
+    const year = &quot;2027&quot;;
+    const expectedList = [monthNumber,date,year];
+
+    await page.goto(&quot;https://rahulshettyacademy.com/seleniumPractise/#/offers&quot;);
+    await page.locator(&quot;.react-date-picker__inputGroup&quot;).click();
+    await page.locator(&quot;.react-calendar__navigation__label&quot;).click();
+    await page.locator(&quot;.react-calendar__navigation__label&quot;).click();
+    await page.getByText(year).click();
+    await page.locator(&quot;.react-calendar__year-view__months__month&quot;).nth(Number(monthNumber)-1).click();
+    await page.locator(&quot;//abbr[text()='&quot;+date+&quot;']&quot;).click();
+
+    const inputs =  page.locator('.react-date-picker__inputGroup__input')
+
+    for(let i =0; i&lt;expectedList.length;i++)
+    {
+        const value = await inputs.nth(i).inputValue();
+        expect(value).toEqual(expectedList[i]);
+
+    }
+
 </code></pre>
 
 

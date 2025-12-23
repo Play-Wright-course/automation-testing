@@ -1075,7 +1075,7 @@ page.getByRole(&quot;link&quot;, { name: &quot;Home&quot; });
 <hr />
 <h2 id="7-locate-by-label">7️⃣ Locate by <strong>Label</strong><a class="headerlink" href="#7-locate-by-label" title="Permanent link">&para;</a></h2>
 <p>Automatically links <code>&lt;label&gt;</code> to its corresponding <code>&lt;input&gt;</code>.</p>
-<h3 id="html_6">🔸 HTML:<a class="headerlink" href="#html_6" title="Permanent link">&para;</a></h3>
+<h3 id="html-applicable">🔸 HTML: (Applicable)<a class="headerlink" href="#html-applicable" title="Permanent link">&para;</a></h3>
 <ul>
 <li>It will work onlu when there is association with label field see below example.</li>
 <li>here you can see email is linked between label and input id.</li>
@@ -1084,13 +1084,22 @@ page.getByRole(&quot;link&quot;, { name: &quot;Home&quot; });
 <pre><code class="language-html">&lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;
 &lt;input id=&quot;email&quot; /&gt;
 </code></pre>
+<h3 id="html-not-applicable">🔸 HTML: (NOT Applicable)<a class="headerlink" href="#html-not-applicable" title="Permanent link">&para;</a></h3>
+<ul>
+<li>It will not work  when there is NO association with label and input field see below example.</li>
+</ul>
+<pre><code class="language-html">div class=&quot;form-group&quot;&gt;
+    &lt;label&gt;Name&lt;/label&gt;
+       &lt;input class=&quot;form-control ng-untouched ng-pristine ng-invalid&quot; minlength=&quot;2&quot; name=&quot;name&quot; required=&quot;&quot; type=&quot;text&quot;&gt;
+&lt;/div&gt;
+</code></pre>
 <h3 id="playwright_6">🔸 Playwright:<a class="headerlink" href="#playwright_6" title="Permanent link">&para;</a></h3>
 <pre><code class="language-js">page.getByLabel(&quot;Email&quot;).fill(&quot;test@domain.com&quot;);
 </code></pre>
 <hr />
 <h2 id="8-locate-by-alt-text">8️⃣ Locate by <strong>Alt Text</strong><a class="headerlink" href="#8-locate-by-alt-text" title="Permanent link">&para;</a></h2>
 <p>Useful for images.</p>
-<h3 id="html_7">🔸 HTML:<a class="headerlink" href="#html_7" title="Permanent link">&para;</a></h3>
+<h3 id="html_6">🔸 HTML:<a class="headerlink" href="#html_6" title="Permanent link">&para;</a></h3>
 <pre><code class="language-html">&lt;img src=&quot;logo.png&quot; alt=&quot;Company Logo&quot;&gt;
 </code></pre>
 <h3 id="playwright_7">🔸 Playwright:<a class="headerlink" href="#playwright_7" title="Permanent link">&para;</a></h3>
@@ -1099,7 +1108,7 @@ page.getByRole(&quot;link&quot;, { name: &quot;Home&quot; });
 <hr />
 <h2 id="9-locate-by-title-attribute">9️⃣ Locate by <strong>Title Attribute</strong><a class="headerlink" href="#9-locate-by-title-attribute" title="Permanent link">&para;</a></h2>
 <p>Handy when elements do not have visible text.</p>
-<h3 id="html_8">🔸 HTML:<a class="headerlink" href="#html_8" title="Permanent link">&para;</a></h3>
+<h3 id="html_7">🔸 HTML:<a class="headerlink" href="#html_7" title="Permanent link">&para;</a></h3>
 <pre><code class="language-html">&lt;button title=&quot;Click to submit&quot;&gt;Submit&lt;/button&gt;
 </code></pre>
 <h3 id="playwright_8">🔸 Playwright:<a class="headerlink" href="#playwright_8" title="Permanent link">&para;</a></h3>
@@ -1107,7 +1116,7 @@ page.getByRole(&quot;link&quot;, { name: &quot;Home&quot; });
 </code></pre>
 <hr />
 <h2 id="locate-using-css-attribute-selectors">🔟 Locate using <strong>CSS Attribute Selectors</strong><a class="headerlink" href="#locate-using-css-attribute-selectors" title="Permanent link">&para;</a></h2>
-<h3 id="html_9">🔸 HTML:<a class="headerlink" href="#html_9" title="Permanent link">&para;</a></h3>
+<h3 id="html_8">🔸 HTML:<a class="headerlink" href="#html_8" title="Permanent link">&para;</a></h3>
 <pre><code class="language-html">&lt;input type=&quot;text&quot; /&gt;
 &lt;button type=&quot;submit&quot;&gt;Save&lt;/button&gt;
 &lt;a href=&quot;/home&quot;&gt;Home&lt;/a&gt;
@@ -1119,7 +1128,7 @@ page.locator(&quot;a[href='/home']&quot;);
 </code></pre>
 <hr />
 <h2 id="11-locate-using-xpath">1️⃣1️⃣ Locate using <strong>XPath</strong><a class="headerlink" href="#11-locate-using-xpath" title="Permanent link">&para;</a></h2>
-<h3 id="html_10">🔸 HTML:<a class="headerlink" href="#html_10" title="Permanent link">&para;</a></h3>
+<h3 id="html_9">🔸 HTML:<a class="headerlink" href="#html_9" title="Permanent link">&para;</a></h3>
 <pre><code class="language-html">&lt;input id=&quot;email&quot; /&gt;
 &lt;button&gt;Submit&lt;/button&gt;
 </code></pre>
@@ -1129,7 +1138,7 @@ page.locator(&quot;//button[text()='Submit']&quot;);
 </code></pre>
 <hr />
 <h1 id="handling-multiple-elements">🔹 Handling Multiple Elements<a class="headerlink" href="#handling-multiple-elements" title="Permanent link">&para;</a></h1>
-<h3 id="html_11">🔸 HTML:<a class="headerlink" href="#html_11" title="Permanent link">&para;</a></h3>
+<h3 id="html_10">🔸 HTML:<a class="headerlink" href="#html_10" title="Permanent link">&para;</a></h3>
 <pre><code class="language-html">&lt;ul&gt;
   &lt;li class=&quot;item&quot;&gt;Apple&lt;/li&gt;
   &lt;li class=&quot;item&quot;&gt;Banana&lt;/li&gt;

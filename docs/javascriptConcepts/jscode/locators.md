@@ -145,6 +145,9 @@ page.getByPlaceholder("Enter email").fill("abc@test.com");
 Automatically links `<label>` to its corresponding `<input>`.
 
 ### 🔸 HTML:
+- It will work onlu when there is association with label field see below example.
+- here you can see email is linked between label and input id.
+- In some cases input field is wrapped in labes.
 
 ``` html
 <label for="email">Email</label>

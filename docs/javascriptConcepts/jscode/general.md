@@ -13,3 +13,15 @@ getByRole
 playwrigh debugg/trace/ui
 
 filters - in locator use to filter from multiple WebElement
+
+
+js-config file
+
+default timeout is 30 sec,
+we can override in js configs with timeout and there is one more timeout for assertion,
+``` yaml
+timeout: 40*1000,
+expect: {
+  timeout: 40*1000,
+}
+```
